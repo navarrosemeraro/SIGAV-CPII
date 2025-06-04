@@ -1,0 +1,12 @@
+@import './fonts.css';
+@import './elements.css';
+@import './normalize.css';
+@import './variables.css';
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x:hidden;
+}

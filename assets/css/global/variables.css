@@ -1,0 +1,7 @@
+:root {
+    --cor-preto: #000;
+}
+
+p {
+    color: var(--cor-preto);
+}
