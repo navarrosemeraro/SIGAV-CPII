@@ -10,3 +10,20 @@ body{
     height: 100%;
     overflow-x:hidden;
 }
+.carousel h5{
+    position: absolute;
+    padding: 5px;
+}
+#posicao-slide{
+    position:relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    box-shadow: 50px;
+}
+#center{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
