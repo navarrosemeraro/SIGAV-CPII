@@ -4,3 +4,22 @@
 @import './partials/section-quatro.css';
 
 @import '../../global/global.css';
+
+body, html{
+    overflow-y: hidden;
+}
+#center{
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#center-form{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 15px;
+    height: 100vh;
+}

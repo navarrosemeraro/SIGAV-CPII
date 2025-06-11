@@ -37,13 +37,16 @@
                             Corrigir
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Redações</a></li>
+                            <li><a class="dropdown-item" href="#">Simulados</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="suporte.html">Suporte</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Cadastro de Corretores</a>
@@ -53,65 +56,66 @@
         </div>
     </nav>
 
-    <div class="position-absolute" style="top: 15%; left: 30%;">
-        <h1 class="display-1">Cadastro de Corretores</h1>
-        <form>
-            <fieldset style="border: 2px black solid; padding: 50px;">
-                <legend>Dados pessoais</legend>
-                <div class="mb-2">
-                    <label for="nome" class="form-label">Nome completo</label>
-                    <input type="text" class="form-control" id="nome" name="nome"
-                        placeholder="Ex: Lúcia Débora da Silva" autofocus>
-                </div>
-                <div class="mb-2">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email"
-                        placeholder="Ex: exemplo@gmail.com">
-                </div>
-                <div class="mb-2">
-                    <label for="tel" class="form-label">Telefone de Contato</label>
-                    <input type="tel" class="form-control" id="tel" name="tel" placeholder=" Ex: (DDD) 99999-9999">
-                </div>
-                <div class="mb-2">
-                    <label for="cpf" class="form-label">CPF</label>
-                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
-                </div>
-                <div class="mb-2">
-                    <label for="materias">Selecione seu setor:</label>
-                    <select class="form-select" name="materias">
-                        <option value="administracao">Administração</option>
-                        <option value="artes-visuais">Artes Visuais</option>
-                        <option value="biologia-ciencias">Biologia e Ciências</option>
-                        <option value="d-sistemas">D. de Sistemas</option>
-                        <option value="desenho">Desenho</option>
-                        <option value="educacao-fisica">Educação Física</option>
-                        <option value="educacao-musical">Educação Musical</option>
-                        <option value="filosofia">Filosofia</option>
-                        <option value="fisica">Física</option>
-                        <option value="geografia">Geografia</option>
-                        <option value="historia">História</option>
-                        <option value="informatica-educativa">Informática Educativa</option>
-                        <option value="linguas-estrangeiras">Línguas Estrangeiras</option>
-                        <option value="matematica">Matemática</option>
-                        <option value="portugues">Português</option>
-                        <option value="quimica">Química</option>
-                        <option value="sociologia-ciencias-sociais">Sociologia e Ciências Sociais</option>
-                    </select>
-                </div>
-                <div class="mb-2">
-                    <label for="senha" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="senha" name="senha">
-                </div>
-                <div class="mb-2">
-                    <label for="newsenha" class="form-label">Confirmar Senha</label>
-                    <input type="password" class="form-control" id="newsenha" name="newsenha">
-                </div> <br>
-                <button type="submit" class="btn btn-outline-primary">
-                    Finalizar Cadastro
-                </button>
-            </fieldset>
-
-        </form>
+    <div id="center-form">
+        <div class="position-absolute">
+            <h1 class="display-1">Cadastro de Corretores</h1>
+            <form>
+                <fieldset style="border: 2px black solid; padding: 30px;">
+                    <legend>Dados pessoais</legend>
+                    <div class="mb-2">
+                        <label for="nome" class="form-label">Nome completo</label>
+                        <input type="text" class="form-control" id="nome" name="nome"
+                            placeholder="Ex: Lúcia Débora da Silva" autofocus>
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Ex: exemplo@gmail.com">
+                    </div>
+                    <div class="mb-2">
+                        <label for="tel" class="form-label">Telefone de Contato</label>
+                        <input type="tel" class="form-control" id="tel" name="tel" placeholder=" Ex: (DDD) 99999-9999">
+                    </div>
+                    <div class="mb-2">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
+                    </div>
+                    <div class="mb-2">
+                        <label for="materias">Selecione seu setor:</label>
+                        <select class="form-select" name="materias">
+                            <option value="administracao">Administração</option>
+                            <option value="artes-visuais">Artes Visuais</option>
+                            <option value="biologia-ciencias">Biologia e Ciências</option>
+                            <option value="d-sistemas">D. de Sistemas</option>
+                            <option value="desenho">Desenho</option>
+                            <option value="educacao-fisica">Educação Física</option>
+                            <option value="educacao-musical">Educação Musical</option>
+                            <option value="filosofia">Filosofia</option>
+                            <option value="fisica">Física</option>
+                            <option value="geografia">Geografia</option>
+                            <option value="historia">História</option>
+                            <option value="informatica-educativa">Informática Educativa</option>
+                            <option value="linguas-estrangeiras">Línguas Estrangeiras</option>
+                            <option value="matematica">Matemática</option>
+                            <option value="portugues">Português</option>
+                            <option value="quimica">Química</option>
+                            <option value="sociologia-ciencias-sociais">Sociologia e Ciências Sociais</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label for="senha" class="form-label">Senha:</label>
+                        <input type="password" class="form-control" id="senha" name="senha">
+                    </div>
+                    <div class="mb-2">
+                        <label for="newsenha" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="newsenha" name="newsenha">
+                    </div><br>
+                    <button type="submit" class="btn btn-outline-primary">
+                        Finalizar Cadastro
+                    </button>
+                </fieldset>
+            </form>
+        </div>
     </div>
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>

@@ -3,8 +3,7 @@
 @import './normalize.css';
 @import './variables.css';
 
-body{
-    box-sizing: border-box;
+body, html{
     margin: 0;
     padding: 0;
     height: 100%;
@@ -21,9 +20,10 @@ body{
     margin-top: 10px;
     box-shadow: 50px;
 }
-#center{
+#center-form{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    align-items: start;
+    margin-top: 15px;
+    height: 100vh;
 }

@@ -4,3 +4,14 @@
 @import './partials/section-quatro.css';
 
 @import '../../global/global.css';
+
+#center{
+    display: flex;
+    justify-content: center;
+}
+h6{
+    padding: 10px;
+}
+.carousel{
+    box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.8);
+}
