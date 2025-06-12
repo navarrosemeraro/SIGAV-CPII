@@ -57,7 +57,7 @@ CREATE TABLE `corretores` (
   `cpf` varchar(14) NOT NULL,
   `telefone` varchar(20) DEFAULT NULL,
   `area_atuacao` varchar(100) DEFAULT NULL,
-  `nivel_acesso` enum('admin','corretor') DEFAULT 'corretor',f
+  `nivel_acesso` enum('admin','corretor') DEFAULT 'corretor',
   `ativo` tinyint(1) DEFAULT 1,
   `data_cadastro` datetime DEFAULT current_timestamp(),
   `ultimo_acesso` datetime DEFAULT NULL
