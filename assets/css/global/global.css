@@ -27,3 +27,7 @@ body, html{
     margin-top: 15px;
     height: 100vh;
 }
+#center{
+    display: flex;
+    justify-content: center;
+}

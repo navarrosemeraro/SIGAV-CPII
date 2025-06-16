@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/pages/consulta/consulta.css">
+    <title>Cadastro de Corretores</title>
+</head>
+
+<body>
+    <section id="um">
+        <nav class="navbar navbar-expand-lg" style="background-color:rgb(81, 190, 194);">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="margin-left: 10px;">Automação de Correção<span><img
+                            src="./assets/img/global/Brasão_Colégio_Pedro_II.png" alt="Brasão Colégio PedroII"
+                            style="position: relative; margin-left: 30px;"></span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="principal.html">Principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="consulta.html">Lista de Redações Corrigidas</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Corrigir
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="redacoes.html">Redações</a></li>
+                                <li><a class="dropdown-item" href="cartoes.html">Simulados</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="suporte.html">Suporte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Página Principal</a>
+                        </li>
+                    </ul>
+                    <a href="login.html" style="margin-right: 20px;"><button type="button" class="btn btn-primary"
+                            style="width: 80px;">Login</button></a>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <div id="center">
+        <h2 class="display-2">Pesquisar Redações Corrigidas</h6>
+    </div><br>
+    <div class="container">
+        <form action="consulta.php" method="post">
+            <fieldset style="border: 2px black solid; padding: 30px;">
+                <div style="display: flex; gap: 20px; align-items:last baseline; justify-content: center;">
+                    <div class="mb-2">
+                        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                    </div>
+                    <div class="mb-2">
+                        <label for="nome" class="form-label">Matrícula do Aluno:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" >
+                    </div>
+                    <div class="mb-2">
+                        <label for="nome" class="form-label">Nome do Aluno:</label>
+                        <input type="text" name="nome" id="nome" class="form-control"
+                            style="width: 500px; background-color: rgb(211, 211, 211)" readonly>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
