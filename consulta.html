@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/pages/consulta/consulta.css">
+    <link rel="icon" type="image/png" href="assets\img\global\Brasão_Colégio_Pedro_II.png"/>
     <title>Cadastro de Corretores</title>
 </head>
 
@@ -47,7 +48,7 @@
                             <a class="nav-link" href="suporte.html">Suporte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Página Principal</a>
+                            <a class="nav-link disabled" aria-disabled="true">Lista de Redações Corrigidas</a>
                         </li>
                     </ul>
                     <a href="login.html" style="margin-right: 20px;"><button type="button" class="btn btn-primary"
@@ -56,30 +57,43 @@
             </div>
         </nav>
     </section>
-    <div id="center">
-        <h2 class="display-2">Pesquisar Redações Corrigidas</h6>
-    </div><br>
-    <div class="container">
-        <form action="consulta.php" method="post">
-            <fieldset style="border: 2px black solid; padding: 30px;">
-                <div style="display: flex; gap: 20px; align-items:last baseline; justify-content: center;">
-                    <div class="mb-2">
-                        <button type="submit" class="btn btn-outline-primary">Buscar</button>
-                    </div>
-                    <div class="mb-2">
-                        <label for="nome" class="form-label">Matrícula do Aluno:</label>
-                        <input type="text" name="nome" id="nome" class="form-control" >
-                    </div>
-                    <div class="mb-2">
-                        <label for="nome" class="form-label">Nome do Aluno:</label>
-                        <input type="text" name="nome" id="nome" class="form-control"
-                            style="width: 500px; background-color: rgb(211, 211, 211)" readonly>
-                    </div>
+    <section id="dois">
+        <div id="center">
+            <h2 class="display-2">Pesquisar Redações Corrigidas</h6>
+        </div><br>
+        <div id="center">
+            <div class="container">
+                <form action="consulta.php" method="post">
+                    <fieldset style="border: 2px black solid; padding: 20px;">
+                        <div style="display: flex; gap: 20px; align-items:last baseline; justify-content: center;">
+                            <div class="mb-2">
+                                <select class="form-control" name="func" id="func" style="text-align: center;">
+                                    <option value="aluno">Consulta por Alunos(as)</option>
+                                    <option value="professor">Consulta por Corretores(as)</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nome" class="form-label">Matrícula Aluno(a)/Professor(a)</label>
+                                <input type="text" name="nome" id="nome" class="form-control" style="width: 250px;" required>
+                            </div>
+                            <div class="mb-2">
+                                <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nome" class="form-label">Nome do Aluno(a)/Professor(a)</label>
+                                <input type="text" name="nome" id="nome" class="form-control"
+                                    style="width: 500px; background-color: rgb(211, 211, 211)" readonly>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form><br>
+                <div id="resultado_consulta">
+                    <select name="arquivos" id="arquivos" class="form-control">
+                    </select>
                 </div>
-            </fieldset>
-        </form>
-    </div>
-
+            </div>
+        </div>
+    </section>
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 

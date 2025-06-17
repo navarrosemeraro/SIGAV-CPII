@@ -23,7 +23,7 @@ body, html{
 #center-form{
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     margin-top: 15px;
     height: 100vh;
 }

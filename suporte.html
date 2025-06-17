@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/pages/suporte/suporte.css">
+    <link rel="icon" type="image/png" href="assets\img\global\Brasão_Colégio_Pedro_II.png"/>
     <title>Cadastro de Corretores</title>
 </head>
 
 <body>
- <nav class="navbar navbar-expand-lg" style="background-color:rgb(81, 190, 194);">
+    <nav class="navbar navbar-expand-lg" style="background-color:rgb(81, 190, 194);">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="margin-left: 10px;">Automação de Correção<span><img
                         src="./assets/img/global/Brasão_Colégio_Pedro_II.png" alt="Brasão Colégio PedroII"
@@ -46,13 +47,61 @@
                         <a class="nav-link" href="suporte.html">Suporte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Página Principal</a>
+                        <a class="nav-link disabled" aria-disabled="true">Suporte</a>
                     </li>
                 </ul>
-                <a href="login.html" style="margin-right: 20px;"><button type="button" class="btn btn-primary" style="width: 80px;">Login</button></a>
+                <a href="login.html" style="margin-right: 20px;"><button type="button" class="btn btn-primary"
+                        style="width: 80px;">Login</button></a>
             </div>
         </div>
-    </nav>
+    </nav><br>
+    <section id="dois">
+        <div id="center">
+            <div class="position-relative" id="form-ctt" style="top: 100px;">
+                <form style="width: 700px;">
+                    <fieldset style="padding: 20px; background-color: rgba(81, 190, 194, 0.7); border-radius: 8px;">
+                        <legend>Contate o Suporte</legend>
+                        <div class="mb-2">
+                            <label for="tipo" class="form-label">Motivo do Contato</label>
+                            <select class="form-select" id="tipo" name="tipo">
+                                <option value="problema">Problema</option>
+                                <option value="duvida">Dúvida</option>
+                                <option value="sugestao">Sugestão</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Nome:</label><br>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Digite seu nome..." required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Matrícula:</label><br>
+                            <input type="text" class="form-control" id="matricula" name="matricula"
+                                placeholder="Digite sua matrícula..." required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Tema da mensagem:</label><br>
+                            <input type="text" class="form-control" id="tema" name="tema"
+                                placeholder="Digite o tema..." required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Deixe sua mensagem:</label><br>
+                            <textarea id="msg" class="form-control" name="msg" rows="4" cols="60"
+                                placeholder="Ex: Escreva aqui..." required></textarea>
+                        </div>
+                        <div style="display: flex; gap: 20px">
+                            <button type="submit" class="btn btn-outline-primary" style="margin-top: 10px; float: left;">
+                                Enviar
+                            </button>
+                            <button type="submit" class="btn btn-outline-primary bg-light text-dark" style="margin-top: 10px; float: right; border-color: black;">
+                                Limpar
+                            </button>
+                        </div>
+                    </fieldset>
+
+                </form>
+            </div>
+    </section>
 
     <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
