@@ -8,6 +8,10 @@ body, html{
     padding: 0;
     height: 100%;
     overflow-x:hidden;
+    background-color: #fffeef;
+}
+nav{
+    background-color: #b0cde8;
 }
 .carousel h5{
     position: absolute;
