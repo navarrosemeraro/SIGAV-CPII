@@ -2,3 +2,8 @@
     justify-content: center;
     text-align: left;
 }
+#div-correcao{
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+}

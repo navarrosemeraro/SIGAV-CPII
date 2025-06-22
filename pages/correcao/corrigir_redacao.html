@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -65,188 +65,183 @@
         <div id="center">
             <h2 class="display-2">Corrigir Redação</h6>
         </div><br>
-        <div class="container">
-            <div id="resultado_consulta"></div>
-            <select name="arquivo" id="arquivo" class="form-control"></select><br>
-            <form action="consulta.php" method="post">
-                <fieldset class="border p-4" style="max-width: 2000px; margin: auto;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-4"
+            id="div-correcao">
+            <div id="resultado_consulta">
+                <select name="arquivo" id="arquivo" class="form-control" style="width: 780px; float: left;"></select>
+            </div><br>
+            <form action="consulta.php" method="post" style="float: right; width: 37%;">
+                <fieldset class="border border-2 p-4" style="margin: auto;">
                     <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
                         <div class="container text-center">
                             <div class="row">
-                                <div class="col">
-                                    <label for="c1"><b>Competência 1:</b></label><br>
+                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
+                                    <label><b>Competência 1:</b></label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">0</label>
+                                        <input class="form-check-input" type="radio" name="c1" id="c1_0" value="0">
+                                        <label class="form-check-label" for="c1_0">0</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">40</label>
+                                        <input class="form-check-input" type="radio" name="c1" id="c1_40" value="40">
+                                        <label class="form-check-label" for="c1_40">40</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio3" value="option3">
-                                        <label class="form-check-label" for="inlineRadio3">80</label>
+                                        <input class="form-check-input" type="radio" name="c1" id="c1_80" value="80">
+                                        <label class="form-check-label" for="c1_80">80</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio3" value="option3">
-                                        <label class="form-check-label" for="inlineRadio3">120</label>
+                                        <input class="form-check-input" type="radio" name="c1" id="c1_120" value="120">
+                                        <label class="form-check-label" for="c1_120">120</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio3" value="option3">
-                                        <label class="form-check-label" for="inlineRadio3">160</label>
+                                        <input class="form-check-input" type="radio" name="c1" id="c1_160" value="160">
+                                        <label class="form-check-label" for="c1_160">160</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="inlineRadio3" value="option3">
-                                        <label class="form-check-label" for="inlineRadio3">200</label>
+                                        <input class="form-check-input" type="radio" name="c1" id="c1_200" value="200">
+                                        <label class="form-check-label" for="c1_200">200</label>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <label for="c1"><b>Competência 2:</b></label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">0</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">40</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">80</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">120</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">160</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">200</label>
-                            </div>
-                                </div>
-                            </div><br><br>
+                            <br><br>
                             <div class="row">
-                                <div class="col">
-                                    <label for="c1"><b>Competência 3:</b></label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">0</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">40</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">80</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">120</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">160</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">200</label>
-                            </div>
+                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
+                                    <label><b>Competência 2:</b></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c2" id="c2_0" value="0">
+                                        <label class="form-check-label" for="c2_0">0</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c2" id="c2_40" value="40">
+                                        <label class="form-check-label" for="c2_40">40</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c2" id="c2_80" value="80">
+                                        <label class="form-check-label" for="c2_80">80</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c2" id="c2_120" value="120">
+                                        <label class="form-check-label" for="c2_120">120</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c2" id="c2_160" value="160">
+                                        <label class="form-check-label" for="c2_160">160</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c2" id="c2_200" value="200">
+                                        <label class="form-check-label" for="c2_200">200</label>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <label for="c1"><b>Competência 4:</b></label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">0</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">40</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">80</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">120</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">160</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">200</label>
-                            </div>
+                            <br><br>
+                            <div class="row">
+                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
+                                    <label><b>Competência 3:</b></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c3" id="c3_0" value="0">
+                                        <label class="form-check-label" for="c3_0">0</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c3" id="c3_40" value="40">
+                                        <label class="form-check-label" for="c3_40">40</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c3" id="c3_80" value="80">
+                                        <label class="form-check-label" for="c3_80">80</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c3" id="c3_120" value="120">
+                                        <label class="form-check-label" for="c3_120">120</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c3" id="c3_160" value="160">
+                                        <label class="form-check-label" for="c3_160">160</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c3" id="c3_200" value="200">
+                                        <label class="form-check-label" for="c3_200">200</label>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <label for="c1"><b>Competência 5:</b></label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">0</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">40</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">80</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">120</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">160</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                                    value="option3">
-                                <label class="form-check-label" for="inlineRadio3">200</label>
-                            </div>
+                            <br><br>
+                            <div class="row">
+                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
+                                    <label><b>Competência 4:</b></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c4" id="c4_0" value="0">
+                                        <label class="form-check-label" for="c4_0">0</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c4" id="c4_40" value="40">
+                                        <label class="form-check-label" for="c4_40">40</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c4" id="c4_80" value="80">
+                                        <label class="form-check-label" for="c4_80">80</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c4" id="c4_120" value="120">
+                                        <label class="form-check-label" for="c4_120">120</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c4" id="c4_160" value="160">
+                                        <label class="form-check-label" for="c4_160">160</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c4" id="c4_200" value="200">
+                                        <label class="form-check-label" for="c4_200">200</label>
+                                    </div>
                                 </div>
+                            </div>
+                            <br><br>
+                            <div class="row">
+                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
+                                    <label><b>Competência 5:</b></label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c5" id="c5_0" value="0">
+                                        <label class="form-check-label" for="c5_0">0</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c5" id="c5_40" value="40">
+                                        <label class="form-check-label" for="c5_40">40</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c5" id="c5_80" value="80">
+                                        <label class="form-check-label" for="c5_80">80</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c5" id="c5_120" value="120">
+                                        <label class="form-check-label" for="c5_120">120</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c5" id="c5_160" value="160">
+                                        <label class="form-check-label" for="c5_160">160</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="c5" id="c5_200" value="200">
+                                        <label class="form-check-label" for="c5_200">200</label>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <label for="nota_tot" class="form-label" style="margin: 0;"><b>Total:</b></label>
+                                <input type="text" class="form-control" name="nota_tot" id="nota_redacao"
+                                    style="width: 200px;" disabled>
+                            </div><br>
+                            <div class="row" style="text-align: left;">
+                                <label for="comentario_corretor"><b>Comentários:</b></label>
+                                <textarea class="form-control" name="comentario_corretor" id="comentario" rows="6"
+                                    placeholder="Deixe seu comentário sobre a redação..."></textarea>
+                            </div><br>
+                            <div class="row">
+                                <button type="submit" class="btn btn-outline-primary"
+                                    style="background-color: #0074FF; color: white;">Enviar</button>
                             </div>
                         </div>
-
-
                     </div>
-                </fieldset>
-            </form>
+        </div>
+        </fieldset>
+        </form>
         </div>
     </section>
 

@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 if (isset($_FILES['redacao_pdf']) && $_FILES['redacao_pdf']['error'] == 0) {
     $aluno_id = $_POST['aluno_id'];
     $tema = $_POST['tema'];
-    $nome_temporario = $_FILES['arquivo_pdf']['tmp_name'];
+    $nome_temporario = $_FILES['redacao_pdf']['tmp_name'];
     $conteudo_pdf = file_get_contents($nome_temporario); // Converte para binário
 
     // Prepara e executa a inserção
