@@ -226,7 +226,8 @@
                             <div style="display: flex; align-items: center; gap: 10px;">
                                 <label for="nota_tot" class="form-label" style="margin: 0;"><b>Total:</b></label>
                                 <input type="text" class="form-control" name="nota_tot" id="nota_redacao"
-                                    style="width: 200px;" disabled>
+                                    style="width: 200px;" readonly required>
+                                <button type="button" id="btn_calcula" class="form-control">Calcular</button>
                             </div><br>
                             <div class="row" style="text-align: left;">
                                 <label for="comentario_corretor"><b>Comentários:</b></label>
@@ -246,6 +247,7 @@
     </section>
 
     <script src="../../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/codigos_manuais/calcula_nota.js"></script>
 </body>
 
 </html>

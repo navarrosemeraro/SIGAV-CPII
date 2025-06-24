@@ -1,7 +1,7 @@
 <?php
 // Conexão com o banco (ajuste os dados conforme seu ambiente)
 $host = "localhost";
-$db = "automacao_tcc";
+$db = "automacao";
 $user = "root";
 $pass = "";
 $conn = new mysqli($host, $user, $pass, $db);

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db_name = "automacao_tcc";
+$db_name = "automacao";
 $charset = 'utf8mb4';
 
 $sql = "INSERT INTO " . $_GET['funcao'] . " (nome, email, cpf, senha_hash, telefone) VALUES ("

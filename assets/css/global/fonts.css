@@ -7,5 +7,6 @@
 p, label, input, legend, span, a{
     font-family:'Raleway';
     font-weight: normal;
+    text-align: justify;
 }
 
