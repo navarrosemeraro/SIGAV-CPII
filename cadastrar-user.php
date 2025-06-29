@@ -1,44 +1,56 @@
-<?php 
-//Conexão com o banco de dados
+<?php
+// Conexão
 $servername = "localhost";
 $username = "root";
 $password = "";
 $db_name = "automacao";
-$charset = 'utf8mb4';
+$charset = "utf8mb4";
 
-//Estabelece Conexão
-$conn = new mysqli($servername, $username, $password, $db_name, $charset);
+$conn = new mysqli($servername, $username, $password, $db_name);
+$conn->set_charset($charset);
 
-//Verifica a Conexão
-if($conn->connect_error){
-    die("Connection Failed:" . $conn->connect_error);
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $funcao = $_POST['funcao'];
+    $tabela_permitida = ['alunos', 'corretores'];
+
+    if (!in_array($funcao, $tabela_permitida)) {
+        die("<p>Erro: Função inválida escolhida.</p>");
+    }
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['tel'];
+    $cpf = $_POST['cpf'];
     $id_matricula = (int) $_POST['matricula'];
-    $nome = $conn->real_escape_string($_POST['nome']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $cpf = $conn->real_escape_string($_POST['nome']);
-    $senha_hash = $conn->real_escape_string($_POST['senha_hash']);
-    $telefone = $conn->real_escape_string($_POST['tel']);
+    $senha_hash = $_POST['senha_hash'];
+    $newsenha = $_POST['newsenha'];
 
-    $sql = "INSERT INTO " . $_GET['funcao'] . " (id_matricula, nome, email, cpf, senha_hash, telefone) 
-    VALUES (" . $id_matricula . ", " . $nome . ", " . $email . ", " . $cpf . ", " . $senha_hash . ", " . $telefone ")";
-
-    if($conn->query($sql) === TRUE){
-        echo "<h1>Cadastro realizado com sucesso!</h1>";
-    }
-    else {
-        echo "Erro ao cadastrar: " . $conn->error;
+    if ($senha_hash !== $newsenha) {
+        die("<p>Erro: As senhas não coincidem.</p>");
     }
 
-} else { echo"<p>Nenhum dado foi inserido</p>";}
+    // $senha_hash = password_hash($senha_hash, PASSWORD_DEFAULT);
 
+    $stmt = $conn->prepare("INSERT INTO $funcao 
+        (id_matricula, nome, email, cpf, senha_hash, telefone)
+        VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("isssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone);
+
+    if ($stmt->execute()) {
+        header("Location: pages/cadastro-e-login/login.html?cadastro=sucesso");
+        exit;
+    } else {
+        echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";
+    }
+
+    $stmt->close();
+} else {
+    echo "<p>Nenhum dado foi recebido.</p>";
+}
 
 $conn->close();
-
-
-
-
-
 ?>

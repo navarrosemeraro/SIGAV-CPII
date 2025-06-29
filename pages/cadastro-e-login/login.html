@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/pages/login/login.css">
-    <link rel="icon" type="image/png" href="../../assets\img\global\Brasão_Colégio_Pedro_II.png"/>
+    <link rel="icon" type="image/png" href="../../assets\img\global\Brasão_Colégio_Pedro_II.png" />
     <title>Cadastro de Corretores</title>
 </head>
 
 <body>
-     <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="margin-left: 10px;">Automação de Correção<span><img
                         src="../../assets/img/global/Brasão_Colégio_Pedro_II.png" alt="Brasão Colégio PedroII"
                         style="position: relative; margin-left: 30px;"></span></a>
-                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Login</p>
+            <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Login</p>
         </div>
     </nav>
-    <div id="center">
+    <div id="center" style="margin: 0;">
         <div class="position-relative">
+            <div id="mensagem"></div><br>
+        </div>
+    </div>
+    <div id="center" style="position: fixed; left: 50%; margin: 0;">
+        <div class="position-fixed">
             <h1 class="display-1 center">LOGIN</h1>
             <form style="width: 500px;">
                 <fieldset style="border: 2px black solid; padding: 50px;">
@@ -39,12 +44,21 @@
                         Login
                     </button>
                 </fieldset>
-
             </form>
         </div>
+
     </div>
 
     <script src="../../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('cadastro') === 'sucesso') {
+            document.getElementById('mensagem').innerHTML =
+                '<div class="alert alert-success" role="alert">Cadastro realizado com sucesso! Faça login para continuar.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+        }
+    </script>
 </body>
 
 </html>
