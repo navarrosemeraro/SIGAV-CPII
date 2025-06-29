@@ -78,7 +78,7 @@
                                 <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
                                     <label><b>Competência 1:</b></label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="c1" id="c1_0" value="0">
+                                        <input class="form-check-input" type="radio" name="c1" id="c1_00" value="0">
                                         <label class="form-check-label" for="c1_0">0</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -101,6 +101,8 @@
                                         <input class="form-check-input" type="radio" name="c1" id="c1_200" value="200">
                                         <label class="form-check-label" for="c1_200">200</label>
                                     </div>
+                                    <textarea class="form-control" name="comentario_corretor" id="com_c1" rows="6"
+                                    placeholder="Deixe seu comentário sobre a redação..." style="margin-top: 10px;" disabled></textarea>
                                 </div>
                             </div>
                             <br><br>
@@ -108,7 +110,7 @@
                                 <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
                                     <label><b>Competência 2:</b></label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="c2" id="c2_0" value="0">
+                                        <input class="form-check-input" type="radio" name="c2" id="c2_00" value="0">
                                         <label class="form-check-label" for="c2_0">0</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -131,6 +133,8 @@
                                         <input class="form-check-input" type="radio" name="c2" id="c2_200" value="200">
                                         <label class="form-check-label" for="c2_200">200</label>
                                     </div>
+                                    <textarea class="form-control" name="comentario_corretor" id="com_c2" rows="6"
+                                    placeholder="Deixe seu comentário sobre a redação..." style="margin-top: 10px;" disabled></textarea>
                                 </div>
                             </div>
                             <br><br>
@@ -138,7 +142,7 @@
                                 <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
                                     <label><b>Competência 3:</b></label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="c3" id="c3_0" value="0">
+                                        <input class="form-check-input" type="radio" name="c3" id="c3_00" value="0">
                                         <label class="form-check-label" for="c3_0">0</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -161,6 +165,8 @@
                                         <input class="form-check-input" type="radio" name="c3" id="c3_200" value="200">
                                         <label class="form-check-label" for="c3_200">200</label>
                                     </div>
+                                    <textarea class="form-control" name="comentario_corretor" id="com_c3" rows="6"
+                                    placeholder="Deixe seu comentário sobre a redação..." style="margin-top: 10px;" disabled></textarea>
                                 </div>
                             </div>
                             <br><br>
@@ -168,7 +174,7 @@
                                 <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
                                     <label><b>Competência 4:</b></label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="c4" id="c4_0" value="0">
+                                        <input class="form-check-input" type="radio" name="c4" id="c4_00" value="0">
                                         <label class="form-check-label" for="c4_0">0</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -191,6 +197,8 @@
                                         <input class="form-check-input" type="radio" name="c4" id="c4_200" value="200">
                                         <label class="form-check-label" for="c4_200">200</label>
                                     </div>
+                                    <textarea class="form-control" name="comentario_corretor" id="com_c4" rows="6"
+                                    placeholder="Deixe seu comentário sobre a redação..." style="margin-top: 10px;" disabled></textarea>
                                 </div>
                             </div>
                             <br><br>
@@ -198,7 +206,7 @@
                                 <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid">
                                     <label><b>Competência 5:</b></label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="c5" id="c5_0" value="0">
+                                        <input class="form-check-input" type="radio" name="c5" id="c5_00" value="0">
                                         <label class="form-check-label" for="c5_0">0</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -221,18 +229,19 @@
                                         <input class="form-check-input" type="radio" name="c5" id="c5_200" value="200">
                                         <label class="form-check-label" for="c5_200">200</label>
                                     </div>
+                                    <textarea class="form-control" name="comentario_corretor" id="com_c5" rows="6"
+                                    placeholder="Deixe seu comentário sobre a redação..." style="margin-top: 10px;" disabled></textarea>
                                 </div>
                             </div><br>
                             <div style="display: flex; align-items: center; gap: 10px;">
                                 <label for="nota_tot" class="form-label" style="margin: 0;"><b>Total:</b></label>
                                 <input type="text" class="form-control" name="nota_tot" id="nota_redacao"
                                     style="width: 200px;" readonly required>
-                                <button type="button" id="btn_calcula" class="form-control">Calcular</button>
                             </div><br>
                             <div class="row" style="text-align: left;">
                                 <label for="comentario_corretor"><b>Comentários:</b></label>
                                 <textarea class="form-control" name="comentario_corretor" id="comentario" rows="6"
-                                    placeholder="Deixe seu comentário sobre a redação..."></textarea>
+                                    placeholder="Deixe um comentário adicional sobre a redação..."></textarea>
                             </div><br>
                             <div class="row">
                                 <button type="submit" class="btn btn-outline-primary"
@@ -247,7 +256,8 @@
     </section>
 
     <script src="../../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/pages/calcula_nota.js"></script>
+    <script src="../../assets/js/pages/corrigir_redacao/calcula_nota.js"></script>
+    <script src="../../assets/js/pages/corrigir_redacao/textos_comps.js"></script>
 </body>
 
 </html>
