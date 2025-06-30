@@ -35,10 +35,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // $senha_hash = password_hash($senha_hash, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO $funcao 
+    if ($funcao === "alunos"){
+
+        $turno = $_POST['turno'];
+        $turma = $_POST['turma'];
+        $idioma = $_POST['idioma'];
+
+        $stmt = $conn->prepare("INSERT INTO alunos
+        (id_matricula, nome, email, cpf, senha_hash, telefone, turma, turno, idioma)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("issssssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone, $turma, $turno, $idioma);
+    }
+    else if ($funcao === "corretores"){
+        $stmt = $conn->prepare("INSERT INTO corretores 
         (id_matricula, nome, email, cpf, senha_hash, telefone)
         VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("isssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone);
+        $stmt->bind_param("isssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone);
+    }
+    else {
+    die("<p>Erro: função não tratada no código.</p>");}
+    
 
     if ($stmt->execute()) {
         header("Location: pages/cadastro-e-login/login.html?cadastro=sucesso");

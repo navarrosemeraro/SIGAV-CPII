@@ -6,74 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/pages/cadastro/cadastro.css">
-    <link rel="icon" type="image/png" href="../../assets\img\global\Brasão_Colégio_Pedro_II.png"/>
+    <link rel="icon" type="image/png" href="../../assets\img\global\Brasão_Colégio_Pedro_II.png" />
     <title>Cadastro de Corretores</title>
 </head>
 
 <body>
-     <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="margin-left: 10px;">Automação de Correção<span><img
                         src="../../assets/img/global/Brasão_Colégio_Pedro_II.png" alt="Brasão Colégio PedroII"
                         style="position: relative; margin-left: 30px;"></span></a>
-           
-                 <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Cadastro</p>
-            </div>
+
+            <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Cadastro</p>
+        </div>
         </div>
     </nav>
-
-    <div id="center-form">
-        <div class="position-absolute">
-            <h1 class="display-1">Cadastro de Corretores</h1>
-            <form action="../../cadastrar-user.php" method="post">
-                <fieldset style="border: 2px black solid; padding: 30px;">
-                    <legend>Dados pessoais</legend>
-                    <div class="mb-2">
-                        <label for="nome" class="form-label">Nome completo</label>
-                        <input type="text" class="form-control" id="nome" name="nome"
-                            placeholder="Ex: Lúcia Débora da Silva" autofocus>
-                    </div>
-                    <div class="mb-2">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email"
-                            placeholder="Ex: exemplo@gmail.com">
-                    </div>
-                    <div class="mb-2">
-                        <label for="tel" class="form-label">Telefone de Contato</label>
-                        <input type="tel" class="form-control" id="tel" name="tel" placeholder=" Ex: (DDD) 99999-9999">
-                    </div>
-                    <div class="mb-2">
-                        <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
-                    </div>
-                    <div class="mb-2">
-                        <label for="matricula" class="form-label">Matrícula CPII</label>
-                        <input type="text" class="form-control" id="matricula" name="matricula" placeholder="****">
-                    </div>
-                    <div class="mb-2">
-                        <label for="materias">Selecione sua função:</label>
+    <section id="dois">
+        <div id="center-form">
+            <div class="position-absolute">
+                <form action="../../cadastrar-user.php" method="post">
+                    <div
+                        class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+                        <h1 class="display-1">Cadastro</h1>
+                        <label for="materias">Função:</label>
                         <select class="form-select" id="funcao" name="funcao">
                             <option value="corretores">Docente</option>
                             <option value="alunos">Discente(Aluno)</option>
                         </select>
                     </div>
-                    <div class="mb-2">
-                        <label for="senha" class="form-label">Senha:</label>
-                        <input type="password" class="form-control" id="senha_hash" name="senha_hash">
-                    </div>
-                    <div class="mb-2">
-                        <label for="newsenha" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="newsenha" name="newsenha">
-                    </div><br>
-                    <a href="login.html"><button type="submit" class="btn btn-outline-primary">
-                        Finalizar Cadastro
-                    </button></a>
-                </fieldset>
-            </form>
+                    <fieldset style="border: 2px black solid; padding: 30px; width: 800px;">
+                        <div></div>
+                        <legend>Dados pessoais</legend>
+                        <div class="mb-2">
+                            <label for="nome" class="form-label">Nome completo:</label>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Ex: Lúcia Débora da Silva" autofocus>
+                        </div>
+                        <div class="mb-2">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Ex: exemplo@gmail.com">
+                        </div>
+                        <div class="mb-2">
+                            <label for="tel" class="form-label">Telefone de Contato:</label>
+                            <input type="tel" class="form-control" id="tel" name="tel"
+                                placeholder=" Ex: (DDD) 99999-9999">
+                        </div>
+                        <div class="mb-2">
+                            <label for="cpf" class="form-label">CPF:</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
+                        </div>
+                        <div class="mb-2">
+                            <label for="matricula" class="form-label">Matrícula CPII:</label>
+                            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="****">
+                        </div>
+                        <div id="espec-aluno"></div>
+                        <div class="mb-2">
+                            <b><label for="senha" class="form-label">Senha:</label></b>
+                            <input type="password" class="form-control" id="senha_hash" name="senha_hash">
+                        </div>
+                        <div class="mb-2">
+                            <label for="newsenha" class="form-label">Confirmar Senha</label>
+                            <input type="password" class="form-control" id="newsenha" name="newsenha">
+                        </div><br>
+                        <button type="submit" class="btn btn-outline-primary">Finalizar Cadastro</button></a>
+                    </fieldset>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
 
     <script src="../../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/pages/cadastro/aluno-prof.js"></script>
 </body>
 
 </html>
