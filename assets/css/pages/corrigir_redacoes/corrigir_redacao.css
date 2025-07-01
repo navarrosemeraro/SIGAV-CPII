@@ -4,3 +4,7 @@
 @import './partials/section-quatro.css';
 
 @import '../../global/global.css';
+
+.form-check.form-check-inline {
+    margin-right: 0.5rem; /* default é 1rem */
+}
