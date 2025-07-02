@@ -8,7 +8,7 @@ body, html{
     padding: 0;
     height: 100%;
     overflow-x:hidden;
-    background-color: #fffeef;
+    background-image: url(../../img/global/background.png);
 }
 nav{
     background-color: #b0cde8;
