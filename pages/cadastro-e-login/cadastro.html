@@ -23,7 +23,7 @@
     </nav>
     <section id="dois">
         <div id="center-form" class="container min-vh-100 d-flex justify-content-center" style="margin-top: 30px;">
-                <form action="../../cadastrar-user.php" method="post">
+                <form action="../../cadastro-usuario.php" method="post">
                     <div
                         class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
                         <h1 class="display-1">Cadastro</h1>
@@ -39,36 +39,36 @@
                         <div class="mb-2">
                             <label for="nome" class="form-label">Nome completo:</label>
                             <input type="text" class="form-control" id="nome" name="nome"
-                                placeholder="Ex: Lúcia Débora da Silva" autofocus>
+                                placeholder="Ex: Lúcia Débora da Silva" autofocus required>
                         </div>
                         <div class="mb-2">
                             <label for="email" class="form-label">Email:</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Ex: exemplo@gmail.com">
+                                placeholder="Ex: exemplo@gmail.com" required>
                         </div>
                         <div class="mb-2">
                             <label for="tel" class="form-label">Telefone de Contato:</label>
                             <input type="tel" class="form-control" id="tel" name="tel"
-                                placeholder=" Ex: (DDD) 99999-9999">
+                                placeholder=" Ex: (DDD) 99999-9999" required>
                         </div>
                         <div class="mb-2">
                             <label for="cpf" class="form-label">CPF:</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required>
                         </div>
                         <div class="mb-2">
                             <label for="matricula" class="form-label">Matrícula CPII:</label>
-                            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="****">
+                            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="****" required>
                         </div>
                         <div id="espec-aluno"></div>
                         <div class="mb-2">
                             <b><label for="senha" class="form-label">Senha:</label></b>
-                            <input type="password" class="form-control" id="senha_hash" name="senha_hash">
+                            <input type="password" class="form-control" id="senha_hash" name="senha_hash" required>
                         </div>
                         <div class="mb-2">
                             <label for="newsenha" class="form-label">Confirmar Senha</label>
-                            <input type="password" class="form-control" id="newsenha" name="newsenha">
+                            <input type="password" class="form-control" id="newsenha" name="newsenha" required>
                         </div><br>
-                        <button type="submit" class="btn btn-outline-primary">Finalizar Cadastro</button></a>
+                        <button type="submit" id="btn_cadastro" class="btn btn-outline-primary">Finalizar Cadastro</button></a>
                     </fieldset>
                 </form>
         </div>
