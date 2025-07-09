@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/pages/suporte/suporte.css">
+    <link rel="icon" type="image/png" href="../../assets\img\global\Brasão_Colégio_Pedro_II.png" />
+    <title>Cadastro de Corretores</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="margin-left: 10px;">SIGAV CPII<span><img
+                        src="../../assets/img/global/Brasão_Colégio_Pedro_II.png" alt="Brasão Colégio PedroII"
+                        style="position: relative; margin-left: 30px;"></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../principal/principal.html">Principal</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Redações
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../correcao/corrigir_redacao.html">Corrigir</a></li>
+                            <li><a class="dropdown-item" href="../consulta/banco_redacoes.html">Banco de Redações</a></li>
+                        </ul>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cartões Respostas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../inserir_nov/inserir_cartoes.html">Inserir Novo(s) na Base de Dados</a></li>
+                            <li><a class="dropdown-item" href="../consulta/banco_cartoes.html">Banco de Cartões</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../suporte/suporte.html">Suporte</a>
+                    </li>
+                </ul>
+                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Suporte</p>
+            </div>
+        </div>
+    </nav><br>
+    <section id="dois">
+        <div id="center">
+            <div class="position-relative" id="form-ctt" style="top: 70px; min-width: 400px;">
+                <form style="width: 700px;">
+                    <fieldset style="padding: 20px; background-color: #b0cde8; border-radius: 8px;">
+                        <legend>Contate o Suporte</legend>
+                        <div class="mb-2">
+                            <label for="tipo" class="form-label">Motivo do Contato</label>
+                            <select class="form-select" id="tipo" name="tipo">
+                                <option value="problema">Problema</option>
+                                <option value="duvida">Dúvida</option>
+                                <option value="sugestao">Sugestão</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Nome:</label><br>
+                            <input type="text" class="form-control" id="nome" name="nome"
+                                placeholder="Digite seu nome..." required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Matrícula:</label><br>
+                            <input type="text" class="form-control" id="matricula" name="matricula"
+                                placeholder="Digite sua matrícula..." required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Tema da mensagem:</label><br>
+                            <input type="text" class="form-control" id="tema" name="tema" placeholder="Digite o tema..."
+                                required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="msg" class="form-label">Deixe sua mensagem:</label><br>
+                            <textarea id="msg" class="form-control" name="msg" rows="4" cols="60"
+                                placeholder="Ex: Escreva aqui..." required></textarea>
+                        </div>
+                        <div style="display: flex; gap: 20px;">
+                            <button type="submit" class="btn btn-outline-primary"
+                                style="margin-top: 10px; width: 100px; font-size: larger;">
+                                Enviar
+                            </button>
+                        </div>
+                    </fieldset>
+
+                </form>
+            </div>
+    </section>
+
+    <script src="../../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
