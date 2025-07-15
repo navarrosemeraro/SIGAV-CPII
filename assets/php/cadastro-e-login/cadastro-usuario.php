@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     if ($stmt->execute()) {
-        header("Location: pages/cadastro-e-login/login.html?cadastro=sucesso");
+        header("Location: ../../../pages/cadastro-e-login/login.html?cadastro=sucesso");
         exit;
     } else {
         echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";

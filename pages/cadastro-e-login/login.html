@@ -24,8 +24,8 @@
             <div id="mensagem"></div><br>
         </div>
     </div>
-    <div id="center" style="position: fixed; left: 50%; margin: 0;">
-        <div class="position-fixed">
+    <div id="center-form" style="position: fixed; left: 50%; top: 25%; margin: 0;">
+        <div class="position-absolute">
             <h1 class="display-1 center">LOGIN</h1>
             <form action="../../assets/php/cadastro-e-login/login.php" method="post" style="width: 500px;">
                 <fieldset style="border: 2px black solid; padding: 50px;">
@@ -56,7 +56,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('cadastro') === 'sucesso') {
             document.getElementById('mensagem').innerHTML =
-                '<div class="alert alert-success" role="alert">Cadastro realizado com sucesso! Faça login para continuar.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                '<div style="margin-top: 40px" class="alert alert-success" role="alert">Cadastro realizado com sucesso! Faça login para continuar.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
         }
     </script>
 </body>

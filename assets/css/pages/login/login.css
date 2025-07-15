@@ -16,7 +16,7 @@
 #center-form{
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items:start;
     margin-top: 15px;
     height: 100vh;
 }
