@@ -1,0 +1,22 @@
+@import './partials/section-um.css';
+@import './partials/section-dois.css';
+@import './partials/section-tres.css';
+@import './partials/section-quatro.css';
+
+@import '../../global/global.css';
+h6{
+    padding: 10px;
+}
+.carousel{
+    box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.8);
+}
+/* CARDS */
+#sec-1{ 
+    display: flex;
+    justify-content: left;
+}
+/* FORMULÁRIO */
+#sec-2{
+    position: relative;
+    left: -1%;
+}
