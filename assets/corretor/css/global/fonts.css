@@ -1,12 +1,22 @@
 @font-face {
     font-family: 'Raleway';
-    src: url(../../../Font/Raleway-VariableFont_wght.ttf) format(truetype),
-    url(../../../Font/Raleway-Italic-VariableFont_wght.ttf) format(truetype);
+    src: url(../../../../Font/Raleway-VariableFont_wght.ttf) format(truetype),
+    url(../../../../Font/Raleway-Italic-VariableFont_wght.ttf) format(truetype);
 }
 
 p, label, input, legend, span, a{
-    font-family:'Raleway';
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: normal;
     text-align: justify;
+}
+
+.navbar .nav-link {
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Raleway';
+    font-style: italic;
+    font-variant: normal;
 }
 
