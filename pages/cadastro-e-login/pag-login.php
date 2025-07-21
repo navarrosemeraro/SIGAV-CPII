@@ -27,19 +27,19 @@
     <div id="center-form" style="position: fixed; left: 50%; top: 25%; margin: 0;">
         <div class="position-absolute">
             <h1 class="display-1 center">LOGIN</h1>
-            <form action="../../assets/php/cadastro-e-login/login.php" method="post" style="width: 500px;">
+            <form action="../../assets/common/cadastro-e-login/php/login-usuario.php" method="post" style="width: 500px;">
                 <fieldset style="border: 2px black solid; padding: 50px;">
                     <legend>Insira seus dados</legend>
                     <div class="mb-2">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email"
-                            placeholder="Ex: exemplo@gmail.com">
+                        <label for="matricula" class="form-label">Matrícula:</label>
+                        <input type="text" class="form-control" id="matricula" name="matricula"
+                            placeholder="Ex: 000000">
                     </div>
                     <div class="mb-2">
                         <label for="senha" class="form-label">Senha:</label>
                         <input type="password" class="form-control" id="senha" name="senha">
                     </div>
-                    <a href="cadastro.html"><span>Não possui cadastro?</span></a><br><br>
+                    <a href="cadastro.php"><span>Não possui cadastro?</span></a><br><br>
                     <button type="submit" class="btn btn-outline-primary">
                         Login
                     </button>

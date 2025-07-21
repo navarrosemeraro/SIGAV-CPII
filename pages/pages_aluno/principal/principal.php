@@ -46,7 +46,7 @@
                         <a class="nav-link" href="../suporte/suporte.html">Suporte</a>
                     </li>
                 </ul>
-                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3); font-size: 18px;">Principal</p>
+                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3); font-size: 18px;" id="matricula">Principal</p>
             </div>
         </div>
     </nav>
