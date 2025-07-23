@@ -49,7 +49,7 @@
 
     </div>
 
-    <script src="../../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
 
 
     <script>

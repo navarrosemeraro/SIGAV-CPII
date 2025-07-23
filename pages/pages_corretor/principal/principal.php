@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="margin-left: 10px;">SIGAV CPII<span><img
-                        src="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png" alt="Brasão Colégio PedroII"
-                        style="position: relative; margin-left: 30px;"></span></a>
+                        src="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png"
+                        alt="Brasão Colégio PedroII" style="position: relative; margin-left: 30px;"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -24,7 +24,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../pages_corretor/principal/principal.html">Principal</a>
+                        <a class="nav-link active" aria-current="page"
+                            href="../../pages_corretor/principal/principal.php">Principal</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -32,47 +33,50 @@
                             Redações
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../correcao/selecionar_redacao.html">Corrigir</a></li>
-                            <li><a class="dropdown-item" href="../../pages_corretor/consulta/banco_redacoes.html">Banco de Redações</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Cartões Respostas
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../../pages_corretor/inserir_nov/inserir_cartoes.html">Inserir Novo(s) na
-                                    Base de Dados</a></li>
-                            <li><a class="dropdown-item" href="../../pages_corretor/consulta/banco_cartoes.html">Banco de Cartões</a></li>
+                            <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
+                            <li><a class="dropdown-item" href="../../pages_corretor/consulta/banco_redacoes.php">Banco
+                                    de Redações</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../pages_corretor/suporte/suporte.html">Suporte</a>
+                        <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
-                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Página Principal</p>
+                <div style="border: 2px black solid; padding: 5px;">
+                    <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)" href="../perfil_corretor/perfil_corretor.html">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person-circle" viewBox="0 0 16 16" style="height:30px; width:30px">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </span>
+                        <?php session_start(); echo ($_SESSION["nome"]);?>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
     <br>
     <section id="um">
-        <h1 id="center" class="display-5 text-center" style="margin: 20px;">Automação de Correções de Redação e Simulados ENEM</h1>
+        <h1 id="center" class="display-5 text-center" style="margin: 20px;">Automação de Correções de Redação e
+            Simulados ENEM</h1>
         <br>
         <div id="center">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="width: 50%;">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../../assets/corretor/img/pages/principal/ENEM/caderno-questoes.png" class="d-block w-100"
-                            alt="Caderno de Questões">
+                        <img src="../../../assets/corretor/img/pages/principal/ENEM/caderno-questoes.png"
+                            class="d-block w-100" alt="Caderno de Questões">
                     </div>
                     <div class="carousel-item">
                         <img src="../../../assets/corretor/img/pages/principal/ENEM/folha-red.png" class="d-block w-100"
                             alt="Folha de Redação">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../../assets/corretor/img/pages/principal/ENEM/cartao-resposta.png" class="d-block w-100"
-                            alt="Cartão Resposta">
+                        <img src="../../../assets/corretor/img/pages/principal/ENEM/cartao-resposta.png"
+                            class="d-block w-100" alt="Cartão Resposta">
                     </div>
                 </div>
             </div>
@@ -84,7 +88,8 @@
             <div class="container">
                 <h4 class="display-4" style="position: relative; left: 15px;">Sobre o
                     Projeto</h4>
-                <div class="bg-dark my-4 position-relative" style="height: 0.5px; width: 94%; left: 12px; top: 20px;"></div>
+                <div class="bg-dark my-4 position-relative" style="height: 0.5px; width: 94%; left: 12px; top: 20px;">
+                </div>
                 <div id="pai" class="container">
                     <div id="esquerda">
                         <p class="text-start text-break fs-6 lh-base">O projeto "SIGAV CPII" tem como
@@ -136,8 +141,8 @@
             <div class="row">
                 <div class="col-6 col-md-3">
                     <div class="card h-100">
-                        <img src="../../../assets/corretor/img/pages/principal/Devs/bruno-foto.jpeg" class="card-img-top"
-                            alt="Desenvolvedor Bruno">
+                        <img src="../../../assets/corretor/img/pages/principal/Devs/bruno-foto.jpeg"
+                            class="card-img-top" alt="Desenvolvedor Bruno">
                         <div class="card-body">
                             <h5 class="card-title">Bruno Dantas</h5>
                             <p class="card-text">18 Anos</p>
@@ -147,12 +152,12 @@
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="card h-100">
-                        <img src="../../../assets/corretor/img/pages/principal/Devs/giovanni-foto.jpeg" class="card-img-top"
-                            alt="Desenvolvedor Giovanni">
+                        <img src="../../../assets/corretor/img/pages/principal/Devs/giovanni-foto.jpeg"
+                            class="card-img-top" alt="Desenvolvedor Giovanni">
                         <div class="card-body">
                             <h5 class="card-title">Giovanni Navarro</h5>
                             <p class="card-text">18 Anos</p>
-                            <p class="card-text fw-bold">Desenvolvedor Front-End</p>
+                            <p class="card-text fw-bold">Desenvolvedor Full-Stack</p>
                         </div>
                     </div>
                 </div>
@@ -169,8 +174,8 @@
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="card h-100">
-                        <img src="../../../assets/corretor/img/pages/principal/Devs/Lucia-Deborah-Araujo.png" class="card-img-top"
-                            alt="Professora Lúcia Deborah">
+                        <img src="../../../assets/corretor/img/pages/principal/Devs/Lucia-Deborah-Araujo.png"
+                            class="card-img-top" alt="Professora Lúcia Deborah">
                         <div class="card-body">
                             <h5 class="card-title">Lúcia Deborah</h5>
                             <p class="card-text">Professora do Colégio Pedro II</p>

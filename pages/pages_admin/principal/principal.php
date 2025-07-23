@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../principal/principal.html">Principal</a>
+                        <a class="nav-link active" aria-current="page" href="../principal/principal.php">Principal</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -52,7 +52,7 @@
                         <a class="nav-link" href="../suporte/suporte.html">Suporte</a>
                     </li>
                 </ul>
-                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Página Principal</p>
+                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 1)"><?php session_start(); echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></p>
             </div>
         </div>
     </nav>
@@ -153,7 +153,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Giovanni Navarro</h5>
                             <p class="card-text">18 Anos</p>
-                            <p class="card-text fw-bold">Desenvolvedor Front-End</p>
+                            <p class="card-text fw-bold">Desenvolvedor Full-Stack</p>
                         </div>
                     </div>
                 </div>

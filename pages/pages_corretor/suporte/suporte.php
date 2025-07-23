@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../pages_corretor/principal/principal.html">Principal</a>
+                        <a class="nav-link active" aria-current="page" href="../../pages_corretor/principal/principal.php">Principal</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -32,26 +32,15 @@
                             Redações
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../correcao/selecionar_redacao.html">Corrigir</a></li>
-                            <li><a class="dropdown-item" href="../../pages_corretor/consulta/banco_redacoes.html">Banco de Redações</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Cartões Respostas
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../../pages_corretor/inserir_nov/inserir_cartoes.html">Inserir Novo(s) na
-                                    Base de Dados</a></li>
-                            <li><a class="dropdown-item" href="../../pages_corretor/consulta/banco_cartoes.html">Banco de Cartões</a></li>
+                            <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
+                            <li><a class="dropdown-item" href="../../pages_corretor/consulta/banco_redacoes.php">Banco de Redações</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../pages_corretor/suporte/suporte.html">Suporte</a>
+                        <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
-                <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Página Principal</p>
+                <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)"><?php session_start(); echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></a>
             </div>
         </div>
     </nav><br>

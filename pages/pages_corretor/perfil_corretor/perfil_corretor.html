@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../../assets/corretor/css/pages/perfil_corretor/perfil_corretor.css">
+    <link rel="stylesheet" href="../../../assets/common/bootstrap/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
+    <title>Perfil do Usuário - Colégio Pedro II</title>
+
+</head>
+
+<body>
+
+    <div id="breadcrumb">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+        </svg>
+        <h3 style="margin-left: 15px;"><a href="#">Retornar à página Principal</a></h3>
+    </div>
+
+    <div class="profile-header">
+        <img src="https://via.placeholder.com/80" alt="Foto de Perfil">
+        <h2>
+            <?php session_start(); echo ($_SESSION["nome"]);?> LÚCIA DEBORAH ARAÚJO
+        </h2>
+        <button>Mensagem</button>
+    </div>
+
+    <div class="content">
+        <div class="left-panel">
+            <div class="card">
+                <h3>Detalhes do usuário</h3>
+                <div class="info-value"><span class="info-label">Matrícula:</span> 999</div>
+                <div class="info-value"><span class="info-label">Endereço de e-mail:</span> <a
+                        href="mailto:giovanni.semeraro.1@cp2.edu.br">giovanni.semeraro.1@cp2.edu.br</a> (Visível para os
+                    admnistradores)</div>
+                <div class="info-value"><span class="info-label">Máteria:</span> Português</div>
+                <div class="info-value"><span class="info-label">Zona de fuso horário:</span> America/Sao_Paulo</div>
+            </div>
+
+            <div class="card">
+                <h3>Privacidade e Políticas</h3>
+                <div class="info-value">Resumo de retenção de dados</div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="card">
+                <h3>Histórico</h3>
+                <div class="list-links">
+                    <a href="#">Quantidade de Redações corrigidas</a>
+                    <a href="#">Mensagens do fórum</a>
+                    <a href="#">Discussões do fórum</a>
+                    <a href="#">Planos de aprendizagem</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Relatórios</h3>
+                <div class="list-links">
+                    <a href="#">Sessões do navegador</a>
+                    <a href="#">Visão geral das notas</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Atividade de login</h3>
+                <div class="info-value"><strong>Primeiro acesso ao site</strong></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
