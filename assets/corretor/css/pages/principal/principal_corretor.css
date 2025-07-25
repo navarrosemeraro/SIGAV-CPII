@@ -20,3 +20,13 @@ h6{
     position: relative;
     left: -1%;
 }
+
+#barra-usuario{
+    border: 2px black solid; 
+    padding: 5px;
+    background-color: white;
+}
+
+body{
+    background-image: url(../../../img/global/background.png);
+}

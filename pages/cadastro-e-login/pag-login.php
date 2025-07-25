@@ -27,7 +27,7 @@
     <div id="center-form" style="position: fixed; left: 50%; top: 25%; margin: 0;">
         <div class="position-absolute">
             <h1 class="display-1 center">LOGIN</h1>
-            <form action="../../assets/common/cadastro-e-login/php/login-usuario.php" method="post" style="width: 500px;">
+            <form action="../../php/global/cadastro-e-login/login-usuario.php" method="post" style="width: 500px;">
                 <fieldset style="border: 2px black solid; padding: 50px;">
                     <legend>Insira seus dados</legend>
                     <div class="mb-2">

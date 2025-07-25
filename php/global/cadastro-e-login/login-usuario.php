@@ -31,7 +31,7 @@ if($result_admin && $result_admin->num_rows > 0){
     $_SESSION["nome"] = $dados_admin['nome'];
     $_SESSION["nivel_acesso"] = $dados_admin['nivel_acesso'];
     session_write_close();
-    header("Location: ../../../../pages/pages_admin/principal/principal.php");
+    header("Location: ../../../pages/pages_admin/principal/principal.php");
     exit;
 }
 
@@ -47,8 +47,7 @@ if($result_corretores && $result_corretores->num_rows > 0){
     $_SESSION["matricula"] = $dados_corretores['id_matricula'];
     $_SESSION["nome"] = $dados_corretores['nome'];
     $_SESSION["nivel_acesso"] = $dados_corretores['nivel_acesso'];
-    session_write_close();
-    header("Location: ../../../../pages/pages_corretor/principal/principal.php?");
+    header("Location: ../../../pages/pages_corretor/principal/principal.php");
     exit;
 }
 
@@ -66,7 +65,7 @@ if($result_alunos && $result_alunos->num_rows > 0){
     $_SESSION["nome"] = $dados_aluno['nome'];
     $_SESSION["turma"] = $dados_aluno['turma'];
     session_write_close();
-    header("Location: ../../../../pages/pages_aluno/principal/principal.php");
+    header("Location: ../../../pages/pages_aluno/principal/principal.php");
     exit;
 }
 echo ("<p>Matrícula e/ou senha incorretas!</p>");
