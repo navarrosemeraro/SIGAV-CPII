@@ -23,7 +23,7 @@
     </nav>
     <section id="dois">
         <div id="center-form" class="container min-vh-100 d-flex justify-content-center" style="margin-top: 30px;">
-                <form action="../../assets/common/cadastro-e-login/php/cadastro-usuario.php" method="post">
+                <form action="../../php/global/cadastro-e-login/cadastro-usuario.php" method="post">
                     <div
                         class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
                         <h1 class="display-1">Cadastro</h1>
