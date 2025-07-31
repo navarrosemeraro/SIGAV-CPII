@@ -46,8 +46,8 @@ require_once '../../../php/global/auth.php';
                         <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
-                <div id="barra-usuario">
-                    <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;" href="../perfil_corretor/perfil_corretor.html">
+                <div id="barra_usuario">
+                    <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;" href="../perfil_corretor/perfil_corretor.html" class="dropdown-toggle">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-person-circle" viewBox="0 0 16 16" style="height:30px; width:30px; margin-right: 10px">
