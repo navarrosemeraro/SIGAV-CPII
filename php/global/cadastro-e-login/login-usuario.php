@@ -70,4 +70,6 @@ if($result_alunos && $result_alunos->num_rows > 0){
 }
 echo ("<p>Matrícula e/ou senha incorretas!</p>");
 
+$conn->close();
+
 ?>

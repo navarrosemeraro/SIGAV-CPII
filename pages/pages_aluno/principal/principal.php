@@ -32,7 +32,7 @@ require_once '../../../php/global/auth.php';
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                            href="../minhas_redacoes/minhas_redacoes.html">Minhas Redações</a>
+                            href="../minhas_redacoes/minhas_redacoes.php">Minhas Redações</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

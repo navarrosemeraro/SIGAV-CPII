@@ -1,3 +1,7 @@
+<?php
+require_once '../../../php/global/auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -54,6 +58,62 @@
 
     <section id="um" class="container">
         <h1 id="center" class="display-5 text-center" style="margin: 20px;">Minhas Redações</h1>
+        <br>
+<?php
+// Conexão
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "automacao";
+$charset = "utf8mb4";
+
+$conn = new mysqli($servername, $username, $password, $db_name);
+$conn->set_charset($charset);
+
+if($conn->connect_error){
+    die("Erro na conexão: " . $conn->connect_error);
+}
+
+//Recebe a matrícula do aluno
+$mat = $_SESSION["matricula"];
+
+//Prepara o SQL para as redações
+$stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.status_red, redacao.data_envio
+                                FROM redacao
+                                JOIN alunos ON alunos.id_matricula = redacao.aluno_id
+                                WHERE alunos.id_matricula = ?;");
+$stmt_redacoes->bind_param("i", $mat);
+$stmt_redacoes->execute();
+$result_redacoes = $stmt_redacoes->get_result();
+
+if($result_redacoes && $result_redacoes->num_rows > 0){
+    echo "<div class='row row-cols-1 row-cols-md-3 g-4'>";
+    while ($row = $result_redacoes->fetch_assoc()){
+        $tema = $row["tema"];
+        $status = $row["status_red"];
+        $data = $row["data_envio"];
+        echo "<div class='col'>
+                <div class='card h-100'>
+                    <img src='...' class='card-img-top' alt='...'>
+                    <div class='card-body'>
+                        <h5 class='card-title'>{$tema}</h5>
+                        <p class='card-text'>{$status}</p>
+                    </div>
+                    <div class='card-footer'>
+                        <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                    </div>
+                </div>
+            </div>";
+    }
+    echo "</div>";
+}
+else{
+    echo "<h4>Ainda não há redações feitas...</h4>";
+}
+
+$conn->close();
+?>
+
     </section>
 
     <script src="../../../assets/aluno/js/bootstrap/bootstrap.bundle.min.js"></script>
