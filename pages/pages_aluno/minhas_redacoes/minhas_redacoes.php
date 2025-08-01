@@ -32,7 +32,7 @@ require_once '../../../php/global/auth.php';
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                            href="../minhas_redacoes/minhas_redacoes.html">Minhas Redações</a>
+                            href="../minhas_redacoes/minhas_redacoes.php">Minhas Redações</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -78,21 +78,24 @@ if($conn->connect_error){
 $mat = $_SESSION["matricula"];
 
 //Prepara o SQL para as redações
-$stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.status_red, redacao.data_envio
+$stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.texto_arquivo, redacao.status_red, redacao.data_envio
                                 FROM redacao
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 WHERE alunos.id_matricula = ?;");
-$stmt_redacoes->bind_param("i", $mat);
-$stmt_redacoes->execute();
-$result_redacoes = $stmt_redacoes->get_result();
+$stmt_redacoes->bind_param("i", $mat); //substitui os ? pelo valor da variável "mat"
+$stmt_redacoes->execute(); //executa a query
+$result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resultado e atribui a $result
 
+/*  IMPRIME O HTML DE ACORDO COM O RESULTADO  */
 if($result_redacoes && $result_redacoes->num_rows > 0){
     echo "<div class='row row-cols-1 row-cols-md-3 g-4'>";
     while ($row = $result_redacoes->fetch_assoc()){
         $tema = $row["tema"];
         $status = $row["status_red"];
         $data = $row["data_envio"];
+        $texto = utf8_encode($row["texto_arquivo"]);
         echo "<div class='col'>
+                <a href='#' style='text-decoration:none;' download>
                 <div class='card h-100'>
                     <img src='...' class='card-img-top' alt='...'>
                     <div class='card-body'>
@@ -103,6 +106,7 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
                         <small class='text-body-secondary'>Data de Envio: {$data}</small>
                     </div>
                 </div>
+                </a>
             </div>";
     }
     echo "</div>";
