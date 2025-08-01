@@ -1,6 +1,6 @@
-let _2025 = document.querySelector("button#btn_2025");
-let _2024 = document.querySelector("button#btn_2024");
-let _2023 = document.querySelector("button#btn_2023");
+let _2025 = document.querySelector("div#ano_2025");
+let _2024 = document.querySelector("div#ano_2024");
+let _2023 = document.querySelector("div#ano_2023");
 
 _2025.addEventListener('click', dropdown_2025);
 _2024.addEventListener('click', dropdown_2024);

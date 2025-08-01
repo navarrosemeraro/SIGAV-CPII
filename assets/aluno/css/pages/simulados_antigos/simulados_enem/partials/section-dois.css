@@ -22,3 +22,7 @@
 #ano_2025 button, #ano_2024 button, #ano_2023 button{
     background-color: transparent;
 }
+
+#ano_2025:hover, #ano_2024:hover, #ano_2023:hover{
+    cursor: pointer;
+}

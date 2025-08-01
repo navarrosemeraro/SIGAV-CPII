@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../assets/corretor/css/pages/perfil_corretor/perfil_corretor.css">
+    <link rel="stylesheet" href="../../../assets/aluno/css/pages/perfil_aluno/perfil_aluno.css">
     <link rel="stylesheet" href="../../../assets/common/bootstrap/bootstrap.min.css">
     <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
     <title>Perfil do Usuário - Colégio Pedro II</title>
@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <div id="breadcrumb" style="border-bottom: 2px solid white;">
         <a href="../principal/principal.php" style="text-decoration: none; ">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
@@ -23,60 +21,35 @@
         </a>
         <h5 style="margin-left: 15px;"><a href="../principal/principal.php">Retornar à página Principal</a></h5>
     </div>
-
-
-    <div class="profile-header">
-        <img src="https://via.placeholder.com/80" alt="Foto de Perfil">
-        <h2>
-            <?php echo ($_SESSION["nome"]);?> LÚCIA DEBORAH ARAÚJO
-        </h2>
-        <button>Mensagem</button>
-    </div>
-
-    <div class="content">
-        <div class="left-panel">
-            <div class="card">
-                <h3>Detalhes do usuário</h3>
-                <div class="info-value"><span class="info-label">Matrícula:</span> 999</div>
-                <div class="info-value"><span class="info-label">Endereço de e-mail:</span> <a
-                        href="mailto:giovanni.semeraro.1@cp2.edu.br">giovanni.semeraro.1@cp2.edu.br</a> (Visível para os
-                    admnistradores)</div>
-                <div class="info-value"><span class="info-label">Máteria:</span> Português</div>
-                <div class="info-value"><span class="info-label">Zona de fuso horário:</span> America/Sao_Paulo</div>
-            </div>
-
-            <div class="card">
-                <h3>Privacidade e Políticas</h3>
-                <div class="info-value">Resumo de retenção de dados</div>
-            </div>
+    <div class="container" id="profile">
+        <div id="foto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle" viewBox="0 0 16 16" style="height:70px; width:70px; margin-right: 10px">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            </svg>
         </div>
-
-        <div class="right-panel">
-            <div class="card">
-                <h3>Histórico</h3>
-                <div class="list-links">
-                    <a href="#">Quantidade de Redações corrigidas</a>
-                    <a href="#">Mensagens do fórum</a>
-                    <a href="#">Discussões do fórum</a>
-                    <a href="#">Planos de aprendizagem</a>
+        <p style="display: flex; justify-content: center;">Meu Perfil</p>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <label for="nome" style="left: 50%;">Nome Completo:</label><br>
+                    <input type="text" name="nome" id="txt_nome" disabled>
+                    <br><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" name="email" id="txt_email" disabled>
                 </div>
-            </div>
-
-            <div class="card">
-                <h3>Relatórios</h3>
-                <div class="list-links">
-                    <a href="#">Sessões do navegador</a>
-                    <a href="#">Visão geral das notas</a>
+                <div class="col">
+                    <label for="nome" style="left: 50%;">Matrícula</label><br>
+                    <input type="text" name="nome" id="txt_nome" disabled>
+                    <br><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" name="email" id="txt_email" disabled>
                 </div>
-            </div>
-
-            <div class="card">
-                <h3>Atividade de login</h3>
-                <div class="info-value"><strong>Primeiro acesso ao site</strong></div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
