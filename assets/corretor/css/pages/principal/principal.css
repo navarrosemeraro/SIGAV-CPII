@@ -20,9 +20,6 @@ h6{
     position: relative;
     left: -1%;
 }
-body{
-    background-image: url(../../../img/global/background.png);
-}
 #barra_usuario{
     border: 2px black solid; 
     padding: 5px;

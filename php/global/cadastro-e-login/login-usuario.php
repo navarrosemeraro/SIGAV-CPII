@@ -20,7 +20,7 @@ $senha = $_POST["senha"];
 
 //Prepara o SQL para ADMIN
 $stmt_admin = $conn->prepare("SELECT nome, id_matricula, nivel_acesso FROM adm WHERE id_matricula = ? AND senha_hash = ?");
-$stmt_admin->bind_param("is", $mat, $senha);
+$stmt_admin->bind_param("ss", $mat, $senha);
 $stmt_admin->execute();
 $result_admin = $stmt_admin->get_result();
 
