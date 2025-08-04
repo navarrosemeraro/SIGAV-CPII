@@ -118,7 +118,7 @@ require_once '../../../php/global/auth.php';
                     </fieldset>
                 </form><br>
                 <div id="resultado_consulta">
-                    <select name="arquivos" id="arquivos" class="form-control" style="margin-bottom: 50px;">
+                    
 
 <?php
 // Código PHP só executa aqui após o clique no botão de envio
@@ -153,6 +153,8 @@ $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resul
 
 /*  IMPRIME O HTML DE ACORDO COM O RESULTADO  */
 if($result_redacoes && $result_redacoes->num_rows > 0){
+    echo '<h6>Redações corrigidos pelo professor de matrícula "'. $mat . '":</h6>';
+    echo '<select name="arquivos" id="arquivos" class="form-control" style="margin-bottom: 50px;">';
     while ($row = $result_redacoes->fetch_assoc()){
         $nome_cor = $row["nome_corretor"];
         $nome_al = $row["nome_aluno"];
@@ -166,6 +168,7 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
         $texto = utf8_encode($row["texto_arquivo"]);
         echo "<option><b>Corretor: $nome_cor</b> / Autor: $nome_al / Tema: $tema / $nota_total / $c1-$c2-$c3-$c4-$c5 </option>";
     }
+    echo '</select>';
 }
 else{
     echo "<h4>Não foram encontradas redações que atendam tais requisitos...</h4>";
@@ -185,6 +188,8 @@ $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resul
 
 /*  IMPRIME O HTML DE ACORDO COM O RESULTADO  */
 if($result_redacoes && $result_redacoes->num_rows > 0){
+    echo '<h6>Redações correspontes ao Autor "' . $nome . '"</h6>';
+    echo '<select name="arquivos" id="arquivos" class="form-control" style="margin-bottom: 50px;">';
     while ($row = $result_redacoes->fetch_assoc()){
         $nome_cor = $row["nome_corretor"];
         $nome_al = $row["nome_aluno"];
@@ -198,6 +203,7 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
         $texto = utf8_encode($row["texto_arquivo"]);
         echo "<option> Corretor: $nome_cor / <b>Autor: $nome_al</b> / Tema: $tema / $nota_total / $c1-$c2-$c3-$c4-$c5 </option>";
     }
+    echo '</select>';
 }
 else{
     echo "<h4>Não foram encontradas redações que atendam tais requisitos...</h4>";
@@ -207,7 +213,6 @@ else{
 
 $conn->close();
 ?>
-                    </select>
                 </div>
             </div>
         </div>
