@@ -8,7 +8,7 @@ require_once '../../../php/global/auth.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../assets/common/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/aluno/css/pages/principal/principal.css">
     <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
     <title>Cadastro de Corretores</title>
