@@ -52,7 +52,7 @@ require_once '../../../php/global/auth.php';
                 </ul>
                 <div id="barra_usuario">
                     <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;"
-                        href="../perfil_aluno/perfil_aluno.html" class="dropdown-toggle">
+                        href="../perfil_aluno/perfil_aluno.php" class="dropdown-toggle">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-person-circle" viewBox="0 0 16 16"

@@ -52,7 +52,7 @@ if($result_corretores && $result_corretores->num_rows > 0){
 }
 
 //Prepara o SQL para ALUNO
-$stmt_alunos = $conn->prepare("SELECT nome, id_matricula, turma FROM alunos WHERE id_matricula = ? AND senha_hash = ?");
+$stmt_alunos = $conn->prepare("SELECT nome, id_matricula, email, cpf, turno, turma, idioma, nivel_acesso FROM alunos WHERE id_matricula = ? AND senha_hash = ?");
 $stmt_alunos->bind_param("is", $mat, $senha);
 $stmt_alunos->execute();
 $result_alunos = $stmt_alunos->get_result();
@@ -61,9 +61,15 @@ $result_alunos = $stmt_alunos->get_result();
 if($result_alunos && $result_alunos->num_rows > 0){
     $dados_aluno = $result_alunos->fetch_assoc();
     session_start();
-    $_SESSION["matricula"] = $dados_aluno['id_matricula'];
-    $_SESSION["nome"] = $dados_aluno['nome'];
-    $_SESSION["turma"] = $dados_aluno['turma'];
+    $_SESSION["matricula"] = $dados_aluno['id_matricula'] ?? '';
+    $_SESSION["nome"] = $dados_aluno['nome'] ?? '';
+    $_SESSION["email"] = $dados_aluno['email'] ?? '';
+    $_SESSION["cpf"] = $dados_aluno['cpf'] ?? '';
+    $_SESSION["turno"] = $dados_aluno['turno'] ?? '';
+    $_SESSION["turma"] = $dados_aluno['turma'] ?? '';
+    $_SESSION["idioma"] = $dados_aluno['idioma'] ?? '';
+    $_SESSION["nivel_acesso"] = $dados_aluno['nivel_acesso'] ?? '';
+
     session_write_close();
     header("Location: ../../../pages/pages_aluno/principal/principal.php");
     exit;
