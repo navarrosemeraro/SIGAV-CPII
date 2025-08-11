@@ -78,7 +78,7 @@ if($conn->connect_error){
 $mat = $_SESSION["matricula"];
 
 //Prepara o SQL para as redações
-$stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.texto_arquivo, redacao.status_red, redacao.data_envio
+$stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.caminho_arquivo, redacao.status_red, redacao.data_envio
                                 FROM redacao
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 WHERE alunos.id_matricula = ?;");
@@ -93,9 +93,9 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
         $tema = $row["tema"];
         $status = $row["status_red"];
         $data = $row["data_envio"];
-        $texto = utf8_encode($row["texto_arquivo"]);
+        $texto = ($row["caminho_arquivo"]);
         echo "<div class='col'>
-                <a href='#' style='text-decoration:none;' download>
+                <a href='{$texto}' style='text-decoration:none;' download>
                 <div class='card h-100'>
                     <img src='...' class='card-img-top' alt='...'>
                     <div class='card-body'>
