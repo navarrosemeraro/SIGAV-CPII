@@ -34,4 +34,21 @@ if (isset($_FILES['redacao_pdf']) && $_FILES['redacao_pdf']['error'] == 0) {
 }
 
 $conn->close();
+
+/*
+
+if (isset($_FILES['arquivo'])) {
+    $nomeOriginal = $_FILES['redacao_pdf']['name'];
+    $ext = pathinfo($nomeOriginal, PATHINFO_EXTENSION);
+    $novoNome = uniqid() . '.' . $ext;
+    move_uploaded_file($_FILES['arquivo']['tmp_name'], __DIR__ . '/arquivos/' . $novoNome);
+
+    // salva no banco o caminho
+    $sql = "INSERT INTO arquivos (nome, caminho) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $nomeOriginal, $novoNome);
+    $stmt->execute();
+}
+*/
 ?>
+
