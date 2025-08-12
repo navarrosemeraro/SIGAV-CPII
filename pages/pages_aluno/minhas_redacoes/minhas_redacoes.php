@@ -82,6 +82,9 @@ $stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_
                                 FROM redacao
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 WHERE alunos.id_matricula = ?;");
+if (!$stmt_redacoes) {
+    die("Erro no prepare: " . $conn->error);
+}
 $stmt_redacoes->bind_param("i", $mat); //substitui os ? pelo valor da variável "mat"
 $stmt_redacoes->execute(); //executa a query
 $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resultado e atribui a $result
@@ -110,6 +113,7 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
             </div>";
     }
     echo "</div>";
+    
 }
 else{
     echo "<h4>Ainda não há redações feitas...</h4>";

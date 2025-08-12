@@ -36,7 +36,6 @@ if (isset($_FILES['redacao_pdf']) && $_FILES['redacao_pdf']['error'] == 0) {
 $conn->close();
 
 /*
-
 if (isset($_FILES['arquivo'])) {
     $nomeOriginal = $_FILES['redacao_pdf']['name'];
     $ext = pathinfo($nomeOriginal, PATHINFO_EXTENSION);

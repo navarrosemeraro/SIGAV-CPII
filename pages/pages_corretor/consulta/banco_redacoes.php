@@ -147,6 +147,9 @@ $stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.no
                                 JOIN redacao ON corretores.id_matricula = redacao.corretor_id
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 WHERE corretores.id_matricula = ?;");
+if (!$stmt_redacoes) {
+    die("Erro no prepare: " . $conn->error);
+}
 $stmt_redacoes->bind_param("s", $mat); //substitui os ? pelo valor da variável "mat"
 $stmt_redacoes->execute(); //executa a query
 $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resultado e atribui a $result
@@ -176,12 +179,15 @@ else{
 }
 else{
 $nome = "%" . $_POST['txt_func'] . "%";
-$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, redacao.tema, redacao.texto_arquivo, redacao.nota_total, redacao.data_envio, redacao.nota_comp1,
+$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, redacao.tema, redacao.caminho_arquivo, redacao.nota_total, redacao.data_envio, redacao.nota_comp1,
                                 redacao.nota_comp2, redacao.nota_comp3, redacao.nota_comp4, redacao.nota_comp5
                                 FROM alunos
                                 JOIN redacao ON alunos.id_matricula = redacao.aluno_id
                                 JOIN corretores ON corretores.id_matricula = redacao.corretor_id
                                 WHERE alunos.nome LIKE ?;");
+if (!$stmt_redacoes) {
+    die("Erro no prepare: " . $conn->error);
+}
 $stmt_redacoes->bind_param("s", $nome); //substitui os ? pelo valor da variável "mat"
 $stmt_redacoes->execute(); //executa a query
 $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resultado e atribui a $result

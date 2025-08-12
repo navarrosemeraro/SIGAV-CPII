@@ -65,7 +65,7 @@
     </section>
 </body>
 <script>
-    const dadosSessao = <?= json_encode($_SESSION); ?>;
+    const dadosSessao = <?= json_encode($_SESSION); ?>; // {nome:"Otto"; matricula = "M040404"; nivel_acesso = "aluno"}
 
     document.getElementById("txt_nome").innerHTML = dadosSessao.nome;
     document.getElementById("txt_mat").value = dadosSessao.matricula;

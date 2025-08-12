@@ -51,8 +51,62 @@
             <h2 class="display-2 text-center">Selecione a Redação</h2>
         </div><br>
         <div class="container">
-            <div id="resultado_consulta"></div>
-            <select name="arquivo" id="arquivo" class="form-control"></select>
+                <?php 
+                // Conexão
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $db_name = "automacao";
+                $charset = "utf8mb4";
+
+                $conn = new mysqli($servername, $username, $password, $db_name);
+                $conn->set_charset($charset);
+
+                if($conn->connect_error){
+                    die("Erro na conexão: " . $conn->connect_error);
+                }
+                //Prepara o SQL para as redações
+                $stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.caminho_arquivo, redacao.status_red, redacao.data_envio, 
+                                                alunos.nome AS 'nome_aluno', alunos.id_matricula
+                                                FROM redacao
+                                                JOIN alunos ON alunos.id_matricula = redacao.aluno_id
+                                                WHERE redacao.status_red = 'pendente';");
+                if (!$stmt_redacoes) {
+                    die("Erro no prepare: " . $conn->error);
+                }
+                $stmt_redacoes->execute(); //executa a query
+                $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resultado e atribui a $result
+
+                /*  IMPRIME O HTML DE ACORDO COM O RESULTADO  */
+                if($result_redacoes && $result_redacoes->num_rows > 0){
+                echo "<div class='row row-cols-1 row-cols-md-3 g-4'>";
+                while ($row = $result_redacoes->fetch_assoc()){
+                $autor = $row["nome_aluno"];
+                $tema = $row["tema"];
+                $status = $row["status_red"];
+                $data = $row["data_envio"];
+                $caminho_arquivo = ($row["caminho_arquivo"]);
+                echo "<div class='col'>
+                    <a href='corrigir_redacao.php?caminho_arquivo={$caminho_arquivo}' style='text-decoration:none;'>
+                    <div class='card h-100'>
+                        <img src='...' class='card-img-top' alt='...'>
+                        <div class='card-body'>
+                            <h6 class='card-title'><b>{$autor}</b></h6>
+                            <h5 class='card-title'>{$tema}</h5>
+                            <p class='card-text'>{$status}</p>
+                        </div>
+                        <div class='card-footer'>
+                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                        </div>
+                    </div>
+                    </a>
+                </div>";
+    }
+    echo "</div>";
+    
+}
+            ?>
+
         </div>
     </section>
 
