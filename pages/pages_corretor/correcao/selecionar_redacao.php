@@ -1,3 +1,7 @@
+<?php
+require_once '../../../php/global/auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,7 +45,7 @@
                         <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
-                <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)"><?php session_start(); echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></a>
+                <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)"><?php echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></a>
             </div>
         </div>
     </nav>

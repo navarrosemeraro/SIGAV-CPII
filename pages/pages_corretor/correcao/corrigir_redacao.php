@@ -1,3 +1,7 @@
+<?php
+require_once '../../../php/global/auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,7 +45,7 @@
                         <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
-                <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)"><?php session_start(); echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></a>
+                <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)"><?php echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></a>
             </div>
         </div>
     </nav>
@@ -52,8 +56,8 @@
         </div><br><br>
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-4"
             id="div-correcao">
-            <div id="resultado_consulta" class="w-100 w-md-auto" style="flex: 2;">
-                <select name="arquivo" id="arquivo" class="form-control w-100 mb-4 mb-md-0"></select>
+            <div id="resultado_consulta" class="w-100 w-md-auto" style="flex: 2; border: 5px solid black; border-radius:10px;">
+                <img id="redacao_img" src="<?php echo $_GET['caminho_arquivo'] ?>" alt="foto-redacao" style="width:100%; height:100%; border-radius: 10px">
             </div><br>
             <form action="../../assets/php/enviar_redacao_corrigida.php" method="post" class="w-100 w-md-auto" style="flex: 1;">
                 <fieldset class="border border-2 p-4 w-100">
