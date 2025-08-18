@@ -45,7 +45,19 @@ require_once '../../../php/global/auth.php';
                         <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
-                <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)"><?php echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></a>
+                <div id="barra_usuario">
+                    <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;" href="../perfil_corretor/perfil_corretor.html" class="dropdown-toggle">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person-circle" viewBox="0 0 16 16" style="height:30px; width:30px; margin-right: 10px">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </span>
+                        <?php echo ($_SESSION["nome"]);?>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -57,18 +69,8 @@ require_once '../../../php/global/auth.php';
         <div class="container">
                 <?php 
                 // Conexão
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db_name = "automacao";
-                $charset = "utf8mb4";
-
-                $conn = new mysqli($servername, $username, $password, $db_name);
-                $conn->set_charset($charset);
-
-                if($conn->connect_error){
-                    die("Erro na conexão: " . $conn->connect_error);
-                }
+                include '../../../php/global/db.php';
+                
                 //Prepara o SQL para as redações
                 $stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.caminho_arquivo, redacao.status_red, redacao.data_envio, 
                                                 alunos.nome AS 'nome_aluno', alunos.id_matricula
@@ -85,13 +87,14 @@ require_once '../../../php/global/auth.php';
                 if($result_redacoes && $result_redacoes->num_rows > 0){
                 echo "<div class='row row-cols-1 row-cols-md-3 g-4'>";
                 while ($row = $result_redacoes->fetch_assoc()){
+                $id_redacao = $row["id"];
                 $autor = $row["nome_aluno"];
                 $tema = $row["tema"];
                 $status = $row["status_red"];
                 $data = $row["data_envio"];
                 $caminho_arquivo = ($row["caminho_arquivo"]);
                 echo "<div class='col'>
-                    <a href='corrigir_redacao.php?caminho_arquivo={$caminho_arquivo}' style='text-decoration:none;'>
+                    <a href='corrigir_redacao.php?id={$id_redacao}' style='text-decoration:none;'>
                     <div class='card h-100'>
                         <img src='...' class='card-img-top' alt='...'>
                         <div class='card-body'>

@@ -60,19 +60,8 @@ require_once '../../../php/global/auth.php';
         <h1 id="center" class="display-5 text-center" style="margin: 20px;">Minhas Redações</h1>
         <br>
 <?php
-// Conexão
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "automacao";
-$charset = "utf8mb4";
-
-$conn = new mysqli($servername, $username, $password, $db_name);
-$conn->set_charset($charset);
-
-if($conn->connect_error){
-    die("Erro na conexão: " . $conn->connect_error);
-}
+//Conexão
+include '../../../php/global/db.php';
 
 //Recebe a matrícula do aluno
 $mat = $_SESSION["matricula"];

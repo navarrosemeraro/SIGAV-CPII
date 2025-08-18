@@ -1,5 +1,6 @@
 <?php
 require_once '../../../php/global/auth.php';
+include '../../../php/global/db.php';
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +58,20 @@ require_once '../../../php/global/auth.php';
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-4"
             id="div-correcao">
             <div id="resultado_consulta" class="w-100 w-md-auto" style="flex: 2; border: 5px solid black; border-radius:10px;">
-                <img id="redacao_img" src="<?php echo $_GET['caminho_arquivo'] ?>" alt="foto-redacao" style="width:100%; height:100%; border-radius: 10px">
+                <!-- Imagem da redação com o caminho do arquivo a ser passado via POST -->
+                <img id="redacao_img" 
+                src="<?php
+                        $id = $_GET['id']; 
+                        $stmt = $conn->prepare("SELECT caminho_arquivo FROM redacao WHERE id = ?");
+                        $stmt->bind_param("i", $id);
+                        $stmt->execute();
+                        $result_caminho = $stmt->get_result();
+                        $row = $result_caminho->fetch_assoc();
+                        $base_url = "/sigav-cpii/";
+                        echo $base_url . $row['caminho_arquivo']; ?>" 
+                alt="foto-redacao" style="width:100%; height:100%; border-radius: 10px">
             </div><br>
-            <form action="../../assets/php/enviar_redacao_corrigida.php" method="post" class="w-100 w-md-auto" style="flex: 1;">
+            <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST" class="w-100 w-md-auto" style="flex: 1;">
                 <fieldset class="border border-2 p-4 w-100">
                     <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
                         <div class="container text-center">
@@ -224,12 +236,12 @@ require_once '../../../php/global/auth.php';
                             </div><br>
                             <div style="display: flex; align-items: center; gap: 10px;">
                                 <label for="nota_tot" class="form-label" style="margin: 0;"><b>Total:</b></label>
-                                <input type="text" class="form-control w-100" name="nota_tot" id="nota_redacao"
+                                <input type="text" class="form-control w-100" name="nota_redacao" id="nota_redacao"
                                  readonly required>
                             </div><br>
                             <div class="row" style="text-align: left;">
                                 <label for="comentario_corretor"><b>Comentários:</b></label>
-                                <textarea class="form-control" name="comentario_corretor" id="comentario" rows="6"
+                                <textarea class="form-control" name="comentario_corretor" id="comentario_corretor" rows="6"
                                     placeholder="Deixe um comentário adicional sobre a redação..."></textarea>
                             </div><br>
                             <div class="row mt-4">
@@ -239,6 +251,8 @@ require_once '../../../php/global/auth.php';
                         </div>
                     </div>
         </div>
+        <!-- Armazena o SRC da imagem da redação, que é o caminho para o arquivo e identicador no banco de dados-->
+        <input type="hidden" name="id_redacao" id="id_redacao">
         </fieldset>
         </form>
         </div>
@@ -247,6 +261,11 @@ require_once '../../../php/global/auth.php';
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/corretor/js/pages/corrigir_redacao/calcula_nota.js"></script>
     <script src="../../../assets/corretor/js/pages/corrigir_redacao/textos_comps.js"></script>
+    <script>
+        // passa o src da imagem para o input caminho_arquivo
+        let id_redacao = <?= $_GET["id"] ?>;
+        document.getElementById("id_redacao").value = id_redacao;
+    </script>
 </body>
 
 </html>
