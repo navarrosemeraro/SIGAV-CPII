@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Ago-2025 às 16:51
+-- Tempo de geração: 19-Ago-2025 às 16:49
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.28
 
@@ -142,20 +142,20 @@ CREATE TABLE `redacao` (
 --
 
 INSERT INTO `redacao` (`id`, `aluno_id`, `corretor_id`, `tema`, `caminho_arquivo`, `nota_total`, `nota_comp1`, `nota_comp2`, `nota_comp3`, `nota_comp4`, `nota_comp5`, `status_red`, `data_envio`, `data_correcao`, `observacoes`) VALUES
-(3, 'M15501238', '1234567', 'Desafios para combater os vícios em jogos de aposta online', '../../../assets/arquivos_redacoes/2025/3_ano/redacao3.jpeg', 1000, 200, 200, 200, 200, 200, 'corrigida', '2025-08-02 16:35:33', '2025-08-02 18:15:47', NULL),
-(5, 'M15501238', '1234567', 'Desafios para combater o câncer de próstata', '../../../assets/arquivos_redacoes/2025/3_ano/redacao5.jpeg', 600, 120, 120, 120, 120, 120, 'corrigida', '2025-08-02 18:57:35', '2025-08-03 18:55:56', NULL),
-(7, '2025001', 'C1001', 'Os desafios da educação no Brasil', '../../../assets/arquivos_redacoes/2025/3_ano/redacao7.jpeg', 840, 160, 180, 170, 165, 165, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom desenvolvimento de ideias.'),
-(8, '2025002', 'C1001', 'A importância da empatia nas relações sociais', '../../../assets/arquivos_redacoes/2025/3_ano/redacao8.jpeg', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Muito boa coesão e argumentação.'),
-(9, '2025003', 'C1002', 'O papel da tecnologia na sociedade moderna', '../../../assets/arquivos_redacoes/2025/3_ano/redacao9.jpeg', 860, 170, 170, 175, 170, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom uso de dados e argumentação sólida.'),
-(10, '2025004', 'C1001', 'Caminhos para combater a desigualdade social', '../../../assets/arquivos_redacoes/2025/3_ano/redacao10.jpeg', 875, 175, 175, 175, 175, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Texto bem estruturado, com ótimos exemplos.'),
-(11, '2025005', 'C1003', 'A influência das redes sociais na vida cotidiana', '../../../assets/arquivos_redacoes/2025/3_ano/redacao11.jpeg', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL),
-(12, '2025006', 'C1002', 'O desafio da mobilidade urbana', '../../../assets/arquivos_redacoes/2025/3_ano/redacao12.jpeg', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL),
-(13, '2025007', 'C1004', 'A importância da preservação ambiental', '../../../assets/arquivos_redacoes/2025/3_ano/redacao13.jpeg', 870, 175, 170, 175, 170, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Boa organização textual.'),
-(14, '2025008', 'C1005', 'Desafios da mobilidade urbana nas capitais', '../../../assets/arquivos_redacoes/2025/3_ano/redacao14.jpeg', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL),
-(15, '2025009', 'C1004', 'A crise hídrica e suas consequências', '../../../assets/arquivos_redacoes/2025/3_ano/redacao15.jpeg', 890, 180, 180, 175, 180, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente domínio do tema.'),
-(16, '2025010', 'C1002', 'Fake news e o impacto na democracia', '../../../assets/arquivos_redacoes/2025/3_ano/redacao16.jpeg', 845, 165, 170, 170, 170, 170, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Revisar coesão em alguns trechos.'),
-(17, '2025011', 'C1003', 'A juventude e o mercado de trabalho', '../../../assets/arquivos_redacoes/2025/3_ano/redacao17.jpeg', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL),
-(18, '2025012', 'C1001', 'Racismo estrutural na sociedade brasileira', '../../../assets/arquivos_redacoes/2025/3_ano/redacao18.jpeg', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente em todos os critérios.');
+(3, 'M15501238', '1234567', 'Desafios para combater os vícios em jogos de aposta online', 'assets/arquivos_redacoes/2025/3_ano/redacao3.jpeg', 1000, 200, 200, 200, 200, 200, 'corrigida', '2025-08-02 16:35:33', '2025-08-02 18:15:47', NULL),
+(5, 'M15501238', '1234567', 'Desafios para combater o câncer de próstata', 'assets/arquivos_redacoes/2025/3_ano/redacao5.jpeg', 600, 120, 120, 120, 120, 120, 'corrigida', '2025-08-02 18:57:35', '2025-08-03 18:55:56', NULL),
+(7, '2025001', 'C1001', 'Os desafios da educação no Brasil', 'assets/arquivos_redacoes/2025/3_ano/redacao7.jpeg', 840, 160, 180, 170, 165, 165, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom desenvolvimento de ideias.'),
+(8, '2025002', 'C1001', 'A importância da empatia nas relações sociais', 'assets/arquivos_redacoes/2025/3_ano/redacao8.jpeg', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Muito boa coesão e argumentação.'),
+(9, '2025003', 'C1002', 'O papel da tecnologia na sociedade moderna', 'assets/arquivos_redacoes/2025/3_ano/redacao9.jpeg', 860, 170, 170, 175, 170, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom uso de dados e argumentação sólida.'),
+(10, '2025004', 'C1001', 'Caminhos para combater a desigualdade social', 'assets/arquivos_redacoes/2025/3_ano/redacao10.jpeg', 875, 175, 175, 175, 175, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Texto bem estruturado, com ótimos exemplos.'),
+(11, '2025005', '1234567', 'A influência das redes sociais na vida cotidiana', 'assets/arquivos_redacoes/2025/3_ano/redacao11.jpeg', 920, 200, 160, 200, 160, 200, 'corrigida', '2025-08-03 21:46:56', NULL, 'Faltou Pouco!'),
+(12, '2025006', '1234567', 'O desafio da mobilidade urbana', 'assets/arquivos_redacoes/2025/3_ano/redacao12.jpeg', 600, 120, 120, 120, 120, 120, 'corrigida', '2025-08-03 21:46:56', NULL, 'Mais ou menos!'),
+(13, '2025007', 'C1004', 'A importância da preservação ambiental', 'assets/arquivos_redacoes/2025/3_ano/redacao13.jpeg', 870, 175, 170, 175, 170, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Boa organização textual.'),
+(14, '2025008', 'C1005', 'Desafios da mobilidade urbana nas capitais', 'assets/arquivos_redacoes/2025/3_ano/redacao14.jpeg', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL),
+(15, '2025009', 'C1004', 'A crise hídrica e suas consequências', 'assets/arquivos_redacoes/2025/3_ano/redacao15.jpeg', 890, 180, 180, 175, 180, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente domínio do tema.'),
+(16, '2025010', 'C1002', 'Fake news e o impacto na democracia', 'assets/arquivos_redacoes/2025/3_ano/redacao16.jpeg', 845, 165, 170, 170, 170, 170, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Revisar coesão em alguns trechos.'),
+(17, '2025011', 'C1003', 'A juventude e o mercado de trabalho', 'assets/arquivos_redacoes/2025/3_ano/redacao17.jpeg', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL),
+(18, '2025012', 'C1001', 'Racismo estrutural na sociedade brasileira', 'assets/arquivos_redacoes/2025/3_ano/redacao18.jpeg', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente em todos os critérios.');
 
 --
 -- Índices para tabelas despejadas

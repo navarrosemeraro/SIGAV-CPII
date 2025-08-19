@@ -92,9 +92,8 @@ require_once '../../../php/global/auth.php';
                 $tema = $row["tema"];
                 $status = $row["status_red"];
                 $data = $row["data_envio"];
-                $caminho_arquivo = ($row["caminho_arquivo"]);
                 echo "<div class='col'>
-                    <a href='corrigir_redacao.php?id={$id_redacao}' style='text-decoration:none;'>
+                    <a href='corrigir_redacao.php?id={$id_redacao}&nome_autor={$autor}&tema={$tema}' style='text-decoration:none;'>
                     <div class='card h-100'>
                         <img src='...' class='card-img-top' alt='...'>
                         <div class='card-body'>

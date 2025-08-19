@@ -183,7 +183,8 @@ $stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.no
                                 FROM alunos
                                 JOIN redacao ON alunos.id_matricula = redacao.aluno_id
                                 JOIN corretores ON corretores.id_matricula = redacao.corretor_id
-                                WHERE alunos.nome LIKE ?;");
+                                WHERE alunos.nome LIKE ?;
+                                ORDER BY redacao.data_envio");
 if (!$stmt_redacoes) {
     die("Erro no prepare: " . $conn->error);
 }

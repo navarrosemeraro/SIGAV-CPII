@@ -57,8 +57,10 @@ include '../../../php/global/db.php';
         </div><br><br>
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-4"
             id="div-correcao">
-            <div id="resultado_consulta" class="w-100 w-md-auto" style="flex: 2; border: 5px solid black; border-radius:10px;">
+            <div id="resultado_consulta" class="w-100 w-md-auto" style="flex: 2;">
                 <!-- Imagem da redação com o caminho do arquivo a ser passado via POST -->
+                <h2 id="tema_redacao_txt"></h2>
+                <h4 id="nome_autor_txt"></h4>
                 <img id="redacao_img" 
                 src="<?php
                         $id = $_GET['id']; 
@@ -69,7 +71,7 @@ include '../../../php/global/db.php';
                         $row = $result_caminho->fetch_assoc();
                         $base_url = "/sigav-cpii/";
                         echo $base_url . $row['caminho_arquivo']; ?>" 
-                alt="foto-redacao" style="width:100%; height:100%; border-radius: 10px">
+                alt="foto-redacao" style="width:100%; height:100%; border-radius: 10px flex: 2; border: 5px solid black; border-radius:10px;">
             </div><br>
             <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST" class="w-100 w-md-auto" style="flex: 1;">
                 <fieldset class="border border-2 p-4 w-100">
@@ -262,9 +264,18 @@ include '../../../php/global/db.php';
     <script src="../../../assets/corretor/js/pages/corrigir_redacao/calcula_nota.js"></script>
     <script src="../../../assets/corretor/js/pages/corrigir_redacao/textos_comps.js"></script>
     <script>
-        // passa o src da imagem para o input caminho_arquivo
+        // passa o src da imagem para o input escondido caminho_arquivo, a fim de passar o id da redação para "enviar_redacao_corrigida" 
         let id_redacao = <?= $_GET["id"] ?>;
         document.getElementById("id_redacao").value = id_redacao;
+
+        // pega o nome do autor pelo método get e mostra na tela
+        let nome_autor = "<?= $_GET['nome_autor']?>";
+        document.getElementById("nome_autor_txt").innerText = nome_autor;
+
+        // pega o tema da redacao pelo método get e mostra na tela
+        let tema_redacao = "<?= $_GET['tema']?>";
+        document.getElementById("tema_redacao_txt").innerText = tema_redacao;
+
     </script>
 </body>
 
