@@ -16,7 +16,8 @@ $observacoes = $_POST['comentario_corretor'];
 
 
 $stmt = $conn->prepare("UPDATE redacao 
-                        SET corretor_id = ?, nota_comp1 = ?, nota_comp2 = ?, nota_comp3 = ?, nota_comp4 = ?, nota_comp5 = ?, nota_total = ?, status_red = 'corrigida', observacoes = ?
+                        SET corretor_id = ?, nota_comp1 = ?, nota_comp2 = ?, nota_comp3 = ?, nota_comp4 = ?, nota_comp5 = ?,
+                         nota_total = ?, status_red = 'corrigida', observacoes = ?, data_correcao = current_timestamp()
                         WHERE id = ?");
 $stmt->bind_param("iiiiiiisi",
                     $id_corretor,

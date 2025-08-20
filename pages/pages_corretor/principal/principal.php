@@ -37,10 +37,14 @@ require_once '../../../php/global/auth.php';
                             Redações
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
-                            <li><a class="dropdown-item" href="../../pages_corretor/consulta/banco_redacoes.php">Banco
-                                    de Redações</a></li>
-                        </ul>
+                                <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item disabled" href="#">Separated link</a></li>
+                                <li><a class="dropdown-item"
+                                        href="../../pages_corretor/consulta/banco_redacoes.php">Banco de Redações</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../../pages_corretor/consulta/inserir_redacoes.php">Inserir Novas Redações</a></li>
+                            </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>

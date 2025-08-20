@@ -39,9 +39,12 @@ require_once '../../../php/global/auth.php';
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item disabled" href="#">Separated link</a></li>
                                 <li><a class="dropdown-item"
                                         href="../../pages_corretor/consulta/banco_redacoes.php">Banco de Redações</a>
                                 </li>
+                                <li><a class="dropdown-item" href="../../pages_corretor/consulta/inserir_redacoes.php">Inserir Novas Redações</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -65,38 +68,6 @@ require_once '../../../php/global/auth.php';
             </div>
         </nav>
     </section>
-    <section id="tres">
-        <section id="dois">
-            <div id="center">
-                <h2 class="display-2 text-center">Inserir Novas Redações No Banco de Dados</h2>
-            </div><br>
-            <div class="container mt-4">
-                <form action="../../../assets/php/inserir_redacao.php" method="post" enctype="multipart/form-data">
-                    <fieldset class="border p-4" style="max-width: 900px; margin: auto;">
-                        <div class="mb-3">
-                            <label for="matricula" class="form-label">Matrícula:</label>
-                            <input type="text" class="form-control" id="aluno_id" name="matricula">
-                        </div>
-                        <div class="mb-3">
-                            <label for="tema" class="form-label">Tema da Redação:</label>
-                            <input type="text" class="form-control" id="tema" name="tema">
-                        </div>
-                        <div class="mb-3">
-                            <label for="redacao_pdf" class="form-label">Arquivo:</label>
-                            <input type="file" class="form-control" id="redacao_pdf" name="redacao_pdf" accept=".pdf"
-                                required>
-                            <span class="form-text text-danger">(*Precisa estar em formato .pdf)</span>
-                        </div>
-                        <div class="mb-2">
-                            <button type="submit" class="btn btn-outline-primary">Envia Redação(ões)</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </section><br><br>
-        <div id="center">
-            <hr class="border border-dark" style="width: 70%;">
-        </div><br><br>
         <div id="center">
             <h2 class="display-2 text-center">Pesquisar Redações Corrigidas</h2>
         </div><br>
@@ -127,7 +98,6 @@ require_once '../../../php/global/auth.php';
                         </div>
                     </fieldset>
                 </form><br>
-                <div id="resultado_consulta">
                     
 
 <?php
@@ -183,7 +153,7 @@ $stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.no
                                 FROM alunos
                                 JOIN redacao ON alunos.id_matricula = redacao.aluno_id
                                 JOIN corretores ON corretores.id_matricula = redacao.corretor_id
-                                WHERE alunos.nome LIKE ?;
+                                WHERE alunos.nome LIKE ?
                                 ORDER BY redacao.data_envio");
 if (!$stmt_redacoes) {
     die("Erro no prepare: " . $conn->error);
