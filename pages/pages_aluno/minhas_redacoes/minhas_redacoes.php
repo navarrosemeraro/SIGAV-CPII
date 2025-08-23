@@ -67,7 +67,7 @@ include '../../../php/global/db.php';
 $mat = $_SESSION["matricula"];
 
 //Prepara o SQL para as redações
-$stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.caminho_arquivo, redacao.status_red, redacao.data_envio
+$stmt_redacoes = $conn->prepare("SELECT redacao.id AS id_redacao, redacao.tema, redacao.aluno_id, redacao.nota_total, redacao.caminho_arquivo, redacao.status_red, redacao.data_envio, alunos.nome
                                 FROM redacao
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 WHERE alunos.id_matricula = ?;");
@@ -82,16 +82,19 @@ $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resul
 if($result_redacoes && $result_redacoes->num_rows > 0){
     echo "<div class='row row-cols-1 row-cols-md-3 g-4'>";
     while ($row = $result_redacoes->fetch_assoc()){
+        $id_redacao = $row["id_redacao"];
+        $nome_aluno = $row["nome"];
+        $nota_total = $row["nota_total"];
         $tema = $row["tema"];
         $status = $row["status_red"];
         $data = $row["data_envio"];
-        $texto = ($row["caminho_arquivo"]);
         echo "<div class='col'>
-                <a href='{$texto}' style='text-decoration:none;' download>
+                <a href='visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
                 <div class='card h-100'>
                     <img src='...' class='card-img-top' alt='...'>
                     <div class='card-body'>
                         <h5 class='card-title'>{$tema}</h5>
+                        <h3 class='card-title' style='font-weight:bold;'>Nota: {$nota_total}</h3>
                         <p class='card-text'>{$status}</p>
                     </div>
                     <div class='card-footer'>
