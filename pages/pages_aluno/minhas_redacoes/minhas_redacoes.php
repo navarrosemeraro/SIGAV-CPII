@@ -67,9 +67,12 @@ include '../../../php/global/db.php';
 $mat = $_SESSION["matricula"];
 
 //Prepara o SQL para as redações
-$stmt_redacoes = $conn->prepare("SELECT redacao.id AS id_redacao, redacao.tema, redacao.aluno_id, redacao.nota_total, redacao.caminho_arquivo, redacao.status_red, redacao.data_envio, alunos.nome
+$stmt_redacoes = $conn->prepare("SELECT redacao.id AS id_redacao, redacao.tema, redacao.aluno_id, redacao.nota_total,
+                                redacao.caminho_arquivo, redacao.status_red, redacao.data_envio, 
+                                alunos.nome AS nome_aluno, corretores.nome AS nome_corretor
                                 FROM redacao
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
+                                LEFT JOIN corretores ON corretores.id_matricula = redacao.corretor_id
                                 WHERE alunos.id_matricula = ?;");
 if (!$stmt_redacoes) {
     die("Erro no prepare: " . $conn->error);
@@ -83,26 +86,43 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
     echo "<div class='row row-cols-1 row-cols-md-3 g-4'>";
     while ($row = $result_redacoes->fetch_assoc()){
         $id_redacao = $row["id_redacao"];
-        $nome_aluno = $row["nome"];
+        $nome_aluno = $row["nome_aluno"];
+        $nome_corretor = $row["nome_corretor"];
         $nota_total = $row["nota_total"];
         $tema = $row["tema"];
         $status = $row["status_red"];
         $data = $row["data_envio"];
-        echo "<div class='col'>
-                <a href='visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
-                <div class='card h-100'>
-                    <img src='...' class='card-img-top' alt='...'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>{$tema}</h5>
-                        <h3 class='card-title' style='font-weight:bold;'>Nota: {$nota_total}</h3>
-                        <p class='card-text'>{$status}</p>
+        if($status === "corrigida"){
+            echo "<div class='col'>
+                    <a href='visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
+                    <div class='card h-100 card-redFeita'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>{$tema}</h5>
+                            <h3 class='card-title' style='font-weight:bold;'>Nota: {$nota_total}</h3>
+                            <h6 class='card-text'><b>{$status}</b> - Corretor: {$nome_corretor}</h6>
+                        </div>
+                        <div id='visualizar_corrigida'>Visualizar Redação Corrigida</div>
+                        <div class='card-footer'>
+                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                        </div>
                     </div>
-                    <div class='card-footer'>
-                        <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                    </a>
+                </div>";
+        }
+        if($status === "pendente"){
+            echo "<div class='col'>
+                    <div class='card h-100 card-redPendente'>
+                        <div class='card-body' style='margin-bottom: 0;'>
+                            <h5 class='card-title'>{$tema}</h5>
+                            <h6 class='card-text'><b>{$status}</b></h6>
+                        </div>
+                        <div id='corr_pendente'>Correção Ainda Pendente ❌</div>
+                        <div class='card-footer'>
+                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                        </div>
                     </div>
-                </div>
-                </a>
-            </div>";
+                </div>";
+        }
     }
     echo "</div>";
     
