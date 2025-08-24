@@ -57,81 +57,111 @@ include '../../../php/global/db.php';
         </div>
     </nav>
 
-    <h1 id="center" class="display-5 text-center" style="margin: 20px;">Minhas Redações</h1><br>
 
-    <section id="um" class="container">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-4"
-            id="div-correcao">
-            <div id="resultado_consulta" class="w-100 w-md-auto" style="flex: 2;">
-                <!-- Imagem da redação com o caminho do arquivo a ser passado via POST -->
+    <main>
+        <section id="um">
+            <div id="nome-e-tema" class="container w-100 w-md-auto">
                 <h2 id="tema_redacao_txt"></h2>
                 <h4 id="nome_autor_txt"></h4>
-                <img id="redacao_img" 
-                src="<?php
+            </div>
+
+
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-4"
+                id="div-correcao">
+                <div id="resultado_consulta" class="w-100 w-md-auto" style="flex: 2;">
+                    <!-- Imagem da redação com o caminho do arquivo a ser passado via POST -->
+                    <h2 id="tema_redacao_txt"></h2>
+                    <h4 id="nome_autor_txt"></h4>
+                    <img id="redacao_img" src="<?php
                         $id = $_GET['id']; 
-                        $stmt = $conn->prepare("SELECT nota_total, nota_comp1, nota_comp2, nota_comp3, nota_comp4, nota_comp5, observacoes, caminho_arquivo FROM redacao WHERE id = ?");
-                        $stmt->bind_param("i", $id);
-                        $stmt->execute();
-                        $result_caminho = $stmt->get_result();
-                        $row = $result_caminho->fetch_assoc();
-                        $base_url = "/sigav-cpii/";
-                        echo $base_url . $row['caminho_arquivo']; ?>" 
-                alt="foto-redacao" style="width:100%; height:100%; border-radius: 10px flex: 2; border: 5px solid black; border-radius:10px;">
-            </div><br>
+                        $stmt = $conn->prepare(" SELECT nota_total, nota_comp1, nota_comp2, nota_comp3, nota_comp4,
+                        nota_comp5, observacoes, caminho_arquivo FROM redacao WHERE id=?"); $stmt->bind_param("i", $id);
+                    $stmt->execute();
+                    $result_caminho = $stmt->get_result();
+                    $row = $result_caminho->fetch_assoc();
+                    $base_url = "/sigav-cpii/";
+                    echo $base_url . $row['caminho_arquivo']; ?>"
+                    alt="foto-redacao" style="width:70%; height:100%; border-radius: 10px; margin-right:10px; border: 5px solid black;
+                    border-radius:10px;">
+                    <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST"
+                        class="w-100 w-md-auto" style="flex: 1;">
+                        <fieldset class="border border-2 p-4 w-100">
+                            <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col" style=" padding: 0;">
+                                            <label><b>Competência 1:
+                                                    <?php echo $row["nota_comp1"]; ?>
+                                                </b></label><br>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row">
+                                        <div class="col" style="padding: 0;">
+                                            <label><b>Competência 2:
+                                                    <?php echo $row["nota_comp2"]; ?>
+                                                </b></label><br>
+
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row">
+                                        <div class="col" style="padding: 0;">
+                                            <label><b>Competência 3
+                                                    <?php echo $row["nota_comp3"]; ?>:
+                                                </b></label><br>
+
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row">
+                                        <div class="col" style="padding: 0;">
+                                            <label><b>Competência 4:
+                                                    <?php echo $row["nota_comp4"]; ?>
+                                                </b></label><br>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row">
+                                        <div class="col" style="padding: 0;">
+                                            <label><b>Competência 5:
+                                                    <?php echo $row["nota_comp5"]; ?>
+                                                </b></label><br>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row">
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <label for="nota_tot" class="form-label"
+                                                style="margin: 0;"><b>Total: <?php echo $row["nota_total"];?> </b></label>
+                                        </div><br>
+                                    </div>
+                                </div>
+                            </div>
+
+        </section>
+        <div class="container-xxl d-flex flex-column" id="div-correcao2">
             <div class="w-100 w-md-auto" style="flex: 1;">
                 <fieldset class="border border-2 p-4 w-100">
                     <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
-                                    <label><b>Competência 1: <?php echo $row["nota_comp1"]; ?></b></label><br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
-                                    <label><b>Competência 2: <?php echo $row["nota_comp2"]; ?></b></label><br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
-                                    <label><b>Competência 3: <?php echo $row["nota_comp3"]; ?></b></label><br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
-                                    <label><b>Competência 4: <?php echo $row["nota_comp4"]; ?></b></label><br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
-                                    <label><b>Competência 5: <?php echo $row["nota_comp5"]; ?></b></label><br>
-                                </div>
-                            </div><br>
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <label for="nota_tot" class="form-label" style="margin: 0;"><b>Total:</b></label>
-                                <input type="text" class="form-control w-100" name="nota_redacao" id="nota_redacao"
-                                 readonly value="<?php echo $row["nota_total"]; ?>">
-                            </div><br>
-                            <div class="row" style="text-align: left;">
-                                <label for="comentario_corretor"><b>Comentários:</b></label>
-                                <textarea class="form-control" name="comentario_corretor" id="comentario_corretor" rows="6" readonly><?php echo $row["observacoes"] ?? "Nenhum Comentário..."; ?></textarea>
-                            </div><br>
-                        </div>
+                        <div class="row" style="text-align: left;">
+                            <label for="comentario_corretor"><b>Comentários do Corretor(a):</b></label>
+                            <textarea class="form-control" name="comentario_corretor" id="comentario_corretor" rows="6" cols="100"
+                                readonly><?php echo $row["observacoes"] ?? "Nenhum Comentário..."; ?></textarea>
+                        </div><br>
                     </div>
             </div>
+            </fieldset>
+        </div>
         </div>
 
-    </section>
+    </main>
 
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script>
         // pega o nome do autor pelo método get e mostra na tela
         let nome_autor = "<?= $_GET['nome_autor']?>";
-        document.getElementById("nome_autor_txt").innerText = nome_autor;
+        document.getElementById("nome_autor_txt").innerText = "Autor: " + nome_autor;
 
         // pega o tema da redacao pelo método get e mostra na tela
         let tema_redacao = "<?= $_GET['tema']?>";

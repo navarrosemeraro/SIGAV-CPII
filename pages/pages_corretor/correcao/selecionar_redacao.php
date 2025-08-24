@@ -66,7 +66,8 @@ require_once '../../../php/global/auth.php';
             </div>
         </div>
     </nav>
-    </section><br>
+    </section>
+    <main>
     <section id="dois">
         <div id="center">
             <h2 class="display-2 text-center">Selecione a Redação</h2>
@@ -120,6 +121,7 @@ require_once '../../../php/global/auth.php';
 
         </div>
     </section>
+    </main>
 
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>

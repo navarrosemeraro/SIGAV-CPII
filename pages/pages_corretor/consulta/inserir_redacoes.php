@@ -68,7 +68,7 @@ require_once '../../../php/global/auth.php';
             </div>
         </nav>
     </section>
-    <section id="tres">
+    <main>
         <section id="dois">
             <div id="center">
                 <h2 class="display-2 text-center">Inserir Novas Redações No Banco de Dados</h2>
@@ -97,6 +97,7 @@ require_once '../../../php/global/auth.php';
                 </form>
             </div>
         </section>
+    </main>
     <script src="../../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/corretor/js/pages/consulta_redacoes/consulta_redacoes_corrigidas.js"></script>
 

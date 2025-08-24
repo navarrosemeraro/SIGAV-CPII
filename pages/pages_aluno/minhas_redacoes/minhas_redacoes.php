@@ -56,8 +56,9 @@ require_once '../../../php/global/auth.php';
         </div>
     </nav>
 
+    <main>
     <section id="um" class="container">
-        <h1 id="center" class="display-5 text-center" style="margin: 20px;">Minhas Redações</h1>
+        <h1 id="center" class="display-5 text-center" style="margin: 20px; margin-top: 100px">Minhas Redações</h1>
         <br>
 <?php
 //Conexão
@@ -135,6 +136,7 @@ $conn->close();
 ?>
 
     </section>
+</main>
 
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>

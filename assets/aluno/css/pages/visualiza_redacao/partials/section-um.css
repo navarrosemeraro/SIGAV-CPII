@@ -1,3 +1,12 @@
-nav{
-    margin-bottom: 20px;
+#div-correcao1{
+    justify-content: center;
+}
+
+#nome-e-tema{
+    margin-bottom: 40px;
+}
+
+#resultado_consulta{
+    display: flex;
+    justify-content: center;
 }

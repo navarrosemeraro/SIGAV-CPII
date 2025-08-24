@@ -68,7 +68,7 @@ require_once '../../../php/global/auth.php';
             </div>
         </div>
     </nav>
-    <br>
+<main>
     <section id="um">
         <h1 id="center" class="display-5 text-center" style="margin: 20px;">Automação de Correções de Redação e
             Simulados ENEM</h1>
@@ -212,6 +212,7 @@ require_once '../../../php/global/auth.php';
             </div>
         </div>
     </section>
+</main>
 
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>

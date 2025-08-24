@@ -68,6 +68,7 @@ require_once '../../../php/global/auth.php';
             </div>
         </nav>
     </section>
+    <main>
         <div id="center">
             <h2 class="display-2 text-center">Pesquisar Redações Corrigidas</h2>
         </div><br>
@@ -195,6 +196,7 @@ if (isset($conn) && $conn instanceof mysqli) {
             </div>
         </div>
     </section>
+    </main>
 
     <script src="../../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/corretor/js/pages/consulta_redacoes/consulta_redacoes_corrigidas.js"></script>
