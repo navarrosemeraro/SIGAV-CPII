@@ -100,8 +100,7 @@ require_once '../../../php/global/auth.php';
                 $data = $row["data_envio"];
                 echo "<div class='col'>
                     <a href='corrigir_redacao.php?id={$id_redacao}&nome_autor={$autor}&tema={$tema}' style='text-decoration:none;'>
-                    <div class='card h-100'>
-                        <img src='...' class='card-img-top' alt='...'>
+                    <div class='card h-100 card-pend'>
                         <div class='card-body'>
                             <h6 class='card-title'><b>{$autor}</b></h6>
                             <h5 class='card-title'>{$tema}</h5>

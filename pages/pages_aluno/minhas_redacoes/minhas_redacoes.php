@@ -74,7 +74,8 @@ $stmt_redacoes = $conn->prepare("SELECT redacao.id AS id_redacao, redacao.tema, 
                                 FROM redacao
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 LEFT JOIN corretores ON corretores.id_matricula = redacao.corretor_id
-                                WHERE alunos.id_matricula = ?;");
+                                WHERE alunos.id_matricula = ?
+                                ORDER BY status_red;");
 if (!$stmt_redacoes) {
     die("Erro no prepare: " . $conn->error);
 }

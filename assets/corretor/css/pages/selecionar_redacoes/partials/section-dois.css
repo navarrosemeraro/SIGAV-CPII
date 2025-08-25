@@ -1,4 +1,9 @@
-#resultado_consulta{
-    justify-content: center;
-    text-align: left;
+
+
+.card-pend{
+    border: 1px solid orange;
+    transition: transform 1s ease;
+}
+.card-pend:hover{
+    transform: scale(1.1); /* Aumenta a proporção em 10% */
 }
