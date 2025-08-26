@@ -20,8 +20,3 @@ h6{
     position: relative;
     left: -1%;
 }
-#barra_usuario{
-    border: 2px black solid; 
-    padding: 5px;
-    background-color: white;
-}

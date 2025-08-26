@@ -10,7 +10,7 @@ include '../../../php/global/db.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/common/visualiza_redacao/visualiza_redacao.php">
+    <link rel="stylesheet" href="../../../assets/common/visualiza_redacao/visualiza_redacao.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
     <title>Cadastro de Corretores</title>
 </head>
@@ -58,7 +58,7 @@ include '../../../php/global/db.php';
     </nav>
 
 
-    <main>
+    <main style="margin-top: 50px;">
         <section id="um">
             <div id="nome-e-tema" class="container w-100 w-md-auto">
                 <h2 id="tema_redacao_txt"></h2>

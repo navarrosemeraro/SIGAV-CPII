@@ -40,14 +40,14 @@ require_once '../../../php/global/auth.php';
                             Simulados Antigos - CPII
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../simulados_antigos/simulados_enem.html">ENEM e
+                            <li><a class="dropdown-item" href="../simulados_antigos/simulados_enem.php">ENEM e
                                     Gabaritos</a></li>
-                            <li><a class="dropdown-item" href="../simulados_antigos/simulados_uerj.html">UERJ e
+                            <li><a class="dropdown-item" href="../simulados_antigos/simulados_uerj.php">UERJ e
                                     Gabaritos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../suporte/suporte.html">Suporte</a>
+                        <a class="nav-link" href="../suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
                 <div id="barra_usuario">

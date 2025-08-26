@@ -63,7 +63,7 @@ require_once '../../../php/global/auth.php';
                         </span>
                         <?php echo ($_SESSION["nome"]);?>
                     </a>
-                </div>
+                    </div>
                 </div>
             </div>
         </nav>

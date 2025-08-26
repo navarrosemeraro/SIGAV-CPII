@@ -138,3 +138,9 @@ fieldset {
         flex-direction: column;
     }
 }
+
+#barra_usuario{
+    border: 2px black solid; 
+    padding: 5px;
+    background-color: white;
+}

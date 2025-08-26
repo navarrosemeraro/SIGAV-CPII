@@ -92,8 +92,8 @@ require_once '../../../php/global/auth.php';
                                 <button type="submit" class="btn btn-outline-primary">Buscar</button>
                             </div>
                             <div class="mb-2">
-                                <label for="nome" class="form-label" id="nome_user">Nome do(a) Aluno(a):</label>
-                                <input type="text" name="nome" id="nome" class="form-control"
+                                <label for="nome_user" class="form-label">Nome do(a) Aluno(a):</label>
+                                <input type="text" name="nome" id="nome_user" class="form-control"
                                     style="width: 500px; background-color: rgb(211, 211, 211)" readonly>
                             </div>
                         </div>
@@ -109,10 +109,13 @@ include '../../../php/global/db.php';
 
 $func = $_POST['func'];
 //Recebe a matrícula do aluno/corretor
+
+//caso seja o select forneça a informação de ser um corretor
 if($func == "corretor"){
 $mat = $_POST['txt_func'];
-$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, redacao.tema, redacao.nota_total, redacao.data_envio, redacao.nota_comp1,
-                                redacao.nota_comp2, redacao.nota_comp3, redacao.nota_comp4, redacao.nota_comp5
+$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, 
+                                redacao.id AS id_redacao, redacao.tema, redacao.nota_total, redacao.data_envio, redacao.status_red,
+                                redacao.nota_comp1, redacao.nota_comp2, redacao.nota_comp3, redacao.nota_comp4, redacao.nota_comp5
                                 FROM corretores
                                 JOIN redacao ON corretores.id_matricula = redacao.corretor_id
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
@@ -127,33 +130,44 @@ $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resul
 /*  IMPRIME O HTML DE ACORDO COM O RESULTADO  */
 if($result_redacoes && $result_redacoes->num_rows > 0){
     echo '<h6>Redações corrigidos pelo professor de matrícula "'. $mat . '":</h6>';
-    echo '<select name="arquivos" id="arquivos" class="form-control" style="margin-bottom: 50px;">';
     while ($row = $result_redacoes->fetch_assoc()){
-        $nome_cor = $row["nome_corretor"];
-        $nome_al = $row["nome_aluno"];
-        $tema = $row["tema"];
+        $id_redacao = $row["id_redacao"];
+        $nome_aluno = $row["nome_aluno"];
+        $nome_corretor = $row["nome_corretor"];
         $nota_total = $row["nota_total"];
-        $c1 = $row["nota_comp1"];
-        $c2 = $row["nota_comp2"];
-        $c3 = $row["nota_comp3"];
-        $c4 = $row["nota_comp4"];
-        $c5 = $row["nota_comp5"];
-        $texto = utf8_encode($row["texto_arquivo"]);
-        echo "<option><b>Corretor: $nome_cor</b> / Autor: $nome_al / Tema: $tema / $nota_total / $c1-$c2-$c3-$c4-$c5 </option>";
+        $tema = $row["tema"];
+        $status = $row["status_red"];
+        $data = $row["data_envio"];
+        echo "<div class='col' style='margin-bottom:10px;'>
+                    <a href='../visualiza_redacao/visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
+                    <div class='card h-100 card-pend'>
+                        <div class='card-body'>
+                            <h6 class='card-title'><b>{$nome_aluno}</b></h6>
+                            <h5 class='card-title'>{$tema}</h5>
+                            <p class='card-text'>{$status}</p>
+                        </div>
+                        <div class='card-footer'>
+                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                        </div>
+                    </div>
+                    </a>
+                </div>";
     }
-    echo '</select>';
 }
-else{
+else{ // não encontrou redacoes corrigidas pelo corretor de matrícula determinada
     echo "<h4>Não foram encontradas redações que atendam tais requisitos...</h4>";
 }
 }
+
+//caso seja o select forneça a informação de ser um aluno
 else{
 $nome = "%" . $_POST['txt_func'] . "%";
-$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, redacao.tema, redacao.caminho_arquivo, redacao.nota_total, redacao.data_envio, redacao.nota_comp1,
-                                redacao.nota_comp2, redacao.nota_comp3, redacao.nota_comp4, redacao.nota_comp5
-                                FROM alunos
-                                JOIN redacao ON alunos.id_matricula = redacao.aluno_id
-                                JOIN corretores ON corretores.id_matricula = redacao.corretor_id
+$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, 
+                                redacao.id AS id_redacao, redacao.tema, redacao.nota_total, redacao.data_envio, redacao.status_red,
+                                redacao.nota_comp1, redacao.nota_comp2, redacao.nota_comp3, redacao.nota_comp4, redacao.nota_comp5
+                                FROM corretores
+                                JOIN redacao ON corretores.id_matricula = redacao.corretor_id
+                                JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 WHERE alunos.nome LIKE ?
                                 ORDER BY redacao.data_envio");
 if (!$stmt_redacoes) {
@@ -166,21 +180,29 @@ $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resul
 /*  IMPRIME O HTML DE ACORDO COM O RESULTADO  */
 if($result_redacoes && $result_redacoes->num_rows > 0){
     echo '<h6>Redações correspontes ao Autor "' . $nome . '"</h6>';
-    echo '<select name="arquivos" id="arquivos" class="form-control" style="margin-bottom: 50px;">';
-    while ($row = $result_redacoes->fetch_assoc()){
-        $nome_cor = $row["nome_corretor"];
-        $nome_al = $row["nome_aluno"];
-        $tema = $row["tema"];
+     while ($row = $result_redacoes->fetch_assoc()){
+        $id_redacao = $row["id_redacao"];
+        $nome_aluno = $row["nome_aluno"];
+        $nome_corretor = $row["nome_corretor"];
         $nota_total = $row["nota_total"];
-        $c1 = $row["nota_comp1"];
-        $c2 = $row["nota_comp2"];
-        $c3 = $row["nota_comp3"];
-        $c4 = $row["nota_comp4"];
-        $c5 = $row["nota_comp5"];
-        $texto = utf8_encode($row["texto_arquivo"]);
-        echo "<option> Corretor: $nome_cor / <b>Autor: $nome_al</b> / Tema: $tema / $nota_total / $c1-$c2-$c3-$c4-$c5 </option>";
+        $tema = $row["tema"];
+        $status = $row["status_red"];
+        $data = $row["data_envio"];
+        echo "<div class='col' style='margin-bottom:10px;'>
+                    <a href='../visualiza_redacao/visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
+                    <div class='card h-100 card-pend'>
+                        <div class='card-body'>
+                            <h6 class='card-title'><b>{$nome_aluno}</b></h6>
+                            <h5 class='card-title'>{$tema}</h5>
+                            <p class='card-text'>{$status}</p>
+                        </div>
+                        <div class='card-footer'>
+                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                        </div>
+                    </div>
+                    </a>
+                </div>";
     }
-    echo '</select>';
 }
 else{
     echo "<h4>Não foram encontradas redações que atendam tais requisitos...</h4>";
@@ -200,6 +222,10 @@ if (isset($conn) && $conn instanceof mysqli) {
 
     <script src="../../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/corretor/js/pages/consulta_redacoes/consulta_redacoes_corrigidas.js"></script>
+    <script>
+        $nome_user = <?= $row["nome_corretor"]?>;
+        document.getElementById("nome_user").value; = $nome_user;
+    </script>
 
 </body>
 
