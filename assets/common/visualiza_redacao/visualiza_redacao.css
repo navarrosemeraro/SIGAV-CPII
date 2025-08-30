@@ -4,3 +4,7 @@
 @import './partials/section-quatro.css';
 
 @import '../../corretor/css/global/global.css';
+
+main{
+    margin-top: 50px;
+}
