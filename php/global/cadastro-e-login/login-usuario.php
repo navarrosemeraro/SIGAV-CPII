@@ -36,7 +36,7 @@ if($result_admin && $result_admin->num_rows > 0){
 }
 
 //Prepara o SQL para CORRETOR
-$stmt_corretores = $conn->prepare("SELECT nome, id_matricula, nivel_acesso FROM corretores WHERE id_matricula = ? AND senha_hash = ?");
+$stmt_corretores = $conn->prepare("SELECT nome, id_matricula, email, nivel_acesso FROM corretores WHERE id_matricula = ? AND senha_hash = ?");
 $stmt_corretores->bind_param("is", $mat, $senha);
 $stmt_corretores->execute();
 $result_corretores = $stmt_corretores->get_result();
@@ -47,6 +47,7 @@ if($result_corretores && $result_corretores->num_rows > 0){
     $_SESSION["matricula"] = $dados_corretores['id_matricula'];
     $_SESSION["nome"] = $dados_corretores['nome'];
     $_SESSION["nivel_acesso"] = $dados_corretores['nivel_acesso'];
+    $_SESSION["email"] = $dados_corretores['email'];
     header("Location: ../../../pages/pages_corretor/principal/principal.php");
     exit;
 }

@@ -170,6 +170,45 @@ require_once '../../../php/global/auth.php';
             </div>
             <br>
         <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h1 class="display-6">Orientadores</h1>
+        </div>
+        <div class="container" id="center">
+            <div id="sec-1">
+                <div class="row">
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img src="../../../assets/aluno/img/pages/principal/Devs/ana-foto.jpeg"
+                                class="card-img-top" alt="Desenvolvedor Bruno">
+                            <div class="card-body">
+                                <h5 class="card-title">Ana Luisa</h5>
+                                <p class="card-text fw-bold">Professora de LPVI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img src="../../../assets/aluno/img/pages/principal/Devs/andre-foto.jpeg"
+                                class="card-img-top" alt="Desenvolvedor Giovanni">
+                            <div class="card-body">
+                                <h5 class="card-title">André (....)</h5>
+                                <p class="card-text fw-bold">Professor de LPIII</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img src="../../../assets/aluno/img/pages/principal/Devs/vivi-foto.jpeg"
+                                class="card-img-top" alt="Desenvolvedor Otto">
+                            <div class="card-body">
+                                <h5 class="card-title">Viviane</h5>
+                                <p class="card-text fw-bold">Professora de Engenharia de Software</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
             <h1 class="display-6">Desenvolvedores - DS306</h1>
         </div>
         <div class="container" id="center">

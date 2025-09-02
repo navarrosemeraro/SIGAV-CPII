@@ -72,7 +72,7 @@ require_once '../../../php/global/auth.php';
     <section id="dois">
         <div id="center">
             <div class="position-relative" id="form-ctt" style="top: 70px; min-width: 400px;">
-                <form style="width: 700px;">
+                <form action="../../../php/global/suporte/processa_suporte.php" method="POST" style="width: 700px;">
                     <fieldset style="padding: 20px; background-color: #D8D8D8; border-radius: 8px;">
                         <legend>Contate o Suporte</legend>
                         <div class="mb-2">
@@ -86,12 +86,12 @@ require_once '../../../php/global/auth.php';
                         <div class="mb-2">
                             <label for="msg" class="form-label">Nome:</label><br>
                             <input type="text" class="form-control" id="nome" name="nome"
-                                placeholder="Digite seu nome..." required>
+                                placeholder="Digite seu nome..." readonly>
                         </div>
                         <div class="mb-2">
                             <label for="msg" class="form-label">Matrícula:</label><br>
                             <input type="text" class="form-control" id="matricula" name="matricula"
-                                placeholder="Digite sua matrícula..." required>
+                                placeholder="Digite sua matrícula..." readonly>
                         </div>
                         <div class="mb-2">
                             <label for="msg" class="form-label">Tema da mensagem:</label><br>
@@ -102,6 +102,12 @@ require_once '../../../php/global/auth.php';
                             <label for="msg" class="form-label">Deixe sua mensagem:</label><br>
                             <textarea id="msg" class="form-control" name="msg" rows="4" cols="60"
                                 placeholder="Ex: Escreva aqui..." required></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label for="anexo" class="form-label">Enviar Anexo:</label><br>
+                        </div>
+                        <div class="input-group mb-3" style="margin-top:-10px">
+                            <input type="file" class="form-control" id="anexo">
                         </div>
                         <div style="display: flex; gap: 20px;">
                             <button type="submit" class="btn btn-outline-primary"
@@ -117,6 +123,14 @@ require_once '../../../php/global/auth.php';
     </main>
 
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script>
+        //Muda o nome do input aluno
+        var input_nome = document.getElementById('nome');
+        input_nome.value = "<?= $_SESSION['nome']";?>;
+        
+        var input_mat = document.getElementById("matricula");
+        input_mat.value = "<?= $_SESSION['matricula'];"?>;
+    </script>
 </body>
 
 </html>
