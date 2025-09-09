@@ -82,12 +82,12 @@ require_once '../../../php/global/auth.php';
                         <div class="mb-2">
                             <label for="msg" class="form-label">Nome:</label><br>
                             <input type="text" class="form-control" id="nome" name="nome"
-                                placeholder="Digite seu nome..." required>
+                                placeholder="<?= $_SESSION['nome'];?>" readonly>
                         </div>
                         <div class="mb-2">
                             <label for="msg" class="form-label">Matrícula:</label><br>
                             <input type="text" class="form-control" id="matricula" name="matricula"
-                                placeholder="Digite sua matrícula..." required>
+                                placeholder="<?= $_SESSION['matricula'];?>" readonly>
                         </div>
                         <div class="mb-2">
                             <label for="msg" class="form-label">Tema da mensagem:</label><br>
