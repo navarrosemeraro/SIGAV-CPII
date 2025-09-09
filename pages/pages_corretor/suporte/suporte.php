@@ -68,7 +68,7 @@ require_once '../../../php/global/auth.php';
     <section id="dois">
         <div id="center">
             <div class="position-relative" id="form-ctt" style="top: 70px; min-width: 400px;">
-                <form style="width: 700px;">
+                <form action="../../../php/global/suporte/processa_suporte.php" method="POST" style="width: 700px;" enctype="multipart/form-data">
                     <fieldset style="padding: 20px; background-color: #b0cde8; border-radius: 8px;">
                         <legend>Contate o Suporte</legend>
                         <div class="mb-2">
@@ -98,6 +98,12 @@ require_once '../../../php/global/auth.php';
                             <label for="msg" class="form-label">Deixe sua mensagem:</label><br>
                             <textarea id="msg" class="form-control" name="msg" rows="4" cols="60"
                                 placeholder="Ex: Escreva aqui..." required></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label for="anexo" class="form-label">Enviar Anexo:</label><br>
+                        </div>
+                        <div class="input-group mb-3" style="margin-top:-10px">
+                            <input type="file" class="form-control" id="anexo" name="anexo">
                         </div>
                         <div style="display: flex; gap: 20px;">
                             <button type="submit" class="btn btn-outline-primary"

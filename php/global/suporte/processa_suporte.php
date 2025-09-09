@@ -7,7 +7,7 @@ include '../../../php/global/auth.php';
 include '../../../php/global/db.php';
 
 
-
+// verifica se o método do form é post (se o form foi enviado)
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     // Dados recebidos do formulário
@@ -41,47 +41,60 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             break;
     }
 
-    // Pasta onde será salva a imagem
-    $pasta = 'uploads/';
+    if($tipo_user === "corretor"){
+        // Pasta onde será salva a imagem caso seja corretor
+        $pasta = __DIR__ . "/../../../assets/uploads/anexos_suporte/corretores/";
+    }
+    if($tipo_user === "aluno"){
+        // Pasta onde será salva a imagem caso seja aluno
+        $pasta = __DIR__  . "/../../../assets/uploads/anexos_suporte/alunos/";
+    }
+    if($tipo_user === "admin"){
+        // Pasta onde será salva a imagem caso seja administrador
+        $pasta =  __DIR__ . "/../../../assets/uploads/anexos_suporte/admins/";
+    }
     
     // Informações do arquivo enviado
-    $arquivo = $_FILES['anexo']['name'];
-    $arquivo_tmp = $_FILES['anexo']['tmp_name'];
-    $arquivo_tipo = $_FILES['anexo']['type'];
-    $arquivo_tamanho = $_FILES['anexo']['size'];
+    if(isset($_FILES['anexo']) && $_FILES['anexo']['error'] === UPLOAD_ERR_OK){
+        $arquivo = $_FILES['anexo']['name'];
+        $arquivo_tmp = $_FILES['anexo']['tmp_name'];
+        $arquivo_tipo = $_FILES['anexo']['type'];
+        $arquivo_tamanho = $_FILES['anexo']['size'];
 
-    // Extensões permitidas
-    $extensoes_permitidas = ['jpg', 'jpeg', 'png', 'gif'];
+        // Extensões permitidas
+        $extensoes_permitidas = ['jpg', 'jpeg', 'png', 'gif'];
 
-    // Pega a extensão do arquivo
-    $extensao = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
+        // Pega a extensão do arquivo
+        $extensao = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
 
-    // Valida extensão
-    if (!in_array($extensao, $extensoes_permitidas)) {
-        die("Erro: formato de imagem não permitido.");
-    }
+        // Valida extensão
+        if (!in_array($extensao, $extensoes_permitidas)) {
+            die("Erro: formato de imagem não permitido.");
+        }   
 
-    // Valida tamanho (ex: até 5MB)
-    if ($arquivo_tamanho > 5 * 1024 * 1024) {
-        die("Erro: arquivo muito grande.");
-    }
+        // Valida tamanho (ex: até 5MB)
+        if ($arquivo_tamanho > 5 * 1024 * 1024) {
+            die("Erro: arquivo muito grande.");
+        }
 
-    // Move o arquivo para a pasta desejada
-    $novo_nome = uniqid() . "." . $extensao; // evita sobrescrever arquivos
-    $caminho_final = $pasta . $novo_nome;
-    if (move_uploaded_file($arquivo_tmp, $caminho_final)) {
-        echo "Imagem enviada com sucesso!<br>";
-        echo "Caminho do arquivo: " . $caminho_final . "<br>";
-    } else {
+        // Move o arquivo para a pasta desejada
+        $novo_nome = "anexo" . uniqid() . "." . $extensao; // evita sobrescrever arquivos, crindo uma identificação
+        $caminho_final = $pasta . $novo_nome; // define o caminho final para mover o arquivo/anexo
+        if (move_uploaded_file($arquivo_tmp, $caminho_final)) {
+            echo "Imagem enviada com sucesso!<br>";
+            echo "Caminho do arquivo: " . $caminho_final . "<br>";
+        } else {
         echo "Erro ao enviar a imagem.";
+        }
+    }
+    else {
+        $arquivo = null;
     }
 
-    $stmt_suporte = $conn->prepare("INSERT INTO suporte (tipo_usuario, nome, matricula, email, tema, mensagem, prioridade, anexo, `status`)
+    //insere o registro do suporte no banco de dados, a aguardar por resposta
+    $stmt_suporte = $conn->prepare("INSERT INTO suporte (tipo_usuario, nome, matricula, email, tema, mensagem, prioridade, caminho_anexo, `status`)
                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pendente')");
-    $stmt_suporte->bind_param("ssssssss", $tipo_user, $matricula, $email, $tema, $mensagem, $prioridade, $caminho_final);
+    $stmt_suporte->bind_param("ssssssss", $tipo_user, $nome, $matricula, $email, $tema, $mensagem, $prioridade, $caminho_final);
     $stmt_suporte->execute();
-    $result_suporte = $stmt_suporte->get_result();
-     // Aqui você pode inserir no banco
-    // ...
 }
 ?>
