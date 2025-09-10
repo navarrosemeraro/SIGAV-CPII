@@ -46,5 +46,5 @@ dist/
 *.tmp
 *.bak
 
-#biblioteca centrar php
+#biblioteca central php
 /vendor/
