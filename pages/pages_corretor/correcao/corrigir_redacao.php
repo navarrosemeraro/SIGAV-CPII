@@ -66,7 +66,7 @@ include '../../../php/global/db.php';
                 <!-- Imagem da redação com o caminho do arquivo a ser passado via POST -->
                 <h2 id="tema_redacao_txt"></h2>
                 <h4 id="nome_autor_txt"></h4>
-                <img id="redacao_img" 
+                <iframe id="redacao_img" 
                 src="<?php
                         $id = $_GET['id']; 
                         $stmt = $conn->prepare("SELECT caminho_arquivo FROM redacao WHERE id = ?");
@@ -76,7 +76,7 @@ include '../../../php/global/db.php';
                         $row = $result_caminho->fetch_assoc();
                         $base_url = "/sigav-cpii/";
                         echo $base_url . $row['caminho_arquivo']; ?>" 
-                alt="foto-redacao" style="width:100%; height:100%; border-radius: 10px flex: 2; border: 5px solid black; border-radius:10px;">
+                alt="foto-redacao" style="width:100%; height:1000px; border-radius: 10px flex: 2; border: 5px solid black; border-radius:10px;"></iframe>
             </div><br>
             <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST" class="w-100 w-md-auto" style="flex: 1;">
                 <fieldset class="border border-2 p-4 w-100">

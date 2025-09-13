@@ -2,11 +2,14 @@
 class pdfUtils{
 
     public static function extrairMatricula($texto){
-        /* Encontra padrões no texto a partir de Regex (Regular Expression)*/
-        if (preg_match('/[Mm]atr[ií]cula[:\s]*([0-9]+)/i', $texto, $matches)) {
-            return $matches[1]; // retorna o valor encontrado
-        }    
-        return null;
+    // Remove espaços extras no texto
+    $texto = preg_replace('/\s+/', ' ', $texto);
+
+    // Captura: "Matrícula: 2025001" ou "Matricula: M15501238"
+    if (preg_match('/matr[ií]cula\s*:\s*([A-Z0-9]+)/i', $texto, $matches)) {
+        return trim($matches[1]);
+    }
+    return null;
     }
 
     public static function sanitizarNomeArquivo($nomeOriginal){

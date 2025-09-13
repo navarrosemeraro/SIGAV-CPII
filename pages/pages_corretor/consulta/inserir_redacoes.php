@@ -74,7 +74,7 @@ require_once '../../../php/global/auth.php';
                 <h2 class="display-2 text-center">Inserir Novas Redações No Banco de Dados</h2>
             </div><br>
             <div class="container mt-4">
-                <form action="../../../assets/php/corretor/insercao_redacao/inserir_redacao.php" method="post" enctype="multipart/form-data">
+                <form action="../../../php/corretor/insercao_redacao/inserir_redacao.php" method="post" enctype="multipart/form-data">
                     <fieldset class="border p-4" style="max-width: 900px; margin: auto;">
                         <div class="mb-3">
                             <label for="matricula" class="form-label">Matrícula:</label>
