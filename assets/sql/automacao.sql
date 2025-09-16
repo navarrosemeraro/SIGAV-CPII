@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/08/2025 às 14:58
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 16-Set-2025 às 13:08
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `adm`
+-- Estrutura da tabela `adm`
 --
 
 CREATE TABLE `adm` (
@@ -38,12 +38,12 @@ CREATE TABLE `adm` (
   `ativo` tinyint(1) DEFAULT 1,
   `data_cadastro` datetime DEFAULT current_timestamp(),
   `ultimo_acesso` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `alunos`
+-- Estrutura da tabela `alunos`
 --
 
 CREATE TABLE `alunos` (
@@ -60,10 +60,10 @@ CREATE TABLE `alunos` (
   `ativo` tinyint(1) DEFAULT 1,
   `data_cadastro` datetime DEFAULT current_timestamp(),
   `ultimo_acesso` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `alunos`
+-- Extraindo dados da tabela `alunos`
 --
 
 INSERT INTO `alunos` (`id_matricula`, `nome`, `email`, `senha_hash`, `cpf`, `telefone`, `turno`, `turma`, `idioma`, `nivel_acesso`, `ativo`, `data_cadastro`, `ultimo_acesso`) VALUES
@@ -84,7 +84,7 @@ INSERT INTO `alunos` (`id_matricula`, `nome`, `email`, `senha_hash`, `cpf`, `tel
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `corretores`
+-- Estrutura da tabela `corretores`
 --
 
 CREATE TABLE `corretores` (
@@ -98,10 +98,10 @@ CREATE TABLE `corretores` (
   `ativo` tinyint(1) DEFAULT 1,
   `data_cadastro` datetime DEFAULT current_timestamp(),
   `ultimo_acesso` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `corretores`
+-- Extraindo dados da tabela `corretores`
 --
 
 INSERT INTO `corretores` (`id_matricula`, `nome`, `email`, `senha_hash`, `cpf`, `telefone`, `nivel_acesso`, `ativo`, `data_cadastro`, `ultimo_acesso`) VALUES
@@ -116,7 +116,7 @@ INSERT INTO `corretores` (`id_matricula`, `nome`, `email`, `senha_hash`, `cpf`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `redacao`
+-- Estrutura da tabela `redacao`
 --
 
 CREATE TABLE `redacao` (
@@ -135,33 +135,33 @@ CREATE TABLE `redacao` (
   `data_correcao` datetime DEFAULT NULL,
   `observacoes` text DEFAULT NULL,
   `caminho_arquivo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `redacao`
+-- Extraindo dados da tabela `redacao`
 --
 
 INSERT INTO `redacao` (`id`, `aluno_id`, `corretor_id`, `tema`, `nota_total`, `nota_comp1`, `nota_comp2`, `nota_comp3`, `nota_comp4`, `nota_comp5`, `status_red`, `data_envio`, `data_correcao`, `observacoes`, `caminho_arquivo`) VALUES
-(3, 'M15501238', '1234567', 'Desafios para combater os vícios em jogos de aposta online', 1000, 200, 200, 200, 200, 200, 'corrigida', '2025-08-02 16:35:33', '2025-08-02 18:15:47', NULL, 'assets/arquivos_redacoes/2025/3_ano/redacao3.jpeg'),
-(5, 'M15501238', '1234567', 'Desafios para combater o câncer de próstata', 600, 120, 120, 120, 120, 120, 'corrigida', '2025-08-02 18:57:35', '2025-08-03 18:55:56', NULL, 'assets/arquivos_redacoes/2025/3_ano/redacao5.jpeg'),
-(7, '2025001', 'C1001', 'Os desafios da educação no Brasil', 840, 160, 180, 170, 165, 165, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom desenvolvimento de ideias.', 'assets/arquivos_redacoes/2025/3_ano/redacao7.jpeg'),
-(8, '2025002', 'C1001', 'A importância da empatia nas relações sociais', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Muito boa coesão e argumentação.', 'assets/arquivos_redacoes/2025/3_ano/redacao8.jpeg'),
-(9, '2025003', 'C1002', 'O papel da tecnologia na sociedade moderna', 860, 170, 170, 175, 170, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom uso de dados e argumentação sólida.', 'assets/arquivos_redacoes/2025/3_ano/redacao9.jpeg'),
-(10, '2025004', 'C1001', 'Caminhos para combater a desigualdade social', 875, 175, 175, 175, 175, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Texto bem estruturado, com ótimos exemplos.', 'assets/arquivos_redacoes/2025/3_ano/redacao10.jpeg'),
-(11, '2025005', 'C1003', 'A influência das redes sociais na vida cotidiana', 920, 200, 160, 200, 160, 200, 'corrigida', '2025-08-03 21:46:56', NULL, 'Faltou Pouco!', 'assets/arquivos_redacoes/2025/3_ano/redacao11.jpeg'),
-(12, '2025006', '1234567', 'O desafio da mobilidade urbana', 920, 200, 160, 200, 160, 200, 'corrigida', '2025-08-03 21:46:56', '2025-08-20 19:46:26', 'Faltou Pouco!', 'assets/arquivos_redacoes/2025/3_ano/redacao12.jpeg'),
-(13, '2025007', 'C1004', 'A importância da preservação ambiental', 870, 175, 170, 175, 170, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Boa organização textual.', 'assets/arquivos_redacoes/2025/3_ano/redacao13.jpeg'),
-(14, '2025008', 'C1005', 'Desafios da mobilidade urbana nas capitais', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL, 'assets/arquivos_redacoes/2025/3_ano/redacao14.jpeg'),
-(15, '2025009', 'C1004', 'A crise hídrica e suas consequências', 890, 180, 180, 175, 180, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente domínio do tema.', 'assets/arquivos_redacoes/2025/3_ano/redacao15.jpeg'),
-(16, '2025010', 'C1002', 'Fake news e o impacto na democracia', 845, 165, 170, 170, 170, 170, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Revisar coesão em alguns trechos.', 'assets/arquivos_redacoes/2025/3_ano/redacao16.jpeg'),
-(17, '2025011', 'C1003', 'A juventude e o mercado de trabalho', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL, 'assets/arquivos_redacoes/2025/3_ano/redacao17.jpeg'),
-(18, '2025012', 'C1001', 'Racismo estrutural na sociedade brasileira', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente em todos os critérios.', 'assets/arquivos_redacoes/2025/3_ano/redacao18.jpeg'),
-(19, 'M15501238', NULL, 'Desafios para o desenvolvimento do esporte profissional além do futebol no Brasil', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-23 09:43:58', NULL, NULL, 'assets/arquivos_redacoes/2025/3_ano/redacao19.jpeg');
+(3, 'M15501238', '1234567', 'Desafios para combater os vícios em jogos de aposta online', 1000, 200, 200, 200, 200, 200, 'corrigida', '2025-08-02 16:35:33', '2025-08-02 18:15:47', NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao3.jpeg'),
+(5, 'M15501238', '1234567', 'Desafios para combater o câncer de próstata', 600, 120, 120, 120, 120, 120, 'corrigida', '2025-08-02 18:57:35', '2025-08-03 18:55:56', NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao5.jpeg'),
+(7, '2025001', 'C1001', 'Os desafios da educação no Brasil', 840, 160, 180, 170, 165, 165, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom desenvolvimento de ideias.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao7.jpeg'),
+(8, '2025002', 'C1001', 'A importância da empatia nas relações sociais', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Muito boa coesão e argumentação.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao8.jpeg'),
+(9, '2025003', 'C1002', 'O papel da tecnologia na sociedade moderna', 860, 170, 170, 175, 170, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Bom uso de dados e argumentação sólida.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao9.jpeg'),
+(10, '2025004', 'C1001', 'Caminhos para combater a desigualdade social', 875, 175, 175, 175, 175, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Texto bem estruturado, com ótimos exemplos.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao10.jpeg'),
+(11, '2025005', 'C1003', 'A influência das redes sociais na vida cotidiana', 920, 200, 160, 200, 160, 200, 'corrigida', '2025-08-03 21:46:56', NULL, 'Faltou Pouco!', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao11.jpeg'),
+(12, '2025006', '1234567', 'O desafio da mobilidade urbana', 920, 200, 160, 200, 160, 200, 'corrigida', '2025-08-03 21:46:56', '2025-08-20 19:46:26', 'Faltou Pouco!', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao12.jpeg'),
+(13, '2025007', 'C1004', 'A importância da preservação ambiental', 870, 175, 170, 175, 170, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Boa organização textual.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao13.jpeg'),
+(14, '2025008', 'C1005', 'Desafios da mobilidade urbana nas capitais', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao14.jpeg'),
+(15, '2025009', 'C1004', 'A crise hídrica e suas consequências', 890, 180, 180, 175, 180, 175, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente domínio do tema.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao15.jpeg'),
+(16, '2025010', 'C1002', 'Fake news e o impacto na democracia', 845, 165, 170, 170, 170, 170, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Revisar coesão em alguns trechos.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao16.jpeg'),
+(17, '2025011', 'C1003', 'A juventude e o mercado de trabalho', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-03 21:46:56', NULL, NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao17.jpeg'),
+(18, '2025012', 'C1001', 'Racismo estrutural na sociedade brasileira', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente em todos os critérios.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao18.jpeg'),
+(19, 'M15501238', NULL, 'Desafios para o desenvolvimento do esporte profissional além do futebol no Brasil', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-08-23 09:43:58', NULL, NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao19.jpeg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `suporte`
+-- Estrutura da tabela `suporte`
 --
 
 CREATE TABLE `suporte` (
@@ -174,17 +174,26 @@ CREATE TABLE `suporte` (
   `tema` varchar(200) DEFAULT NULL,
   `mensagem` text NOT NULL,
   `prioridade` enum('baixa','média','alta') DEFAULT 'baixa',
-  `anexo` varchar(255) DEFAULT NULL,
+  `caminho_anexo` varchar(255) DEFAULT NULL,
   `data_envio` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` enum('pendente','em andamento','respondido') DEFAULT 'pendente'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` enum('pendente','em andamento','respondido') NOT NULL DEFAULT 'pendente',
+  `resposta` varchar(5000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `suporte`
+--
+
+INSERT INTO `suporte` (`id`, `tipo_usuario`, `nome`, `matricula`, `email`, `motivo`, `tema`, `mensagem`, `prioridade`, `caminho_anexo`, `data_envio`, `status`, `resposta`) VALUES
+(1, 'aluno', 'Otto Emanuel Barbosa Mafra', 'M15501238', 'ottomafr@gmail.com', 'problema técnico', 'Falha no acesso às minhas redações', 'Não consigo visualizar uma redacao', 'alta', NULL, '2025-09-09 11:59:28', 'pendente', NULL),
+(10, 'aluno', 'Otto Emanuel Barbosa Mafra', 'M15501238', 'ottomafr@gmail.com', 'problema técnico', 'Socorro', 'SOCORRO', 'alta', 'C:\\xampp\\htdocs\\SIGAV-CPII\\php\\global\\suporte/../../../assets/uploads/anexos_suporte/alunos/anexo68c01c655de3b.jpeg', '2025-09-09 12:24:05', 'pendente', NULL);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `adm`
+-- Índices para tabela `adm`
 --
 ALTER TABLE `adm`
   ADD PRIMARY KEY (`id_matricula`),
@@ -192,7 +201,7 @@ ALTER TABLE `adm`
   ADD UNIQUE KEY `cpf` (`cpf`);
 
 --
--- Índices de tabela `alunos`
+-- Índices para tabela `alunos`
 --
 ALTER TABLE `alunos`
   ADD PRIMARY KEY (`id_matricula`),
@@ -200,7 +209,7 @@ ALTER TABLE `alunos`
   ADD UNIQUE KEY `cpf` (`cpf`);
 
 --
--- Índices de tabela `corretores`
+-- Índices para tabela `corretores`
 --
 ALTER TABLE `corretores`
   ADD PRIMARY KEY (`id_matricula`),
@@ -208,7 +217,7 @@ ALTER TABLE `corretores`
   ADD UNIQUE KEY `cpf` (`cpf`);
 
 --
--- Índices de tabela `redacao`
+-- Índices para tabela `redacao`
 --
 ALTER TABLE `redacao`
   ADD PRIMARY KEY (`id`),
@@ -216,13 +225,13 @@ ALTER TABLE `redacao`
   ADD KEY `corretor_id` (`corretor_id`);
 
 --
--- Índices de tabela `suporte`
+-- Índices para tabela `suporte`
 --
 ALTER TABLE `suporte`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -235,14 +244,14 @@ ALTER TABLE `redacao`
 -- AUTO_INCREMENT de tabela `suporte`
 --
 ALTER TABLE `suporte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `redacao`
+-- Limitadores para a tabela `redacao`
 --
 ALTER TABLE `redacao`
   ADD CONSTRAINT `redacao_ibfk_1` FOREIGN KEY (`aluno_id`) REFERENCES `alunos` (`id_matricula`),
