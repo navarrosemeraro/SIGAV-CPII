@@ -53,7 +53,7 @@
                         </div>
                         <div class="mb-2">
                             <label for="cpf" class="form-label">CPF:</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                            <input type="text" class="form-control" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"  title="Preencha com o seguinte formato: xxx.xxx.xxx-xx" placeholder="000.000.000-00" required>
                         </div>
                         <div class="mb-2">
                             <label for="matricula" class="form-label">Matrícula CPII:</label>
