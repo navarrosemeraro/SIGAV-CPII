@@ -35,68 +35,93 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // $senha_hash = password_hash($senha_hash, PASSWORD_DEFAULT);
 
- if ($funcao === "alunos") {
-    $turno  = $_POST['turno'];
-    $turma  = $_POST['turma'];
-    $idioma = $_POST['idioma'];
+    if ($funcao === "alunos") {
+        $turno  = $_POST['turno'];
+        $turma  = $_POST['turma'];
+        $idioma = $_POST['idioma'];
 
-    // Consulta se já existe na tabela ALUNOS
-    $stmt_ex = $conn->prepare("SELECT COUNT(*) FROM alunos WHERE id_matricula = ?");
-    $stmt_ex->bind_param("s", $id_matricula);
-    $stmt_ex->execute();
-    $stmt_ex->bind_result($existe);
-    $stmt_ex->fetch();
-    $stmt_ex->close();
+        // Verifica matrícula
+        $stmt_ex = $conn->prepare("SELECT COUNT(*) FROM alunos WHERE id_matricula = ?");
+        $stmt_ex->bind_param("i", $id_matricula);
+        $stmt_ex->execute();
+        $stmt_ex->bind_result($existeMatricula);
+        $stmt_ex->fetch();
+        $stmt_ex->close();
 
-    if ($existe > 0) {
-        echo "Matrícula já cadastrada!";
-    } else {
-        $stmt = $conn->prepare("INSERT INTO alunos
-            (id_matricula, nome, email, cpf, senha_hash, telefone, turma, turno, idioma)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        );
-        $stmt->bind_param("issssssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone, $turma, $turno, $idioma);
-
-        if ($stmt->execute()) {
-            header("Location: ../../../pages/cadastro-e-login/pag-login.php?cadastro=sucesso");
-            exit;
+        if ($existeMatricula > 0) {
+            echo "Matrícula já cadastrada!";
         } else {
-            echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";
+            // Verifica CPF
+            $stmt_cpf = $conn->prepare("SELECT COUNT(*) FROM alunos WHERE cpf = ?");
+            $stmt_cpf->bind_param("s", $cpf);
+            $stmt_cpf->execute();
+            $stmt_cpf->bind_result($existeCPF);
+            $stmt_cpf->fetch();
+            $stmt_cpf->close();
+
+            if ($existeCPF > 0) {
+                echo "CPF já cadastrado!";
+            } else {
+                $stmt = $conn->prepare("INSERT INTO alunos
+                    (id_matricula, nome, email, cpf, senha_hash, telefone, turma, turno, idioma)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                );
+                $stmt->bind_param("issssssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone, $turma, $turno, $idioma);
+
+                if ($stmt->execute()) {
+                    header("Location: ../../../pages/cadastro-e-login/pag-login.php?cadastro=sucesso");
+                    exit;
+                } else {
+                    echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";
+                }
+
+                $stmt->close();
+            }
         }
 
-        $stmt->close();
-    }
+    } else if ($funcao === "corretores") {
+        // Verifica matrícula
+        $stmt_ex = $conn->prepare("SELECT COUNT(*) FROM corretores WHERE id_matricula = ?");
+        $stmt_ex->bind_param("i", $id_matricula);
+        $stmt_ex->execute();
+        $stmt_ex->bind_result($existeMatricula);
+        $stmt_ex->fetch();
+        $stmt_ex->close();
 
-} else if ($funcao === "corretores") {
-    $stmt_ex = $conn->prepare("SELECT COUNT(*) FROM corretores WHERE id_matricula = ?");
-    $stmt_ex->bind_param("s", $id_matricula);
-    $stmt_ex->execute();
-    $stmt_ex->bind_result($existe);
-    $stmt_ex->fetch();
-    $stmt_ex->close();
-
-    if ($existe > 0) {
-        echo "Matrícula já cadastrada!";
-    } else {
-        $stmt = $conn->prepare("INSERT INTO corretores
-            (id_matricula, nome, email, cpf, senha_hash, telefone)
-            VALUES (?, ?, ?, ?, ?, ?)"
-        );
-        $stmt->bind_param("isssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone);
-
-        if ($stmt->execute()) {
-            header("Location: ../../../pages/cadastro-e-login/pag-login.php?cadastro=sucesso");
-            exit;
+        if ($existeMatricula > 0) {
+            echo "Matrícula já cadastrada!";
         } else {
-            echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";
+            // Verifica CPF
+            $stmt_cpf = $conn->prepare("SELECT COUNT(*) FROM corretores WHERE cpf = ?");
+            $stmt_cpf->bind_param("s", $cpf);
+            $stmt_cpf->execute();
+            $stmt_cpf->bind_result($existeCPF);
+            $stmt_cpf->fetch();
+            $stmt_cpf->close();
+
+            if ($existeCPF > 0) {
+                echo "CPF já cadastrado!";
+            } else {
+                $stmt = $conn->prepare("INSERT INTO corretores
+                    (id_matricula, nome, email, cpf, senha_hash, telefone)
+                    VALUES (?, ?, ?, ?, ?, ?)"
+                );
+                $stmt->bind_param("isssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone);
+
+                if ($stmt->execute()) {
+                    header("Location: ../../../pages/cadastro-e-login/pag-login.php?cadastro=sucesso");
+                    exit;
+                } else {
+                    echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";
+                }
+
+                $stmt->close();
+            }
         }
 
-        $stmt->close();
+    } else {
+        die("<p>Erro: função não tratada no código.</p>");
     }
-
-} else {
-    die("<p>Erro: função não tratada no código.</p>");
-}
 } else {
     echo "<p>Nenhum dado foi recebido.</p>";
 }
