@@ -5,8 +5,8 @@ class pdfUtils{
     // Remove espaços extras no texto
     $texto = preg_replace('/\s+/', ' ', $texto);
 
-    // Captura: "Matrícula: 2025001" ou "Matricula: M15501238"
-    if (preg_match('/matr[ií]cula\s*:\s*([A-Z0-9]+)/i', $texto, $matches)) {
+    // Captura: "Matrícula: 2025001" ou "Matricula: M15501238" a partir de regex
+    if (preg_match('/[Mm]atr[ií]cula\s*:\s*([A-Z0-9]+)/i', $texto, $matches)) {
         return trim($matches[1]);
     }
     return null;
