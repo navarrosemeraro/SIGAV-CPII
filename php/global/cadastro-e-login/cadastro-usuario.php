@@ -1,105 +1,98 @@
 <?php
+
 // Conexão
 $servername = "localhost";
 $username = "root";
 $password = "";
 $db_name = "automacao";
-$charset = "utf8mb4";
-
 $conn = new mysqli($servername, $username, $password, $db_name);
-$conn->set_charset($charset);
+$conn->set_charset("utf8mb4");
 
 if ($conn->connect_error) {
     die("Erro na conexão: " . $conn->connect_error);
 }
 
+// Inicializa variáveis de feedback
+$erro = "";
+$sucesso = "";
+$form_values = [];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $funcao = $_POST['funcao'];
-    $tabela_permitida = ['alunos', 'corretores'];
+    $nome = $_POST['nome'] ?? "";
+    $email = $_POST['email'] ?? "";
+    $telefone = $_POST['tel'] ?? "";
+    $cpf = $_POST['cpf'] ?? "";
+    $id_matricula = $_POST['matricula'] ?? "";
+    $senha = $_POST['senha_hash'] ?? "";
+    $confirma_senha = $_POST['newsenha'] ?? "";
 
-    if (!in_array($funcao, $tabela_permitida)) {
-        die("<p>Erro: Função inválida escolhida.</p>");
-    }
+    $form_values = [
+        'nome' => $nome,
+        'email' => $email,
+        'tel' => $telefone,
+        'cpf' => $cpf,
+        'matricula' => $id_matricula,
+    ];
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['tel'];
-    $cpf = $_POST['cpf'];
-    $id_matricula = (int) $_POST['matricula'];
-    $senha_hash = $_POST['senha_hash'];
-    $newsenha = $_POST['newsenha'];
-
-    if ($senha_hash !== $newsenha) {
-        die("<p>Erro: As senhas não coincidem.</p>");
-    }
-
-    // $senha_hash = password_hash($senha_hash, PASSWORD_DEFAULT);
-
- if ($funcao === "alunos") {
-    $turno  = $_POST['turno'];
-    $turma  = $_POST['turma'];
-    $idioma = $_POST['idioma'];
-
-    // Consulta se já existe na tabela ALUNOS
-    $stmt_ex = $conn->prepare("SELECT COUNT(*) FROM alunos WHERE id_matricula = ?");
-    $stmt_ex->bind_param("s", $id_matricula);
-    $stmt_ex->execute();
-    $stmt_ex->bind_result($existe);
-    $stmt_ex->fetch();
-    $stmt_ex->close();
-
-    if ($existe > 0) {
-        echo "Matrícula já cadastrada!";
+    // Verifica senhas
+    if ($senha !== $confirma_senha) {
+        $erro = "As senhas não coincidem.";
     } else {
-        $stmt = $conn->prepare("INSERT INTO alunos
-            (id_matricula, nome, email, cpf, senha_hash, telefone, turma, turno, idioma)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        );
-        $stmt->bind_param("issssssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone, $turma, $turno, $idioma);
+        $senha_hash = $senha; 
 
-        if ($stmt->execute()) {
-            header("Location: ../../../pages/cadastro-e-login/pag-login.php?cadastro=sucesso");
-            exit;
-        } else {
-            echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";
-        }
-
+        // Verificação de duplicidade global
+        $stmt = $conn->prepare("
+            SELECT COUNT(*) FROM (
+                SELECT id_matricula, cpf FROM alunos
+                UNION ALL
+                SELECT id_matricula, cpf FROM corretores
+            ) AS todos
+            WHERE id_matricula = ? OR cpf = ?
+        ");
+        $stmt->bind_param("ss", $id_matricula, $cpf);
+        $stmt->execute();
+        $stmt->bind_result($existe);
+        $stmt->fetch();
         $stmt->close();
-    }
 
-} else if ($funcao === "corretores") {
-    $stmt_ex = $conn->prepare("SELECT COUNT(*) FROM corretores WHERE id_matricula = ?");
-    $stmt_ex->bind_param("s", $id_matricula);
-    $stmt_ex->execute();
-    $stmt_ex->bind_result($existe);
-    $stmt_ex->fetch();
-    $stmt_ex->close();
-
-    if ($existe > 0) {
-        echo "Matrícula já cadastrada!";
-    } else {
-        $stmt = $conn->prepare("INSERT INTO corretores
-            (id_matricula, nome, email, cpf, senha_hash, telefone)
-            VALUES (?, ?, ?, ?, ?, ?)"
-        );
-        $stmt->bind_param("isssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone);
-
-        if ($stmt->execute()) {
-            header("Location: ../../../pages/cadastro-e-login/pag-login.php?cadastro=sucesso");
-            exit;
+        if ($existe > 0) {
+            $erro = "Matrícula ou CPF já cadastrado em outro usuário.";
         } else {
-            echo "<h1>Erro ao cadastrar: " . $stmt->error . "</h1>";
+            if ($funcao === "alunos") {
+                $turno  = $_POST['turno'] ?? "";
+                $turma  = $_POST['turma'] ?? "";
+                $idioma = $_POST['idioma'] ?? "";
+
+                $stmt = $conn->prepare("
+                    INSERT INTO alunos
+                    (id_matricula, nome, email, cpf, senha_hash, telefone, turma, turno, idioma, nivel_acesso)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'aluno')
+                ");
+                $stmt->bind_param("sssssssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone, $turma, $turno, $idioma);
+
+            } elseif ($funcao === "corretores") {
+                $stmt = $conn->prepare("
+                    INSERT INTO corretores
+                    (id_matricula, nome, email, cpf, senha_hash, telefone)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                ");
+                $stmt->bind_param("ssssss", $id_matricula, $nome, $email, $cpf, $senha_hash, $telefone);
+            } else {
+                $erro = "Função inválida.";
+            }
+
+            if (!$erro && $stmt->execute()) {
+                $stmt->close();
+                $conn->close();
+                // Redireciona para a página de login
+                header("Location: pag-login.php?cadastro=sucesso");
+                exit();
+            } elseif (!$erro) {
+                $erro = "Erro ao cadastrar: " . $stmt->error;
+            }
         }
-
-        $stmt->close();
     }
-
-} else {
-    die("<p>Erro: função não tratada no código.</p>");
 }
-} else {
-    echo "<p>Nenhum dado foi recebido.</p>";
-}
-
 $conn->close();
 ?>
