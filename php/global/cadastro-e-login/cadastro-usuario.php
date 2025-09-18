@@ -96,14 +96,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
-<!-- HTML: Mensagens de sucesso ou erro -->
-<?php if (!empty($erro)): ?>
-    <div style="color: red; font-weight: bold; margin: 10px 0;">
-        <?= htmlspecialchars($erro) ?>
-    </div>
-<?php elseif ($sucesso): ?>
-    <div style="color: green; font-weight: bold; margin: 10px 0;">
-        Cadastro realizado com sucesso!
-    </div>
-<?php endif; ?>
