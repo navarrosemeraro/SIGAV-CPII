@@ -1,3 +1,8 @@
+<?php 
+require_once '../../../php/global/auth.php';
+include '../../../php/global/db.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,7 +33,7 @@
     <div class="profile-header">
         <img src="https://via.placeholder.com/80" alt="Foto de Perfil">
         <h2>
-            <?php echo ($_SESSION["nome"]);?> LÚCIA DEBORAH ARAÚJO
+            <?php echo ($_SESSION["nome"]);?>
         </h2>
         <form action="../../../php/global/logout.php"><button type="submit">Logout</button></form>
     </div>
@@ -37,12 +42,12 @@
         <div class="left-panel">
             <div class="card">
                 <h3>Detalhes do usuário</h3>
-                <div class="info-value"><span class="info-label">Matrícula:</span> 999</div>
-                <div class="info-value"><span class="info-label">Endereço de e-mail:</span> <a
-                        href="mailto:giovanni.semeraro.1@cp2.edu.br">giovanni.semeraro.1@cp2.edu.br</a> (Visível para os
+                <div class="info-value"><span class="info-label">Matrícula:</span> <?php echo ($_SESSION["matricula"]);?></div>
+                <div class="info-value"><span class="info-label">Endereço de e-mail:</span><a
+                        href="mailto:<?php echo strval($_SESSION["email"])?>"> <?php echo ($_SESSION["email"]);?></a> (Visível para os
                     admnistradores)</div>
-                <div class="info-value"><span class="info-label">Máteria:</span> Português</div>
-                <div class="info-value"><span class="info-label">Zona de fuso horário:</span> America/Sao_Paulo</div>
+                <div class="info-value"><span class="info-label">CPF:</span> <?php echo ($_SESSION["cpf"]);?></div>
+                <div class="info-value"><span class="info-label">Dia de Hoje: </span><?php $agora = new DateTime(); echo $agora->format('d/m/Y'); ?></div>
             </div>
 
             <div class="card">

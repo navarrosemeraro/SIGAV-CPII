@@ -43,7 +43,6 @@ include '../../../php/global/db.php';
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item disabled" href="#">Separated link</a></li>
                                 <li><a class="dropdown-item"
                                         href="../../pages_corretor/consulta/banco_redacoes.php">Banco de Redações</a>
                                 </li>
@@ -58,7 +57,7 @@ include '../../../php/global/db.php';
                     </ul>
                     <div id="barra_usuario">
                         <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;"
-                            href="../perfil_corretor/perfil_corretor.html" class="dropdown-toggle">
+                            href="../perfil_corretor/perfil_corretor.php" class="dropdown-toggle">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-person-circle" viewBox="0 0 16 16"

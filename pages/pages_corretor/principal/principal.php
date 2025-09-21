@@ -39,7 +39,6 @@ require_once '../../../php/global/auth.php';
                         <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item disabled" href="#">Separated link</a></li>
                                 <li><a class="dropdown-item"
                                         href="../../pages_corretor/consulta/banco_redacoes.php">Banco de Redações</a>
                                 </li>
@@ -51,7 +50,7 @@ require_once '../../../php/global/auth.php';
                     </li>
                 </ul>
                 <div id="barra_usuario">
-                    <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;" href="../perfil_corretor/perfil_corretor.html" class="dropdown-toggle">
+                    <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;" href="../perfil_corretor/perfil_corretor.php" class="dropdown-toggle">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-person-circle" viewBox="0 0 16 16" style="height:30px; width:30px; margin-right: 10px">
@@ -176,7 +175,7 @@ require_once '../../../php/global/auth.php';
                 <div class="row">
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
+                            <img src="../../../assets/corretor/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
                                 class="card-img-top" alt="Orientadora Ana" >
                             <div class="card-body">
                                 <h5 class="card-title">Ana Luisa Duboc</h5>
@@ -186,7 +185,7 @@ require_once '../../../php/global/auth.php';
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
+                            <img src="../../../assets/corretor/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
                                 class="card-img-top" alt="Orientador André">
                             <div class="card-body">
                                 <h5 class="card-title">André Jesus</h5>
@@ -196,7 +195,7 @@ require_once '../../../php/global/auth.php';
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
+                            <img src="../../../assets/corretor/img/pages/principal/orientadores/viviane-foto.jpg"
                                 class="card-img-top" alt="Orientadora Viviane">
                             <div class="card-body">
                                 <h5 class="card-title">Viviane Rodrigues</h5>

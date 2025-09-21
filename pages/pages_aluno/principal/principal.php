@@ -197,7 +197,7 @@ require_once '../../../php/global/auth.php';
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
+                            <img src="../../../assets/aluno/img/pages/principal/orientadores/viviane-foto.jpg"
                                 class="card-img-top" alt="Orientadora Viviane">
                             <div class="card-body">
                                 <h5 class="card-title">Viviane Rodrigues</h5>

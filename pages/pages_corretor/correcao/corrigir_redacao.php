@@ -40,7 +40,6 @@ include '../../../php/global/db.php';
                         <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item disabled" href="#">Separated link</a></li>
                                 <li><a class="dropdown-item"
                                         href="../../pages_corretor/consulta/banco_redacoes.php">Banco de Redações</a>
                                 </li>
