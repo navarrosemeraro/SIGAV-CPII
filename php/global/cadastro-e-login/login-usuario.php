@@ -72,7 +72,7 @@ if($result_alunos && $result_alunos->num_rows > 0){
     $_SESSION["nivel_acesso"] = $dados_aluno['nivel_acesso'] ?? '';
 
     session_write_close();
-    header("Location: ../../../pages/pages_aluno/principal/principal.php");
+    header("Location: ../../../pages/pages_aluno/area_aluno/area_aluno.php");
     exit;
 }
 echo ("<p>Matrícula e/ou senha incorretas!</p>");

@@ -1,0 +1,13 @@
+@import './partials/section-um.css';
+@import './partials/section-dois.css';
+@import './partials/section-tres.css';
+@import './partials/section-quatro.css';
+
+@import '../../global/global.css';
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* centro horizontal */
+}

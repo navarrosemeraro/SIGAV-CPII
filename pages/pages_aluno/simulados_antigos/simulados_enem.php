@@ -26,31 +26,17 @@ require_once '../../../php/global/auth.php';
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="../principal/principal.php">Principal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="../minhas_redacoes/minhas_redacoes.php">Minhas Redações</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Simulados Antigos - CPII
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../simulados_antigos/simulados_enem.php">ENEM e
-                                        Gabaritos</a></li>
-                                <li><a class="dropdown-item" href="../simulados_antigos/simulados_uerj.php">UERJ e
-                                        Gabaritos</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../suporte/suporte.php">Suporte</a>
-                        </li>
-                    </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../area_aluno/area_aluno.php">Área do Aluno</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../sobre/sobre.php">Sobre O Projeto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../suporte/suporte.php">Suporte</a>
+                    </li>
+                </ul>
                     <div id="barra_usuario">
                         <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;"
                             href="../perfil_aluno/perfil_aluno.php" class="dropdown-toggle">

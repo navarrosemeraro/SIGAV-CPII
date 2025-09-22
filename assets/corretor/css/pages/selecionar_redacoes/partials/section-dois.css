@@ -1,7 +1,7 @@
 
 
 .card-pend{
-    border: 1px solid orange;
+    border: 2px solid #A89F91;
     transition: transform 1s ease;
 }
 .card-pend:hover{

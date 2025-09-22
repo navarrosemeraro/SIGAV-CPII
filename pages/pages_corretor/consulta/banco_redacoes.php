@@ -120,7 +120,8 @@ $stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.no
                                 FROM corretores
                                 JOIN redacao ON corretores.id_matricula = redacao.corretor_id
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
-                                WHERE corretores.id_matricula = ?;");
+                                WHERE corretores.id_matricula = ?
+                                ORDER BY redacao.data_envio;");
 if (!$stmt_redacoes) {
     die("Erro no prepare: " . $conn->error);
 }
@@ -170,7 +171,7 @@ $stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.no
                                 JOIN redacao ON corretores.id_matricula = redacao.corretor_id
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 WHERE alunos.turma = ? AND redacao.status_red = 'corrigida'
-                                ORDER BY redacao.data_envio");
+                                ORDER BY alunos.nome AND redacao.data_envio");
 if (!$stmt_redacoes) {
     die("Erro no prepare: " . $conn->error);
 }

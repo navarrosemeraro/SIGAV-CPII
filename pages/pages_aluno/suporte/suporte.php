@@ -28,23 +28,10 @@ require_once '../../../php/global/auth.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../principal/principal.php">Principal</a>
+                        <a class="nav-link active" aria-current="page" href="../area_aluno/area_aluno.php">Área do Aluno</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="../minhas_redacoes/minhas_redacoes.php">Minhas Redações</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Simulados Antigos - CPII
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../simulados_antigos/simulados_enem.php">ENEM e
-                                    Gabaritos</a></li>
-                            <li><a class="dropdown-item" href="../simulados_antigos/simulados_uerj.php">UERJ e
-                                    Gabaritos</a></li>
-                        </ul>
+                        <a class="nav-link active" aria-current="page" href="../sobre/sobre.php">Sobre O Projeto</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../suporte/suporte.php">Suporte</a>

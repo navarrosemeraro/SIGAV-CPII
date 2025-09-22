@@ -76,10 +76,6 @@ require_once '../../../php/global/auth.php';
                 <form action="../../../php/corretor/insercao_redacao/inserir_redacao.php" method="post" enctype="multipart/form-data">
                     <fieldset class="border p-4" style="max-width: 900px; margin: auto;">
                         <div class="mb-3">
-                            <label for="matricula" class="form-label">Matrícula:</label>
-                            <input type="text" class="form-control" id="aluno_id" name="matricula">
-                        </div>
-                        <div class="mb-3">
                             <label for="tema" class="form-label">Tema da Redação:</label>
                             <input type="text" class="form-control" id="tema" name="tema">
                         </div>
