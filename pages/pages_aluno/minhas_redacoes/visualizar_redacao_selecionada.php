@@ -192,7 +192,13 @@ include '../../../php/global/db.php';
                         <div class="row" style="text-align: left;">
                             <label for="comentario_corretor" style="margin"><b>Comentários do Corretor(a):</b></label><br>
                             <textarea class="form-control" name="comentario_corretor" id="comentario_corretor" rows="6" cols="100" readonly>
-                                <?php echo $row["observacoes"] ?? "Nenhum Comentário..."; ?>
+                                <?php 
+                                if ($row["observacoes"] != null){
+                                    echo $row["observacoes"];
+                                }
+                                else{
+                                    echo "Nenhum Comentário...";
+                                } ?>
                             </textarea>
                         </div><br>
                     </div>
