@@ -48,7 +48,7 @@ if($result_corretores && $result_corretores->num_rows > 0){
     $_SESSION["nome"] = $dados_corretores['nome'];
     $_SESSION["nivel_acesso"] = $dados_corretores['nivel_acesso'];
     $_SESSION["email"] = $dados_corretores['email'];
-    header("Location: ../../../pages/pages_corretor/principal/principal.php");
+    header("Location: ../../../pages/pages_corretor/area_corretor/area_corretor.php");
     exit;
 }
 

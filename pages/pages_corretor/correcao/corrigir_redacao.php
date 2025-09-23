@@ -29,27 +29,18 @@ include '../../../php/global/db.php';
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../pages_corretor/principal/principal.php">Principal</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Redações
-                        </a>
-                        <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../correcao/selecionar_redacao.php">Corrigir</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item"
-                                        href="../../pages_corretor/consulta/banco_redacoes.php">Banco de Redações</a>
-                                </li>
-                                <li><a class="dropdown-item" href="../../pages_corretor/consulta/inserir_redacoes.php">Inserir Novas Redações</a></li>
-                            </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../pages_corretor/suporte/suporte.php">Suporte</a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="../area_corretor/area_corretor.php">Área do Corretor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="../sobre/sobre.php">Sobre o Projeto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../suporte/suporte.php">Suporte</a>
+                        </li>
+                    </ul>
                 <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1)"><?php echo ($_SESSION["nome"] . " (" . $_SESSION["nivel_acesso"] . ")");?></a>
             </div>
         </div>

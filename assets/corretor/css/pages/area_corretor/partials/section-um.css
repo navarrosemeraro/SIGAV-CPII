@@ -1,0 +1,21 @@
+#titulo{
+    margin: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+#btn1{
+    background-color: #008080;
+}
+#btn2{
+    background-color: rgba(40, 120, 80, 1);
+}
+#btn3{
+    background-color: rgba(100, 100, 0, 1);
+}
+
+.card{
+    height: auto;
+    min-height: 21vh;
+}
