@@ -1,9 +1,37 @@
-#resultado_consulta{
+#resultado_consulta {
     justify-content: center;
     text-align: left;
 }
-#div-correcao{
+
+#div-correcao {
     display: flex;
     justify-content: space-between;
-    align-items:flex-start;
+    align-items: flex-start;
+}
+
+.divs_comp{
+    border: 1px rgba(0, 0, 0, 0.3) solid;
+    border-radius: 8px;
+    padding: 0;
+    color: white;
+}
+
+#div_comp1{
+    background-color: #3B82F6;
+}
+
+#div_comp2{
+    background-color: #10B981 ;
+}
+
+#div_comp3{
+    background-color: #8B5CF6;
+}
+
+#div_comp4{
+    background-color: #F97316;
+}
+
+#div_comp5{
+    background-color: #EC4899;
 }

@@ -56,7 +56,21 @@
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('cadastro') === 'sucesso') {
             document.getElementById('mensagem').innerHTML =
-                '<div style="margin-top: 40px" class="alert alert-success" role="alert">Cadastro realizado com sucesso! Faça login para continuar.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                '<div style="margin-top: 40px" class="alert alert-success" role="alert">Cadastro realizado com sucesso! Faça login para continuar.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>';
+        }
+
+        const acesso = <?= $_GET["acess"]?>;
+        if(acesso === 'refused'){
+            document.getElementById('mensagem').innerHTML =
+            '<div style="margin-top: 40px" class="alert alert-danger" role="alert">Não foi possível efetuar o login. Matrícula e/ou Senha incorretos.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>'
+        }
+    </script>
+    <script>
+        function apagar_msg(){
+            $mensagem = document.getElementById('mensagem');
+            $mensagem.innerHTML = "";
+            $mensagem.style.display = "none";
+            
         }
     </script>
 </body>

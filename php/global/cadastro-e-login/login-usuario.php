@@ -75,7 +75,8 @@ if($result_alunos && $result_alunos->num_rows > 0){
     header("Location: ../../../pages/pages_aluno/area_aluno/area_aluno.php");
     exit;
 }
-echo ("<p>Matrícula e/ou senha incorretas!</p>");
+
+header("Location: ../../../pages/cadastro-e-login/pag-login.php?acess='refused'");
 
 $conn->close();
 

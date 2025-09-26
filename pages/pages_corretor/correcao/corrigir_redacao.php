@@ -73,7 +73,7 @@ include '../../../php/global/db.php';
                     <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
                         <div class="container text-center">
                             <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
+                                <div class="col divs_comp" id="div_comp1">
                                     <label><b>Competência 1:</b></label><br>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="c1" id="c1_00" value="0">
@@ -105,7 +105,7 @@ include '../../../php/global/db.php';
                             </div>
                             <br><br>
                             <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
+                                <div class="col divs_comp" id="div_comp2">
                                     <label><b>Competência 2:</b></label><br>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="c2" id="c2_00" value="0">
@@ -137,7 +137,7 @@ include '../../../php/global/db.php';
                             </div>
                             <br><br>
                             <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
+                                <div class="col divs_comp" id="div_comp3">
                                     <label><b>Competência 3:</b></label><br>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="c3" id="c3_00" value="0">
@@ -169,7 +169,7 @@ include '../../../php/global/db.php';
                             </div>
                             <br><br>
                             <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
+                                <div class="col divs_comp" id="div_comp4">
                                     <label><b>Competência 4:</b></label><br>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="c4" id="c4_00" value="0">
@@ -201,7 +201,7 @@ include '../../../php/global/db.php';
                             </div>
                             <br><br>
                             <div class="row">
-                                <div class="col" style="border: 1px rgba(0, 0, 0, 0.3) solid; padding: 0;">
+                                <div class="col divs_comp" id="div_comp5">
                                     <label><b>Competência 5:</b></label><br>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="c5" id="c5_00" value="0">

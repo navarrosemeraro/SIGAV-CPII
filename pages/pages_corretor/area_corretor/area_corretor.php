@@ -67,12 +67,12 @@ require_once '../../../php/global/auth.php';
             </svg>
             </div>
             <div class="container-xxl" style="display: flex; justify-content: center;">
-                <div class="card" style="width: 30rem; margin-top: 60px; box-shadow: 0px 5px 10px #0080807e;">
+                <div class="card" style="width: 30rem; margin-top: 60px; box-shadow: 0px 5px 10px rgba(160, 130, 200, 1)">
                     <div class="card-body">
                         <h3 class="card-title">Corrigir Redações</h3>
                         <p class="card-text" style="font-size: 17px;">Corrigir Redações Pendentes de Alunos</p>
                         <a id="btn1" href="../correcao/selecionar_redacao.php" class="btn btn-primary">Selecionar Redação</a>
-                        <svg style="position: relative; left: 45%; color: #008080;" xmlns="http://www.w3.org/2000/svg" 
+                        <svg style="position: relative; left: 45%; color:rgba(160, 130, 200, 1);" xmlns="http://www.w3.org/2000/svg" 
                         width="60" height="60" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                             <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
                         </svg>
@@ -84,12 +84,12 @@ require_once '../../../php/global/auth.php';
                     <div class="row">
                         <div class="col">
                             <div class="card"
-                                style="width: 100%; margin: 10px; box-shadow: 0px 5px 10px rgba(40, 120, 80, 0.5)">
+                                style="width: 100%; margin: 10px; box-shadow: 0px 5px 10px rgba(220, 140, 110, 1)">
                                 <div class="card-body" style="text-align: left;">
                                     <h3 class="card-title">Bancos de Redações</h3>
                                     <p class="card-text" style="font-size: 17px;">Rever ou Revisar Redações já corrigidas</p>
                                     <a id="btn2" href="../consulta/banco_redacoes.php" class="btn btn-primary">Ver Redações</a>
-                                    <svg style="position: relative; left: 55%; width: 60px; height: 60px; color: rgba(40, 120, 80, 1);"
+                                    <svg style="position: relative; left: 55%; width: 60px; height: 60px; color:rgba(220, 140, 110, 1);"
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
                                         <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5z"/>
                                     </svg>
@@ -98,12 +98,12 @@ require_once '../../../php/global/auth.php';
                         </div>
                         <div class="col">
                             <div class="card"
-                                style="width: 100%; margin: 10px; box-shadow: 0px 5px 10px rgba(100, 100, 0, 0.5);">
+                                style="width: 100%; margin: 10px; box-shadow: 0px 5px 10px rgba(67, 185, 150, 1);">
                                 <div class="card-body" style="text-align: left;">
                                     <h3 class="card-title">Inserir Redações no Banco</h3>
                                     <p class="card-text" style="font-size: 17px;">Inserir Novas Redações no Banco de Dados, a fim de serem corrigidas depois</p>
                                     <a id="btn3" href="../consulta/inserir_redacoes.php" class="btn btn-primary">Ver Simulados ENEM</a>
-                                    <svg style="position: relative; left: 43%; width: 60px; height: 60px; color: rgba(100, 100, 0, 1);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                                    <svg style="position: relative; left: 43%; width: 60px; height: 60px; color:rgba(67, 185, 150, 1);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
                                     </svg>
                                 </div>
