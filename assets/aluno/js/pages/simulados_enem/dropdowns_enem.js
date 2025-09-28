@@ -44,7 +44,7 @@ function dropdown_2025() {
 function dropdown_2024() {
     var p_g = document.getElementById("provas_2024");
     if (c2024 == 0) {
-        p_g.innerHTML = `<div style="width: 100%; height: auto; background-color: blanchedalmond; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border: solid 1px #2d543d;
+        p_g.innerHTML = `<div style="width: 100%; height: auto; background-color: blanchedalmond; border-radius: 10px; border: solid 1px #2d543d;
             border-top: none; padding: 10px;">
                 <p style="opacity: 0.5;">1º Simulado</p>
                 <a href="../../../assets/aluno/pdf/simulados_cp2/ENEM/2024/1 SIMULADO ENEM 2024 DIA 1.pdf"><p>Dia 01 (05/10)</p></a>
