@@ -50,22 +50,19 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
                 <div class="mb-2">
                     <label for="nome" class="form-label">Nome completo:</label>
                     <input type="text" class="form-control" id="nome" name="nome" 
-                        placeholder="Ex: Lúcia Débora da Silva" autofocus
-                        value="<?= htmlspecialchars($form_values['nome'] ?? '') ?>" required>
+                        placeholder="Ex: Lúcia Débora da Silva" autofocus required>
                 </div>
 
                 <div class="mb-2">
                     <label for="email" class="form-label">Email:</label>
                     <input type="email" class="form-control" id="email" name="email"
-                        placeholder="Ex: exemplo@gmail.com"
-                        value="<?= htmlspecialchars($form_values['email'] ?? '') ?>" required>
+                        placeholder="Ex: exemplo@gmail.com" required>
                 </div>
 
                 <div class="mb-2">
                     <label for="tel" class="form-label">Telefone de Contato:</label>
                     <input type="tel" class="form-control" id="tel" name="tel"
-                        placeholder="Ex: (DDD) 99999-9999"
-                        value="<?= htmlspecialchars($form_values['tel'] ?? '') ?>" required>
+                        placeholder="Ex: (DDD) 99999-9999" required>
                 </div>
 
                 <div class="mb-2">
@@ -73,15 +70,13 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
                     <input type="text" class="form-control" id="cpf" name="cpf"
                         pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"  
                         title="Preencha com o seguinte formato: xxx.xxx.xxx-xx" 
-                        placeholder="000.000.000-00"
-                        value="<?= htmlspecialchars($form_values['cpf'] ?? '') ?>" required>
+                        placeholder="000.000.000-00" required>
                 </div>
 
                 <div class="mb-2">
                     <label for="matricula" class="form-label">Matrícula CPII:</label>
                     <input type="text" class="form-control" id="matricula" name="matricula"
-                        placeholder="****"
-                        value="<?= htmlspecialchars($form_values['matricula'] ?? '') ?>" required>
+                        placeholder="****" required>
                 </div>
 
                 <div id="espec-aluno">

@@ -19,13 +19,13 @@ $form_values = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $funcao = $_POST['funcao'];
-    $nome = $_POST['nome'] ?? "";
-    $email = $_POST['email'] ?? "";
-    $telefone = $_POST['tel'] ?? "";
-    $cpf = $_POST['cpf'] ?? "";
-    $id_matricula = $_POST['matricula'] ?? "";
-    $senha = $_POST['senha_hash'] ?? "";
-    $confirma_senha = $_POST['newsenha'] ?? "";
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['tel'];
+    $cpf = $_POST['cpf'];
+    $id_matricula = $_POST['matricula'];
+    $senha = $_POST['senha_hash'];
+    $confirma_senha = $_POST['newsenha'];
 
     $form_values = [
         'nome' => $nome,
@@ -60,9 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $erro = "Matrícula ou CPF já cadastrado em outro usuário.";
         } else {
             if ($funcao === "alunos") {
-                $turno  = $_POST['turno'] ?? "";
-                $turma  = $_POST['turma'] ?? "";
-                $idioma = $_POST['idioma'] ?? "";
+                $turno  = $_POST['turno'];
+                $turma  = $_POST['turma'];
+                $idioma = $_POST['idioma'];
 
                 $stmt = $conn->prepare("
                     INSERT INTO alunos

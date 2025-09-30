@@ -96,5 +96,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pendente')");
     $stmt_suporte->bind_param("ssssssss", $tipo_user, $nome, $matricula, $email, $tema, $mensagem, $prioridade, $caminho_final);
     $stmt_suporte->execute();
+
+    if($_SESSION["nivel_acesso"] === "corretor"){
+        header("Location: ../../../pages/pages_corretor/suporte/suporte.php");
+        exit;
+    }
+    elseif ($_SESSION["nivel_acesso"] === "aluno"){
+        header("Location: ../../../pages/pages_aluno/suporte/suporte.php");
+        exit;
+    }
+    
 }
 ?>
