@@ -71,7 +71,9 @@ include '../../../php/global/db.php';
                         echo $base_url . $row['caminho_arquivo']; ?>"
                         alt="foto-redacao" style="width:70%; height:100%; border-radius: 10px; margin-right:10px;
                         border: 5px solid black;
-                        border-radius:10px;"></iframe>
+                        border-radius:10px;">
+                    
+                </iframe>
 
                     <fieldset class="border border-2 p-4 w-100 w-md-auto" style="flex: 1;">
                         <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST">
@@ -219,7 +221,11 @@ include '../../../php/global/db.php';
                                         Corretor(a):</b></label><br>
                                 <textarea class="form-control" name="comentario_corretor" id="comentario_corretor"
                                     rows="6" cols="100" readonly>
-                                    <?php echo $row["observacoes"] ?? "Nenhum Comentário..."; ?>
+                                    <?php if($row["observacoes"] != null)
+                                    {
+                                        echo $row["observacoes"];
+                                    }
+                                    else{echo "Nenhum Comentário";} ?>
                                 </textarea>
                             </div><br>
                         </div>
