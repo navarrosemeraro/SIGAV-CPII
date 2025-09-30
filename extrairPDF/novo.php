@@ -2,7 +2,7 @@
     ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
         function convertePNG($arquivo){
 
-            $comando = "C:/xampp/htdocs/xpdf/bin64/pdftopng.exe -r 300 -gray C:/xampp/htdocs/".$arquivo." imagem 2>NUL";
+            $comando = "C:/xampp/htdocs/xpdf/bin64/pdftopng.exe -r 300 -gray C:/xampp/htdocs/SIGAV-CPII/extrairPDF/".$arquivo." imagem 2>NUL";
 
             exec($comando, $output, $return_var);
             if ($return_var === 0) {
@@ -26,7 +26,7 @@
                 }
         }
 
-        convertePNG("redacao.pdf");
+        convertePNG("Matricula.pdf");
 
         $saida = shell_exec("python ExtrairPdfOCR.py");
         echo $saida;
