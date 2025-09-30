@@ -98,12 +98,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $stmt_suporte->execute();
 
     if($_SESSION["nivel_acesso"] === "corretor"){
-        header("Location: ../../../pages/pages_corretor/suporte/suporte.php");
-        exit;
+        header("Location: ../../../pages/pages_corretor/suporte/suporte.php?envio='success'");
     }
-    elseif ($_SESSION["nivel_acesso"] === "aluno"){
-        header("Location: ../../../pages/pages_aluno/suporte/suporte.php");
-        exit;
+    else if ($_SESSION["nivel_acesso"] === "aluno"){
+        header("Location: ../../../pages/pages_aluno/suporte/suporte.php?envio='success'");
     }
     
 }

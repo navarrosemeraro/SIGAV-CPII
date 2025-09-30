@@ -58,6 +58,7 @@ require_once '../../../php/global/auth.php';
     <section id="dois">
         <div id="center">
             <div class="position-relative" id="form-ctt" style="top: 70px; min-width: 400px;">
+                <div id="mensagem"></div>
                 <form action="../../../php/global/suporte/processa_suporte.php" method="POST" style="width: 700px;" enctype="multipart/form-data">
                     <fieldset style="padding: 20px; background-color: #b0cde8; border-radius: 8px;">
                         <legend>Contate o Suporte</legend>
@@ -108,6 +109,20 @@ require_once '../../../php/global/auth.php';
     </section>
 
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script>
+        const envio_suporte = <?= $_GET['envio']?>;
+        if(envio_suporte === 'success'){
+            document.getElementById('mensagem').innerHTML =
+            '<div style="margin-top: 40px" class="alert alert-success" role="alert">Mensagem enviada ao suporte com sucesso.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>';
+        }
+
+        function apagar_msg(){
+            $mensagem = document.getElementById('mensagem');
+            $mensagem.innerHTML = "";
+            $mensagem.style.display = "none";
+            
+        }
+    </script>
 </body>
 
 </html>

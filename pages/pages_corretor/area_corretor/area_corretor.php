@@ -51,7 +51,7 @@ require_once '../../../php/global/auth.php';
                                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                             </svg>
                         </span>
-                        <?php echo ($_SESSION["nome"]); ?>
+                        <?php echo ($_SESSION["nome"]);?>
                     </a>
                 </div>
             </div>
@@ -102,7 +102,7 @@ require_once '../../../php/global/auth.php';
                                 <div class="card-body" style="text-align: left;">
                                     <h3 class="card-title">Inserir Redações no Banco</h3>
                                     <p class="card-text" style="font-size: 17px;">Inserir Novas Redações no Banco de Dados, a fim de serem corrigidas depois</p>
-                                    <a id="btn3" href="../consulta/inserir_redacoes.php" class="btn btn-primary">Ver Simulados ENEM</a>
+                                    <a id="btn3" href="../consulta/inserir_redacoes.php" class="btn btn-primary">Inserir redações</a>
                                     <svg style="position: relative; left: 43%; width: 60px; height: 60px; color:rgba(67, 185, 150, 1);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
                                     </svg>
