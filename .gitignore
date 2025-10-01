@@ -48,3 +48,6 @@ dist/
 
 #biblioteca central php
 /vendor/
+
+#modulos do node
+/node_modules/

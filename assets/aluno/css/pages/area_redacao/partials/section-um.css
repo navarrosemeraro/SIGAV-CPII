@@ -1,0 +1,66 @@
+/* Estilos para o corpo da página, combinando com a imagem de fundo claro */
+body {
+    background-color: #FDFBF5;
+    font-family: 'Poppins', sans-serif;
+    color: #4A574A;
+}
+
+/* Estilo base para os cards */
+.custom-card {
+    background-color: #FFFFFF;
+    border: 1px solid #EAE6D7; 
+    border-radius: 16px; 
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Estilo para os títulos dos cards */
+.card-title-custom {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #384238; 
+}
+
+/* Placeholder para o gráfico de notas */
+.chart-placeholder {
+    background-color: #F7F5EE;
+    border: 2px dashed #EAE6D7;
+    border-radius: 12px;
+    min-height: 250px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A0A092;
+    flex-grow: 1;
+}
+
+/* Estilos específicos para o card com ícone */
+.icon-card .card-body {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.icon-display {
+    font-size: 3.5rem;
+    color: #8D9B8D;  
+}
+
+.icon-card .card-title-custom {
+    margin-bottom: 0; 
+}
