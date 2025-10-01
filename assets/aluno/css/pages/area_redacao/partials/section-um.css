@@ -16,8 +16,8 @@ body {
     flex-direction: column;
 }
 
-.custom-card:hover {
-    transform: translateY(-5px);
+#minhas_redacoes_btn:hover {
+    transform: translateY(-10px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 

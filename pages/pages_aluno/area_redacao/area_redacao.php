@@ -1,6 +1,7 @@
 <?php
-    require_once '../../../php/db.php';
-    require_once '../../../php/auth.php';
+    require_once '../../../php/global/db.php';
+    require_once '../../../php/global/auth.php';
+    include 'functions_graph.php';
 ?>
 
 <!DOCTYPE html>
@@ -75,10 +76,10 @@
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="custom-card icon-card h-100">
+                        <div class="custom-card icon-card h-50" id="minhas_redacoes_btn">
                             <div class="card-body">
                                 <i class="bi bi-file-earmark-text icon-display"></i>
-                                <h5 class="card-title-custom mt-3">Minhas Redações</h5>
+                                <h5 class="card-title-custom mt-3">Acessar Minhas Redações</h5>
                             </div>
                         </div>
                     </div>
@@ -94,6 +95,16 @@
     <script src="../../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../../node_modules/chart.js/dist/chart.umd.min.js"></script>
     <script>
+
+        <?php
+            $id_matricula = $_SESSION["matricula"];
+            $medias_mensais_php = calcularMedias($conn, $id_matricula); //funcao que retorna as médias mensais do respectivo aluno
+        ?>
+
+        // Converte o array PHP para um array JavaScript usando json_encode
+        //array_values() garante que o resultado seja um array simples, sem chaves
+        const mediasJS = <?php echo json_encode(array_values($medias_mensais_php)); ?>;
+
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
@@ -101,8 +112,8 @@
             data: {
                 labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Médias Mensais de Notas',
+                    data: mediasJS,
                     borderWidth: 1,
                 }
                 ]

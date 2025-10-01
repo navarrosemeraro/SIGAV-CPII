@@ -3,7 +3,10 @@
 function calcularMedias($conn, $id_matricula){
 
     for($mes=1; $mes <= 12 ; $mes++){
-        $sql = "SELECT ROUND(AVG(nota_total), 2) AS media_mensal FROM redacao WHERE id_matricula = ? AND MONTH(redacao.data_envio) = ($i+1)";
+
+        $sql = "SELECT ROUND(AVG(nota_total), 2) AS media_mensal FROM redacao
+                JOIN alunos ON redacao.aluno_id = alunos.id_matricula
+                WHERE alunos.id_matricula = ? AND MONTH(redacao.data_envio) = ($mes);";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $id_matricula);
         $stmt->execute();
@@ -11,9 +14,16 @@ function calcularMedias($conn, $id_matricula){
         $result = $stmt->get_result();
         $data = $result->fetch_assoc();
 
-        $medias_mensais[$mes] = $data['media_mensal'];
-
+        if($data['media_mensal'] != null){
+            $medias_mensais[$mes] = $data['media_mensal'];
+        }
+        else {$medias_mensais[$mes] = 0;}
+        
     }
+
+    $stmt->close();
+
+    return $medias_mensais;
    
 }
 
