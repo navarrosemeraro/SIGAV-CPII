@@ -11,7 +11,7 @@ require_once '../../../php/global/auth.php';
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/aluno/css/pages/area_aluno/area_aluno.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
-    <title>Página Principal</title>
+    <title>Área do Aluno</title>
 </head>
 
 <body>
@@ -69,9 +69,9 @@ require_once '../../../php/global/auth.php';
             <div class="container-xxl" style="display: flex; justify-content: center;">
                 <div class="card" style="width: 30rem; margin-top: 60px; box-shadow: 0px 5px 10px #0080807e;">
                     <div class="card-body">
-                        <h3 class="card-title">Minhas Redações</h3>
+                        <h3 class="card-title">Redações</h3>
                         <p class="card-text" style="font-size: 17px;">Ver os status e a Correção de Minhas Redações</p>
-                        <a id="btn1" href="../minhas_redacoes/minhas_redacoes.php" class="btn btn-primary">Ver Redações</a>
+                        <a id="btn1" href="../area_redacao/area_redacao.php" class="btn btn-primary">Ver Redações</a>
                         <svg style="position: relative; left: 52%; width: 60px; height: 60px; color: #008080;"
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-book-half" viewBox="0 0 16 16">

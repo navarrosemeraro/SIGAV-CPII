@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Área de Redação</title>
     <link rel="stylesheet" href="../../../assets/aluno/css/pages/area_redacao/area_redacao.css">
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
@@ -61,29 +61,45 @@
 
     <section id="um">
         <main>
-            <div class="container my-5">
-                <div class="row g-4">
+            <div id="center">
+                <h2 class="display-2 text-center">Redações</h2>
+            </div>
+            <div id="center">
+                <div class="container my-5">
+                    <div class="row g-4">
 
-                    <div class="col-lg-8">
-                        <div class="custom-card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title-custom" style="margin: 10px">Médias de notas</h5>
-                                <div class="chart-placeholder" style="padding: 10px;">
-                                    <canvas id="myChart"></canvas>
+                        <div class="col-lg-8">
+                            <div class="custom-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title-custom" style="margin: 10px">Médias de notas</h5>
+                                    <div class="chart-placeholder" style="padding: 10px;">
+                                        <canvas id="myChart"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-4">
-                        <div class="custom-card icon-card h-50" id="minhas_redacoes_btn">
-                            <div class="card-body">
-                                <i class="bi bi-file-earmark-text icon-display"></i>
-                                <h5 class="card-title-custom mt-3">Acessar Minhas Redações</h5>
-                            </div>
+
+                        <div class="col-lg-4">
+                            <a href="../minhas_redacoes/minhas_redacoes.php" style="text-decoration: none;">
+                                <div class="custom-card icon-card h-50" id="minhas_redacoes_btn">
+                                    <div class="card-body">
+                                        <i class="bi bi-file-earmark-text icon-display"></i>
+                                        <h5 class="card-title-custom mt-3">Acessar Minhas Redações</h5>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="../minhas_redacoes/minhas_redacoes.php" style="text-decoration: none;">
+                                <div class="custom-card icon-card" id="minhas_redacoes_btn" style=" height: 40%; margin-top: 30px; ">
+                                    <div class="card-body">
+                                        <i class="bi bi-file-earmark-text icon-display"></i>
+                                        <h5 class="card-title-custom mt-3">Temas de Redações</h5>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
 
@@ -98,7 +114,7 @@
 
         <?php
             $id_matricula = $_SESSION["matricula"];
-            $medias_mensais_php = calcularMedias($conn, $id_matricula); //funcao que retorna as médias mensais do respectivo aluno
+        $medias_mensais_php = calcularMedias($conn, $id_matricula); //funcao que retorna as médias mensais do respectivo aluno
         ?>
 
         // Converte o array PHP para um array JavaScript usando json_encode

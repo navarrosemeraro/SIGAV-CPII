@@ -12,7 +12,7 @@ include '../../../php/global/db.php';
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/common/visualiza_redacao/visualiza_redacao.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
-    <title>Cadastro de Corretores</title>
+    <title>Visualizar Redação</title>
 </head>
 
 <body>
@@ -29,8 +29,8 @@ include '../../../php/global/db.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../area_corretor/area_corretor.php">Área do
-                            Corretor</a>
+                        <a class="nav-link active" aria-current="page" href="../area_aluno/area_aluno.php">Área do
+                            Aluno</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../sobre/sobre.php">Sobre o Projeto</a>
@@ -69,7 +69,7 @@ include '../../../php/global/db.php';
                         $row = $result_caminho->fetch_assoc();
                         $base_url = "/sigav-cpii/";
                         echo $base_url . $row['caminho_arquivo']; ?>"
-                        alt="foto-redacao" style="width:70%; height:100%; border-radius: 10px; margin-right:10px;
+                        alt="foto-redacao" style="width:70%; height:100%; min-height: 100vh; border-radius: 10px; margin-right:10px;
                         border: 5px solid black;
                         border-radius:10px;">
                     </iframe>

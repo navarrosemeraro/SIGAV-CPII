@@ -11,7 +11,7 @@ require_once '../../../php/global/auth.php';
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/corretor/css/pages/area_corretor/area_corretor.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
-    <title>Página Principal</title>
+    <title>Área do Corretor</title>
 </head>
 
 <body>

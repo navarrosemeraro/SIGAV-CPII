@@ -21,3 +21,12 @@ body {
     text-decoration: none;
     color: #007bff;
 }
+
+#foto button{
+    transition: 0.5s ease-in-out;
+}
+
+#foto button:hover {
+    background-color: grey;
+    color: white
+}

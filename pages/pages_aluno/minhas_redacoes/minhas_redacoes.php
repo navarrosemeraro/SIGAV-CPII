@@ -11,7 +11,7 @@ require_once '../../../php/global/auth.php';
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/aluno/css/pages/minhas_redacoes/minhas_redacoes.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
-    <title>Cadastro de Corretores</title>
+    <title>Minhas Redações</title>
 </head>
 
 <body>
@@ -75,7 +75,7 @@ $stmt_redacoes = $conn->prepare("SELECT redacao.id AS id_redacao, redacao.tema, 
                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                 LEFT JOIN corretores ON corretores.id_matricula = redacao.corretor_id
                                 WHERE alunos.id_matricula = ?
-                                ORDER BY status_red;");
+                                ORDER BY status_red, data_envio desc;");
 if (!$stmt_redacoes) {
     die("Erro no prepare: " . $conn->error);
 }

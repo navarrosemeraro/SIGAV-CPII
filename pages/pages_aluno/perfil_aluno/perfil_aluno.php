@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/aluno/css/pages/perfil_aluno/perfil_aluno.css">
     <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
-    <title>Perfil do Usuário - Colégio Pedro II</title>
+    <title>Perfil do Aluno</title>
 
 </head>
 
@@ -25,6 +25,7 @@
                     <path fill-rule="evenodd"
                         d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                 </svg>
+                <form action="../../../php/global/logout.php"><button type="submit" style="position: absolute; left: 80%; padding: 10px; border: 1px black solid;">Logout</button></form>
             </div>
             <p style="display: flex; justify-content: center;" id="txt_nome"></p>
             <div class="container text-center">

@@ -11,7 +11,7 @@ include '../../../php/global/db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../assets/corretor/css/pages/banco_redacoes/banco_redacoes.css">
     <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
-    <title>Cadastro de Corretores</title>
+    <title>Banco de Redações</title>
 </head>
 
 <body>

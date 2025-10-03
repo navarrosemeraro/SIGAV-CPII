@@ -10,7 +10,7 @@ require_once '../../../php/global/auth.php';
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/aluno/css/pages/simulados_antigos/simulados_uerj/simulados_uerj.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
-    <title>Cadastro de Corretores</title>
+    <title>Simulado UERJ</title>
 
 <body>
     <section id="um">
