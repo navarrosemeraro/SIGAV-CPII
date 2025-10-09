@@ -1,0 +1,38 @@
+InfoBegin
+InfoKey: Creator
+InfoValue: Microsoft&#174; Word para Microsoft 365
+InfoBegin
+InfoKey: Producer
+InfoValue: Microsoft&#174; Word para Microsoft 365
+InfoBegin
+InfoKey: Author
+InfoValue: Jos&#233; Mendes
+InfoBegin
+InfoKey: ModDate
+InfoValue: D:20251003003759-03'00'
+InfoBegin
+InfoKey: CreationDate
+InfoValue: D:20251003003759-03'00'
+PdfID0: 683dd375dcc6d546bcff6588241c14a9
+PdfID1: 683dd375dcc6d546bcff6588241c14a9
+NumberOfPages: 4
+PageMediaBegin
+PageMediaNumber: 1
+PageMediaRotation: 0
+PageMediaRect: 0 0 595.4 841.8
+PageMediaDimensions: 595.4 841.8
+PageMediaBegin
+PageMediaNumber: 2
+PageMediaRotation: 0
+PageMediaRect: 0 0 595.4 841.8
+PageMediaDimensions: 595.4 841.8
+PageMediaBegin
+PageMediaNumber: 3
+PageMediaRotation: 0
+PageMediaRect: 0 0 595.4 841.8
+PageMediaDimensions: 595.4 841.8
+PageMediaBegin
+PageMediaNumber: 4
+PageMediaRotation: 0
+PageMediaRect: 0 0 595.4 841.8
+PageMediaDimensions: 595.4 841.8
