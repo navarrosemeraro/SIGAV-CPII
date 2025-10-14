@@ -19,7 +19,7 @@ include '../../../php/global/db.php';
 
 
     <div id="breadcrumb" style="border-bottom: 2px solid white;">
-        <a href="../principal/principal.php" style="text-decoration: none; margin-bottom: 10px;">
+        <a href="../area_corretor/area_corretor.php" style="text-decoration: none; margin-bottom: 10px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                 class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                 <path

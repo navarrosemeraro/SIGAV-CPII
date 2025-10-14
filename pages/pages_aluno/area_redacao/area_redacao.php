@@ -109,15 +109,15 @@
 
 
     <script src="../../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../../node_modules/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
 
         <?php
-            $id_matricula = $_SESSION["matricula"];
+        $id_matricula = $_SESSION["matricula"];
         $medias_mensais_php = calcularMedias($conn, $id_matricula); //funcao que retorna as médias mensais do respectivo aluno
         ?>
 
-        // Converte o array PHP para um array JavaScript usando json_encode
+        //converte o array PHP para um array JavaScript usando json_encode
         //array_values() garante que o resultado seja um array simples, sem chaves
         const mediasJS = <?php echo json_encode(array_values($medias_mensais_php)); ?>;
 

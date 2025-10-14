@@ -62,7 +62,7 @@ include '../../../php/global/db.php';
                     <h4 id="nome_autor_txt"></h4>
                     <iframe id="redacao_img" src="<?php
                         $id = $_GET['id']; 
-                        $stmt = $conn->prepare("SELECT nota_total, nota_comp1, nota_comp2, nota_comp3, nota_comp4,
+                        $stmt = $conn->prepare(" SELECT nota_total, nota_comp1, nota_comp2, nota_comp3, nota_comp4,
                         nota_comp5, observacoes, caminho_arquivo FROM redacao WHERE id=?"); $stmt->bind_param("i", $id);
                         $stmt->execute();
                         $result_caminho = $stmt->get_result();
@@ -72,8 +72,8 @@ include '../../../php/global/db.php';
                         alt="foto-redacao" style="width:70%; height:100%; border-radius: 10px; margin-right:10px;
                         border: 5px solid black;
                         border-radius:10px;">
-                    
-                </iframe>
+
+                    </iframe>
 
                     <fieldset class="border border-2 p-4 w-100 w-md-auto" style="flex: 1;">
                         <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST">
@@ -213,25 +213,23 @@ include '../../../php/global/db.php';
         <br>
         <section id="dois">
             <div class="container-xxl d-flex flex-column" id="div-correcao2">
-                <div class="w-100 w-md-auto" style="flex: 1;">
-                    <fieldset class="border border-2 p-4 w-100">
-                        <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
-                            <div class="row" style="text-align: left;">
-                                <label for="comentario_corretor" style="margin"><b>Comentários do
-                                        Corretor(a):</b></label><br>
-                                <textarea class="form-control" name="comentario_corretor" id="comentario_corretor"
-                                    rows="6" cols="100" readonly>
-                                    <?php if($row["observacoes"] != null)
-                                    {
-                                        echo $row["observacoes"];
-                                    }
-                                    else{echo "Nenhum Comentário";} ?>
-                                </textarea>
-                            </div><br>
-                        </div>
-                </div>
+                <fieldset class="border border-2 p-4 w-100">
+                    <div class="row" style="text-align: left;">
+                        <label for="comentario_corretor"><b>Comentários do Corretor(a):</b></label>
+                        <textarea class="form-control" name="comentario_corretor" id="comentario_corretor" rows="6"
+                            cols="100" readonly style="text-align: left; padding: 8px; overflow: auto; resize: none;">
+                            <?php 
+                                if($row["observacoes"] != null) {
+                                    echo htmlspecialchars($row["observacoes"]);
+                                } else {
+                                    echo "Nenhum Comentário";
+                                } 
+                            ?>
+            </textarea>
+                    </div>
                 </fieldset>
             </div>
+
         </section>
         </div>
 

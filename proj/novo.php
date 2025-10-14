@@ -55,9 +55,9 @@
 
         $arquivo_pdf = $_POST["arquivo.pdf"];
 
-        $numPagina = VerificaNumPag("redacao.pdf");//retorna número de páginas do pdf
-        convertePNG("redacao.pdf");
-        extraiPDF("redacao.pdf");
+        $numPagina = VerificaNumPag($arquivo_pdf);//retorna número de páginas do pdf
+        convertePNG($arquivo_pdf);
+        extraiPDF($arquivo_pdf);
         $arquivosPNG_encontrados = glob($raiz."/proj/" . "pagina*.png"); //guarda o nome dos arquivos PNG gerados
         $arquivosPDF_encontrados = glob($raiz."/proj/" . "pg*.pdf");//guarda os nomes dos arquivos PDF gerados
 

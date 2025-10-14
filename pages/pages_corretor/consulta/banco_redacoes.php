@@ -9,6 +9,7 @@ include '../../../php/global/db.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/corretor/css/pages/banco_redacoes/banco_redacoes.css">
     <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
     <title>Banco de Redações</title>
@@ -40,20 +41,27 @@ include '../../../php/global/db.php';
                             <a class="nav-link" href="../suporte/suporte.php">Suporte</a>
                         </li>
                     </ul>
-                    <div id="barra_usuario">
-                        <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;"
-                            href="../perfil_corretor/perfil_corretor.php" class="dropdown-toggle">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-person-circle" viewBox="0 0 16 16"
-                                    style="height:30px; width:30px; margin-right: 10px">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                                    <path fill-rule="evenodd"
-                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                                </svg>
-                            </span>
-                            <?php echo ($_SESSION["nome"]);?>
-                        </a>
+                    <div class="dropdown">
+                        <button style="background-color: white;" class="btn btn-secondary" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;"
+                        href="../perfil_corretor/perfil_corretor.php" class="dropdown-toggle">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person-circle" viewBox="0 0 16 16"
+                                style="height:30px; width:30px; margin-right: 10px">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </span>
+                        <?php echo ($_SESSION["nome"]);?>
+                    </a>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../perfil_corretor/perfil_corretor.php">Ver Perfil</a></li>
+                            <li><a class="dropdown-item" href="../../../php/global/logout.php">Logout</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -64,15 +64,15 @@ require_once '../../../php/global/auth.php';
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="width: 50%;">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../../assets/aluno/img/pages/principal/ENEM/caderno-questoes.png"
+                        <img src="../../../assets/aluno/img/pages/sobre/ENEM/caderno-questoes.png"
                             class="d-block w-100" alt="Caderno de Questões">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../../assets/aluno/img/pages/principal/ENEM/folha-red.png" class="d-block w-100"
+                        <img src="../../../assets/aluno/img/pages/sobre/ENEM/folha-red.png" class="d-block w-100"
                             alt="Folha de Redação">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../../assets/aluno/img/pages/principal/ENEM/cartao-resposta.png"
+                        <img src="../../../assets/aluno/img/pages/sobre/ENEM/cartao-resposta.png"
                             class="d-block w-100" alt="Cartão Resposta">
                     </div>
                 </div>
@@ -135,7 +135,7 @@ require_once '../../../php/global/auth.php';
         </div>
             <div id="sec-1">
                 <div class="card h-100">
-                    <img src="../../../assets/aluno/img/pages/principal/Devs/Lucia-Deborah-Araujo.png" class="card-img-top" alt="Professora Lúcia Deborah">
+                    <img src="../../../assets/aluno/img/pages/sobre/Devs/Lucia-Deborah-Araujo.png" class="card-img-top" alt="Professora Lúcia Deborah">
                         <div class="card-body">
                             <h5 class="card-title">Lúcia Deborah</h5>
                             <p class="card-text">Professora do Colégio Pedro II</p>
@@ -164,7 +164,7 @@ require_once '../../../php/global/auth.php';
                 <div class="row">
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
+                            <img src="../../../assets/aluno/img/pages/sobre/Orientadores/anaLuisaDuboc.jpg"
                                 class="card-img-top" alt="Orientadora Ana" >
                             <div class="card-body">
                                 <h5 class="card-title">Ana Luisa Duboc</h5>
@@ -174,7 +174,7 @@ require_once '../../../php/global/auth.php';
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/orientadores/anaLuisaDuboc.jpg"
+                            <img src="../../../assets/aluno/img/pages/sobre/Orientadores/anaLuisaDuboc.jpg"
                                 class="card-img-top" alt="Orientador André">
                             <div class="card-body">
                                 <h5 class="card-title">André Jesus</h5>
@@ -184,7 +184,7 @@ require_once '../../../php/global/auth.php';
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/orientadores/viviane-foto.jpg"
+                            <img src="../../../assets/aluno/img/pages/sobre/Orientadores/viviane-foto.jpg"
                                 class="card-img-top" alt="Orientadora Viviane">
                             <div class="card-body">
                                 <h5 class="card-title">Viviane Rodrigues</h5>
@@ -203,7 +203,7 @@ require_once '../../../php/global/auth.php';
                 <div class="row">
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/Devs/bruno-foto.jpeg"
+                            <img src="../../../assets/aluno/img/pages/sobre/Devs/bruno-foto.jpeg"
                                 class="card-img-top" alt="Desenvolvedor Bruno">
                             <div class="card-body">
                                 <h5 class="card-title">Bruno Dantas</h5>
@@ -214,7 +214,7 @@ require_once '../../../php/global/auth.php';
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/Devs/giovanni-foto.jpeg"
+                            <img src="../../../assets/aluno/img/pages/sobre/Devs/giovanni-foto.jpeg"
                                 class="card-img-top" alt="Desenvolvedor Giovanni">
                             <div class="card-body">
                                 <h5 class="card-title">Giovanni Navarro</h5>
@@ -225,7 +225,7 @@ require_once '../../../php/global/auth.php';
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card h-100">
-                            <img src="../../../assets/aluno/img/pages/principal/Devs/otto-foto.jpeg"
+                            <img src="../../../assets/aluno/img/pages/sobre/Devs/otto-foto.jpeg"
                                 class="card-img-top" alt="Desenvolvedor Otto">
                             <div class="card-body">
                                 <h5 class="card-title">Otto Mafra</h5>
