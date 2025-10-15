@@ -77,7 +77,7 @@ if($result_alunos && $result_alunos->num_rows > 0){
     exit;
 }
 
-header("Location: ../../../pages/cadastro-e-login/pag-login.php?acess='refused'");
+header("Location: ../../../pages/cadastro-e-login/pag-login.php?acess=refused");
 
 $conn->close();
 

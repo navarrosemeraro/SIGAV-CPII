@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf = $_POST['cpf'];
     $id_matricula = $_POST['matricula'];
     $senha = $_POST['senha_hash'];
-    $confirma_senha = $_POST['newsenha'];
+    $confirma_senha = $_POST['senha_rep'];
 
     $form_values = [
         'nome' => $nome,
@@ -36,9 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ];
 
     // Verifica senhas
-    if ($senha !== $confirma_senha) {
-        $erro = "As senhas não coincidem.";
-    } else {
+    if ($senha == $confirma_senha)  {
         $senha_hash = $senha; // Criptografe se quiser usando password_hash()
 
         // Verifica se CPF ou matrícula já estão cadastrados em qualquer tabela
@@ -93,6 +91,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
 $conn->close();
 ?>

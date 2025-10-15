@@ -214,7 +214,7 @@ include '../../../php/global/db.php';
                 <div class="w-100 w-md-auto" style="flex: 1;">
                     <fieldset class="border border-2 p-4 w-100">
                         <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
-                            <div class="row" style="text-align: left;">
+                            <div class="row">
                                 <label for="comentario_corretor" style="margin"><b>Comentários do
                                         Corretor(a):</b></label><br>
                                 <textarea class="form-control" name="comentario_corretor" id="comentario_corretor"
@@ -240,11 +240,11 @@ include '../../../php/global/db.php';
     <script src="../../../assets/corretor/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script>
         // pega o nome do autor pelo método get e mostra na tela
-        let nome_autor = "<?= $_GET['nome_autor']?>";
+        let nome_autor = "<?= $_GET['nome_autor'];?>";
         document.getElementById("nome_autor_txt").innerText = "Autor: " + nome_autor;
 
         // pega o tema da redacao pelo método get e mostra na tela
-        let tema_redacao = "<?= $_GET['tema']?>";
+        let tema_redacao = "<?= $_GET['tema'];?>";
         document.getElementById("tema_redacao_txt").innerText = tema_redacao;
 
     </script>

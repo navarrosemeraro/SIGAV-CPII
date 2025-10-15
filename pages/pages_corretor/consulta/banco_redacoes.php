@@ -148,9 +148,11 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
                     </a>
                 </div>";
     }
+    exit();
 }
 else{ // não encontrou redacoes corrigidas pelo corretor de matrícula determinada
     echo "<h4>Não foram encontradas redações que atendam tais requisitos...</h4>";
+    exit();
 }
 }
 

@@ -1,14 +1,25 @@
-function verifica(_nome, _email, _telefone, _cpf, _matricula, _senha, _conSenha){
-    
+function veri_senha(senha, senha_rep) {
+    const spanErro = document.getElementById("erro_senha");
 
+    if (senha !== senha_rep) {
+        spanErro.innerHTML = `<p style="color: red; position:relative;"> Senhas não coincidem!</p>`;
+        return false;
+    }
+    else {
+        spanErro.innerHTML = "";
+        return true;
+    }
 }
-var nome = document.getElementById("nome"); 
-var email = document.getElementById("email"); ;
-var tel = document.getElementById("tel");  
-var cpf = document.getElementById("cpf"); 
-var mat = document.getElementById("matricula");
-var senha = document.getElementById("senha_hash"); 
-var con_senha = document.getElementById("newsenha");
 
-var button = document.querySelector("button#btn_cadastro");
-button.addEventListener("click", verifica(nome, email, tel, cpf, mat, senha, con_senha));
+const form_cad = document.querySelector("#form_cad");
+
+form_cad.addEventListener("submit", function (e) {
+
+    const senha = document.getElementById("senha_hash").value;
+    const senha_rep = document.getElementById("senha_rep").value;
+
+    if (!veri_senha(senha, senha_rep)) {
+        e.preventDefault();
+    }
+});
+

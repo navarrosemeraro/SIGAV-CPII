@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Raleway';
-    src: url(../../../../Font/Raleway-VariableFont_wght.ttf) format(truetype),
-    url(../../../../Font/Raleway-Italic-VariableFont_wght.ttf) format(truetype);
+    src: url(../../../../../Font/Raleway-VariableFont_wght.ttf) format(truetype),
+    url(../../../../../Font/Raleway-Italic-VariableFont_wght.ttf) format(truetype);
 }
 
 p, label, input, legend, span, a{

@@ -27,7 +27,7 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
 
 <section id="dois">
     <div id="center-form" class="container min-vh-100 d-flex justify-content-center" style="margin-top: 30px;">
-        <form action="" method="post">
+        <form id="form_cad" action="" method="post">
             <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
                 <h1 class="display-1">Cadastro</h1>
                 <label for="funcao">Função:</label>
@@ -62,7 +62,9 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
                 <div class="mb-2">
                     <label for="tel" class="form-label">Telefone de Contato:</label>
                     <input type="tel" class="form-control" id="tel" name="tel"
-                        placeholder="Ex: (DDD) 99999-9999" required>
+                    pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$"
+                    title="Preencha com o seguinte formato: (DDD) 999999999" 
+                    placeholder="Ex: (DDD) 999999999" required>
                 </div>
 
                 <div class="mb-2">
@@ -110,8 +112,9 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
                 </div>
 
                 <div class="mb-2">
-                    <label for="newsenha" class="form-label">Confirmar Senha:</label>
-                    <input type="password" class="form-control" id="newsenha" name="newsenha" required>
+                    <label for="senha_rep" class="form-label">Confirmar Senha:</label>
+                    <input type="password" class="form-control" id="senha_rep" name="senha_rep" required>
+                    <span id="erro_senha"></span>
                 </div>
 
                 <br>
