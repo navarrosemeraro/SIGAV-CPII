@@ -1,6 +1,8 @@
     <?php
     $raiz = $_SERVER['DOCUMENT_ROOT'];
-    require $raiz.'../vendor/autoload.php';
+    require __DIR__ . '/../vendor/autoload.php';
+    require_once 'pdfUtils.php';
+    require __DIR__ . '../php/global/db.php';
     use thiagoalessio\TesseractOCR\TesseractOCR;
 
     ini_set('display_errors', 1); 
@@ -53,20 +55,97 @@
             return substr($output[0], 15, strlen($output[0])-15);
         }
 
-        $arquivo_pdf = $_POST["arquivo.pdf"];
 
-        $numPagina = VerificaNumPag($arquivo_pdf);//retorna número de páginas do pdf
-        convertePNG($arquivo_pdf);
-        extraiPDF($arquivo_pdf);
+    try{
+
+    if (isset($_FILES["arquivo_pdf"]) && $_FILES['arquivo_pdf']['error'] === UPLOAD_ERR_OK) {
+        
+        $arquivoTmp = $_FILES["arquivo_pdf"]["tmp_name"];
+        $nomeOriginal = $_FILES["arquivo_pdf"]["name"];
+        $arquivo_tamanho = $_FILES["arquivo_pdf"]["size"];
+        $tema_redacao = $_POST["tema"];
+
+         // Extensões permitidas
+        $extensoes_permitidas = ['pdf'];
+
+        // Pega a extensão do arquivo
+        $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
+
+        // Valida extensão
+        if (!in_array($extensao, $extensoes_permitidas)) {
+            die("Erro: formato de arquivo não permitido.");
+        }
+
+        // Valida tamanho (ex: até 5MB)
+        if ($arquivo_tamanho > 5 * 1024 * 1024) {
+            die("Erro: arquivo muito grande.");
+        }
+
+        // Sanitizando o nome do arquivo
+        $nomeSeguro = pdfUtils::sanitizarNomeArquivo($nomeOriginal);
+
+        // Verifica se a pasta existe e tem permissão de escrita
+        $pastaDestino = "../../../assets/uploads/pdfs_outputs";
+        if (!is_dir($pastaDestino)) {
+            mkdir($pastaDestino, 0777, true); // cria recursivamente com permissão total
+        }
+
+
+        $numPagina = VerificaNumPag($arquivoTmp);//retorna número de páginas do pdf
+        convertePNG($arquivoTmp);
+        extraiPDF($arquivoTmp);
         $arquivosPNG_encontrados = glob($raiz."/proj/" . "pagina*.png"); //guarda o nome dos arquivos PNG gerados
         $arquivosPDF_encontrados = glob($raiz."/proj/" . "pg*.pdf");//guarda os nomes dos arquivos PDF gerados
 
         for ($i=0; $i < count($arquivosPNG_encontrados); $i++) //itera sobre os arquivos PNG encontrados
         {
+
             $texto = ocrImagem($arquivosPNG_encontrados[$i]); //extrai o texto de cad PNG
-            $primeiraLinha = explode("\n", $texto)[0]; //recupera somente a ptrimiera linha (matrícula)
-            rename($arquivosPDF_encontrados[$i], $primeiraLinha.".pdf" ); //troca o nome de cada arquivo PDF pela matrícula retirar dop arquivo PNG
+            $primeiraLinha = explode("\n", $texto)[0]; //recupera somente a primeira linha (matrícula)
+
+            // Sanitiza a matrícula
+            $matriculaLimpa = preg_replace("/[^A-Za-z0-9_-]/", '', $primeiraLinha);
+
+            if (empty($matriculaLimpa)) {
+            // Se o OCR falhou ou a linha estava vazia, pula este arquivo
+            echo "Aviso: Não foi possível ler a matrícula do arquivo " . $arquivosPNG_encontrados[$i];
+            continue; // Pula para a próxima página
+            }
+
+            $nomeArquivo = $nomeSeguro . "_Pag" . $i . "_" . $matriculaLimpa . ".pdf";
+            
+            $caminhoCompletoDestino = $pastaDestino . "/" . $nomeArquivo;
+            
+            rename($arquivosPDF_encontrados[$i], $caminhoCompletoDestino);
+
+            $mensagens[] = "Gerado: $nomeArquivo, matrícula: " . $matriculaLimpa;
+
+            //verifica se existe a determinada matricula encontrada existe no banco de dados
+            $stmt = $conn->prepare("SELECT 1 FROM alunos WHERE id_matricula = ?");
+            $stmt->bind_param("s", $matriculaLimpa);
+            $stmt->execute();
+            $stmt->store_result();
+
+            //inserre o registro da redação no banco de dados 
+            if ($stmt->num_rows > 0) {
+                $stmt_inserir = $conn->prepare("INSERT INTO redacao (aluno_id, tema, status_red, caminho_arquivo)
+                                            VALUES (?, ?, 'pendente', ?)");
+                $stmt_inserir->bind_param("sss", $matriculaLimpa, $tema_redacao, $nomeArquivo);
+                $stmt_inserir->execute();
+                $stmt_inserir->close();
+
+            } else {
+                $mensagens[] = "Matrícula $matriculaLimpa da pag $i não encontrada em alunos";
+            }
         }
+    }
+    else {
+        echo "Nenhum arquivo enviado ou erro no upload";
+    }
+    }
+    catch (Exception $e) {
+    echo "Ocorreu um erro: " . $e->getMessage();
+    }
 
 
     ?>
