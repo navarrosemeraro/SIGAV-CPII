@@ -2,7 +2,7 @@
     $raiz = $_SERVER['DOCUMENT_ROOT'];
     require __DIR__ . '/../vendor/autoload.php';
     require_once 'pdfUtils.php';
-    require __DIR__ . '../php/global/db.php';
+    require __DIR__ . '/../php/global/db.php';
     use thiagoalessio\TesseractOCR\TesseractOCR;
 
     ini_set('display_errors', 1); 
