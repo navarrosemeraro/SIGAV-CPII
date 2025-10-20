@@ -1,5 +1,8 @@
     <?php
-    $raiz = $_SERVER['DOCUMENT_ROOT'];
+    // $raiz = $_SERVER['DOCUMENT_ROOT'];
+    $raiz = dirname(__DIR__); // Define $raiz como a pasta do projeto (ex: C:\xampp\htdocs\sigav-cpii)
+    $xpdfRoot = $_SERVER['DOCUMENT_ROOT'];
+
     require __DIR__ . '/../vendor/autoload.php';
     require_once 'pdfUtils.php';
     require __DIR__ . '/../php/global/db.php';
@@ -11,38 +14,52 @@
     
         function convertePNG($arquivo){
 
-            $xpdf = $_SERVER['DOCUMENT_ROOT'];
-            $comando = $xpdf."/xpdf/bin64/pdftopng.exe -r 300 -gray " .$xpdf."/proj/".$arquivo. " pagina 2>NUL";
+            global $xpdfRoot, $raiz; // Puxa as variáveis globais
+
+            // Caminho do executável (usa $xpdfRoot)
+            $pdfExe = $xpdfRoot . "/xpdf/bin64/pdftopng.exe";
+    
+            $inputFile = escapeshellarg($arquivo); 
+    
+            // Prefixo de SAÍDA
+            $outputPrefix = escapeshellarg($raiz . "/pdfs_outputs/pagina"); 
+
+            $comando = "$pdfExe -r 300 -gray $inputFile $outputPrefix 2>&1";
+    
             exec($comando, $output, $return_var);
             if ($return_var === 0) {
-                    echo "Conversão bem-sucedida!";
-
-                } 
-                else {
-                    echo "\n Erro ao converter PDF. Saída: <pre>" . implode("\n", $output) . "</pre>";
-                    echo $return_var;
-                }
+                echo "Conversão PNG bem-sucedida!";
+            } else {
+                echo "\n Erro ao converter PNG. Comando: $comando <pre>" . implode("\n", $output) . "</pre>";
+                echo $return_var;
+            }
         }
 
 
         function extraiPDF($arquivo){
-
-            $comando = "pdftk " . escapeshellarg($arquivo) . " burst" ;
+            global $raiz; // Puxa a variável global
+    
+            $inputFile = escapeshellarg($arquivo);
+    
+            // Padrão de SAÍDA (usa $raiz)
+            $outputPattern = '"' . $raiz . '/pdfs_outputs/pg_%04d.pdf' . '"'; 
+    
+            $comando = "pdftk $inputFile burst output $outputPattern 2>&1";
+    
             exec($comando, $output, $return_var);
             if ($return_var === 0) {
-                    echo "Conversão bem-sucedida!";
-                } 
-                else {
-                    echo "\n Erro ao converter PDF. Saída: <pre>" . implode("\n", $output) . "</pre>";
-                    echo $return_var;
-                }
+                echo "Extração de PDF bem-sucedida!";
+            } else {
+                echo "\n Erro ao extrair PDF. Comando: $comando <pre>" . implode("\n", $output) . "</pre>";
+                echo $return_var;
+            }
         }
 
 
         function ocrImagem($arquivo){
 
             $text = (new TesseractOCR($arquivo))
-                ->lang('eng') // Defina o idioma (ex: eng para inglês)
+                ->lang('eng') // Defina o idioma (ex: eng para inglês, por para português)
                 ->executable('C:\Program Files\Tesseract-OCR\tesseract.exe')
                 ->run();
             return $text;
@@ -50,9 +67,13 @@
 
         function VerificaNumPag($arquivo)
         {
-            $comando = "pdftk ". $arquivo . " dump_data | findstr NumberOfPages";
+            $comando = "pdftk ". escapeshellarg($arquivo) . " dump_data | findstr NumberOfPages 2>&1";
             exec($comando, $output, $return_var);
-            return substr($output[0], 15, strlen($output[0])-15);
+    
+            if ($return_var === 0 && isset($output[0])) {
+                return substr($output[0], 15, strlen($output[0])-15);
+            }
+            return 0; // Retorna 0 se falhar
         }
 
 
@@ -91,11 +112,25 @@
         }
 
 
-        $numPagina = VerificaNumPag($arquivoTmp);//retorna número de páginas do pdf
-        convertePNG($arquivoTmp);
-        extraiPDF($arquivoTmp);
-        $arquivosPNG_encontrados = glob($raiz."/proj/" . "pagina*.png"); //guarda o nome dos arquivos PNG gerados
-        $arquivosPDF_encontrados = glob($raiz."/proj/" . "pg*.pdf");//guarda os nomes dos arquivos PDF gerados
+    // Define a pasta de processamento
+    $pastaProcessamento = $raiz . "/pdfs_outputs"; // ex: C:\...\sigav-cpii\pdfs_outputs
+    if (!is_dir($pastaProcessamento)) {
+        mkdir($pastaProcessamento, 0777, true); 
+    }
+    // Mova o arquivo temporário para um local permanente
+    $arquivoDeEntrada = $pastaProcessamento . "/" . $nomeSeguro; // ex: C:\...\sigav-cpii\pdfs_outputs\redacao_original.pdf
+    if (!move_uploaded_file($arquivoTmp, $arquivoDeEntrada)) {
+        die("Erro fatal ao mover o arquivo de upload.");
+    }
+
+    // chame as funções usando o NOVO caminho $arquivoDeEntrada
+    $numPagina = VerificaNumPag($arquivoDeEntrada); 
+    convertePNG($arquivoDeEntrada); // Passa o caminho permanente
+    extraiPDF($arquivoDeEntrada);   // Passa o caminho permanente
+    
+    // O glob usa $pastaProcessamento
+    $arquivosPNG_encontrados = glob($pastaProcessamento . "/pagina*.png");
+    $arquivosPDF_encontrados = glob($pastaProcessamento . "/pg*.pdf");
 
         for ($i=0; $i < count($arquivosPNG_encontrados); $i++) //itera sobre os arquivos PNG encontrados
         {
@@ -136,6 +171,13 @@
 
             } else {
                 $mensagens[] = "Matrícula $matriculaLimpa da pag $i não encontrada em alunos";
+            }
+        }
+
+        // LIMPEZA: Apaga os arquivos PNG temporários
+        foreach ($arquivosPNG_encontrados as $pngFile) {
+            if (file_exists($pngFile)) {
+            unlink($pngFile);
             }
         }
     }
