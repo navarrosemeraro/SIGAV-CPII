@@ -57,8 +57,7 @@ require_once '../../../php/global/auth.php';
     </nav>
 <main>
     <section id="um">
-        <h1 id="center" class="display-5 text-center" style="margin: 20px;">Automação de Correções de Redação e
-            Simulados ENEM</h1>
+        <h1 id="center" class="display-5 text-center" style="margin: 20px;">Automação de Correções de Redação</h1>
         <br>
         <div id="center">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="width: 50%;">
@@ -83,8 +82,7 @@ require_once '../../../php/global/auth.php';
     <section id="dois">
         <div id="center">
             <div class="container">
-                <h4 class="display-4" style="position: relative; left: 15px;">Sobre o
-                    Projeto</h4>
+                <h4 class="display-4" style="position: relative; left: 15px;">Sobre o Projeto</h4>
                 <div class="bg-dark my-4 position-relative" style="height: 0.5px; width: 94%; left: 12px; top: 20px;">
                 </div>
                 <div id="pai" class="container">
@@ -101,14 +99,6 @@ require_once '../../../php/global/auth.php';
                             As redações, uma vez submetidas ao sistema, permanecem registradas com todo o histórico de
                             correções e
                             atribuições realizadas até o momento.</p>
-                        <p class="text-start text-break fs-6 lh-base">Além disso, o projeto contempla a automatização da
-                            correção de
-                            simulados aplicados aos alunos do 3º ano do Ensino Médio.
-                            A funcionalidade permite a definição prévia de um gabarito e, com base nele, o escaneamento
-                            e a
-                            correção
-                            automatizada das provas restantes, conferindo agilidade
-                            e precisão ao processo avaliativo.</p>
                         <p class="fs-6">
                             Com a integração entre tecnologia e educação, o sistema promove não apenas a eficiência na
                             correção de

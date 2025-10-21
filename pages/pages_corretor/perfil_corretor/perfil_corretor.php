@@ -1,6 +1,5 @@
-<?php 
-require_once '../../../php/global/auth.php';
-include '../../../php/global/db.php'; 
+<?php
+    require_once '../../../php/global/auth.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,79 +8,64 @@ include '../../../php/global/db.php';
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../../assets/common/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/corretor/css/pages/perfil_corretor/perfil_corretor.css">
+    <link rel="stylesheet" href="../../../assets/aluno/css/pages/perfil_aluno/perfil_aluno.css">
     <link rel="icon" type="image/png" href="../../../assets/corretor/img/global/Brasão_Colégio_Pedro_II.png">
     <title>Perfil do Corretor</title>
-
 </head>
-
-<body>
-
-
-    <div id="breadcrumb" style="border-bottom: 2px solid white;">
-        <a href="../area_corretor/area_corretor.php" style="text-decoration: none; margin-bottom: 10px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                <path
-                    d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-            </svg>
-        </a>
-        <h5 style="margin-left: 15px;"><a href="../area_corretor/area_corretor.php" style="font-size: 20px;">Retornar à Área do Corretor</a></h5>
-    </div>
-
-
-    <div class="profile-header">
-        <img src="https://via.placeholder.com/80" alt="Foto de Perfil">
-        <h2>
-            <?php echo ($_SESSION["nome"]);?>
-        </h2>
-        <form action="../../../php/global/logout.php"><button type="submit">Logout</button></form>
-    </div>
-
-    <div class="content">
-        <div class="left-panel">
-            <div class="card">
-                <h3>Detalhes do usuário</h3>
-                <div class="info-value"><span class="info-label">Matrícula:</span> <?php echo ($_SESSION["matricula"]);?></div>
-                <div class="info-value"><span class="info-label">Endereço de e-mail:</span><a
-                        href="mailto:<?php echo strval($_SESSION["email"])?>"> <?php echo ($_SESSION["email"]);?></a> (Visível para os
-                    admnistradores)</div>
-                <div class="info-value"><span class="info-label">CPF:</span> <?php echo ($_SESSION["cpf"]);?></div>
-                <div class="info-value"><span class="info-label">Dia de Hoje: </span><?php $agora = new DateTime(); echo $agora->format('d/m/Y'); ?></div>
+    <body>
+    <section id="um">
+    <div style="display: flex; align-items: center; width: 100%; height: 100%; Top: 50%">
+        <div class="container" id="profile">
+            <div id="foto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16" style="height:70px; width:70px; margin-right: 10px">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                </svg>
+                <form action="../../../php/global/logout.php"><button type="submit" style="position: absolute; left: 80%; padding: 10px; border: 1px black solid;">Logout</button></form>
             </div>
-
-            <div class="card">
-                <h3>Privacidade e Políticas</h3>
-                <div class="info-value">Resumo de retenção de dados</div>
-            </div>
-        </div>
-
-        <div class="right-panel">
-            <div class="card">
-                <h3>Histórico</h3>
-                <div class="list-links">
-                    <a href="#">Quantidade de Redações corrigidas</a>
-                    <a href="#">Mensagens do fórum</a>
-                    <a href="#">Discussões do fórum</a>
-                    <a href="#">Planos de aprendizagem</a>
+                   <p style="display: flex; justify-content: center;" id="txt_nome"></p>
+                     <div class="container text-center">
+                        <div class="row">
+                    <div class="col">
+                     <label for="txt_mat" class="form-label"><b>Matrícula</b></label><br>
+                      <input type="text" id="txt_mat" class="form-control" readonly>
+                 </div>
+                    <div class="col">
+                 <label for="txt_cpf" class="form-label"><b>CPF</b></label><br>
+                <input type="text" id="txt_cpf" class="form-control" readonly>
                 </div>
             </div>
-
-            <div class="card">
-                <h3>Relatórios</h3>
-                <div class="list-links">
-                    <a href="#">Sessões do navegador</a>
-                    <a href="#">Visão geral das notas</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Atividade de login</h3>
-                <div class="info-value"><strong>Primeiro acesso ao site</strong></div>
+             <div class="row mt-3">
+               <div class="col-12">
+                  <label for="txt_email" class="form-label text-center d-block"> <b>Email:</b></label>
+                  <input type="text" id="txt_email" class="form-control mx-auto" style="max-width: 300px; padding: 10px;" readonly>
+               </div>
+               </div>
+               </div>
+            <div id="link-retorno">
+                <a href="../area_corretor/area_corretor.php">
+                    <svg style="text-decoration:none; color: #143c2c;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                        class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" style="margin-bottom: 9px;">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                    </svg>
+                </a>
+                <h5 style="margin-left: 15px;"><a href="../area_corretor/area_corretor.php" style=" text-decoration:none; color:#143c2c;">Retornar à Área do Corretor</a></h5>
             </div>
         </div>
     </div>
+    </section>
+</body>
+<script>
+    const dadosSessao = <?= json_encode($_SESSION); ?>; // {nome:"Otto"; matricula = "M040404"; nivel_acesso = "aluno"
 
+    document.getElementById("txt_nome").innerHTML = dadosSessao.nome;
+    document.getElementById("txt_mat").value = dadosSessao.matricula;
+    document.getElementById("txt_email").value = dadosSessao.email;
+    document.getElementById("txt_cpf").value = dadosSessao.cpf;
+
+</script>
 </body>
 
 </html>

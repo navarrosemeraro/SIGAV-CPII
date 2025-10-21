@@ -38,6 +38,11 @@
                     <div class="mb-2">
                         <label for="senha" class="form-label">Senha:</label>
                         <input type="password" class="form-control" id="senha" name="senha">
+                        <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="mostrarSenha">
+                              <label class="form-check-label" for="mostrarSenha">Mostrar senha</label>
+                        </div>
+
                     </div>
                     <a href="cadastro.php"><span>Não possui cadastro?</span></a><br><br>
                     <button type="submit" class="btn btn-outline-primary">
@@ -73,6 +78,13 @@
             
         }
     </script>
+    <script>
+    document.getElementById('mostrarSenha').addEventListener('change', function() {
+         const campoSenha = document.getElementById('senha');
+          campoSenha.type = this.checked ? 'text' : 'password';
+});
+</script>
+
 </body>
 
 </html>
