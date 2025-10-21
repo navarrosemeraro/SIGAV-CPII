@@ -43,8 +43,10 @@
     
             // Padrão de SAÍDA (usa $raiz)
             $outputPattern = '"' . $raiz . '/pdfs_outputs/pg_%04d.pdf' . '"'; 
+
+            $caminhoPDFTK = '"C:\Program Files (x86)\PDFtk\bin\pdftk.exe"';
     
-            $comando = "pdftk $inputFile burst output $outputPattern 2>&1";
+            $comando = "$caminhoPDFTK $inputFile burst output $outputPattern 2>&1";
     
             exec($comando, $output, $return_var);
             if ($return_var === 0) {
@@ -60,14 +62,16 @@
 
             $text = (new TesseractOCR($arquivo))
                 ->lang('eng') // Defina o idioma (ex: eng para inglês, por para português)
-                ->executable('C:\Program Files\Tesseract-OCR\tesseract.exe')
+                ->executable('C:\Program Files\Tesseract-OCR\tesseract.exe') // para o PC do Giovanni
                 ->run();
             return $text;
         }
 
         function VerificaNumPag($arquivo)
         {
-            $comando = "pdftk ". escapeshellarg($arquivo) . " dump_data | findstr NumberOfPages 2>&1";
+            $caminhoPDFTK = '"C:\Program Files (x86)\PDFtk\bin\pdftk.exe"';
+
+            $comando = "$caminhoPDFTK ". escapeshellarg($arquivo) . " dump_data | findstr NumberOfPages 2>&1";
             exec($comando, $output, $return_var);
     
             if ($return_var === 0 && isset($output[0])) {
@@ -105,8 +109,11 @@
         // Sanitizando o nome do arquivo
         $nomeSeguro = pdfUtils::sanitizarNomeArquivo($nomeOriginal);
 
+        $data = new DateTime();
+        $ano_atual = $data->format('Y');
+
         // Verifica se a pasta existe e tem permissão de escrita
-        $pastaDestino = "../../../assets/uploads/pdfs_outputs";
+        $pastaDestino = "assets/uploads/arquivos_redacoes/" . $ano_atual . "/3_ano";
         if (!is_dir($pastaDestino)) {
             mkdir($pastaDestino, 0777, true); // cria recursivamente com permissão total
         }
@@ -161,11 +168,11 @@
             $stmt->execute();
             $stmt->store_result();
 
-            //inserre o registro da redação no banco de dados 
+            //insere o registro da redação no banco de dados 
             if ($stmt->num_rows > 0) {
                 $stmt_inserir = $conn->prepare("INSERT INTO redacao (aluno_id, tema, status_red, caminho_arquivo)
                                             VALUES (?, ?, 'pendente', ?)");
-                $stmt_inserir->bind_param("sss", $matriculaLimpa, $tema_redacao, $nomeArquivo);
+                $stmt_inserir->bind_param("sss", $matriculaLimpa, $tema_redacao, $caminhoCompletoDestino);
                 $stmt_inserir->execute();
                 $stmt_inserir->close();
 
@@ -180,6 +187,9 @@
             unlink($pngFile);
             }
         }
+
+        header("Location: ../pages/pages_corretor/consulta/banco_redacoes.php?inserir=sucesso");
+
     }
     else {
         echo "Nenhum arquivo enviado ou erro no upload";

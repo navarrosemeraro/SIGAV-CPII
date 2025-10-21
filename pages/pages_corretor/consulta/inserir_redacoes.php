@@ -90,10 +90,20 @@ require_once '../../../php/global/auth.php';
                     </fieldset>
                 </form>
             </div>
+            <div class="position-relative">
+                <div id="mensagem"></div><br>
+            </div>
         </section>
     </main>
     <script src="../../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/corretor/js/pages/consulta_redacoes/consulta_redacoes_corrigidas.js"></script>
+    <script>
+        const insercao = <?php echo json_encode($_GET['inserir'] ?? null); ?>;
+        if (insercao === 'sucesso') {
+            document.getElementById('mensagem').innerHTML =
+                '<div style="margin-top: 40px" class="alert alert-success" role="alert">Redações inseridas na Base de Dados. Você pode corrigí-las agora em "Corrigir Redações" <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>';
+        }
+    </script>
 
 </body>
 
