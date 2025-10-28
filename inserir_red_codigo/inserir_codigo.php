@@ -106,14 +106,18 @@
             die("Erro: arquivo muito grande.");
         }
 
-        // Sanitizando o nome do arquivo
-        $nomeSeguro = pdfUtils::sanitizarNomeArquivo($nomeOriginal);
+        // Pega o nome do arquivo SEM a extensão
+        $nomeBase = pathinfo($nomeOriginal, PATHINFO_FILENAME);
+
+        // Sanitiza apenas o nome base
+        $nomeSeguro = pdfUtils::sanitizarNomeArquivo($nomeBase);
 
         $data = new DateTime();
         $ano_atual = $data->format('Y');
 
         // Verifica se a pasta existe e tem permissão de escrita
-        $pastaDestino = "assets/uploads/arquivos_redacoes/" . $ano_atual . "/3_ano";
+        $pastaDestino = "../assets/uploads/arquivos_redacoes/" . $ano_atual . "/3_ano";
+
         if (!is_dir($pastaDestino)) {
             mkdir($pastaDestino, 0777, true); // cria recursivamente com permissão total
         }
@@ -125,7 +129,7 @@
         mkdir($pastaProcessamento, 0777, true); 
     }
     // Mova o arquivo temporário para um local permanente
-    $arquivoDeEntrada = $pastaProcessamento . "/" . $nomeSeguro; // ex: C:\...\sigav-cpii\pdfs_outputs\redacao_original.pdf
+    $arquivoDeEntrada = $pastaProcessamento . "/" . $nomeSeguro . ".pdf"; // ex: C:\...\sigav-cpii\pdfs_outputs\redacao_original.pdf
     if (!move_uploaded_file($arquivoTmp, $arquivoDeEntrada)) {
         die("Erro fatal ao mover o arquivo de upload.");
     }
@@ -162,6 +166,8 @@
 
             $mensagens[] = "Gerado: $nomeArquivo, matrícula: " . $matriculaLimpa;
 
+            $caminhoCompletoBD = "assets/uploads/arquivos_redacoes/" . $ano_atual . "/3_ano" . "/" . $nomeArquivo;
+
             //verifica se existe a determinada matricula encontrada existe no banco de dados
             $stmt = $conn->prepare("SELECT 1 FROM alunos WHERE id_matricula = ?");
             $stmt->bind_param("s", $matriculaLimpa);
@@ -172,7 +178,7 @@
             if ($stmt->num_rows > 0) {
                 $stmt_inserir = $conn->prepare("INSERT INTO redacao (aluno_id, tema, status_red, caminho_arquivo)
                                             VALUES (?, ?, 'pendente', ?)");
-                $stmt_inserir->bind_param("sss", $matriculaLimpa, $tema_redacao, $caminhoCompletoDestino);
+                $stmt_inserir->bind_param("sss", $matriculaLimpa, $tema_redacao, $caminhoCompletoBD);
                 $stmt_inserir->execute();
                 $stmt_inserir->close();
 
@@ -188,7 +194,7 @@
             }
         }
 
-        header("Location: ../pages/pages_corretor/consulta/banco_redacoes.php?inserir=sucesso");
+        header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=sucesso");
 
     }
     else {

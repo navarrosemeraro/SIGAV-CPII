@@ -72,7 +72,7 @@ require_once '../../../php/global/auth.php';
                 <h2 class="display-2 text-center">Inserir Novas Redações No Banco de Dados</h2>
             </div><br>
             <div class="container mt-4">
-                <form action="../../../proj/novo.php" method="post" enctype="multipart/form-data">
+                <form action="../../../inserir_red_codigo/inserir_codigo.php" method="post" enctype="multipart/form-data">
                     <fieldset class="border p-4" style="max-width: 900px; margin: auto;">
                         <div class="mb-3">
                             <label for="tema" class="form-label">Tema da Redação:</label>
@@ -91,7 +91,9 @@ require_once '../../../php/global/auth.php';
                 </form>
             </div>
             <div class="position-relative">
+                <div class="container" style="display: flex; justify-content: center;">
                 <div id="mensagem"></div><br>
+                </div>
             </div>
         </section>
     </main>
@@ -101,7 +103,7 @@ require_once '../../../php/global/auth.php';
         const insercao = <?php echo json_encode($_GET['inserir'] ?? null); ?>;
         if (insercao === 'sucesso') {
             document.getElementById('mensagem').innerHTML =
-                '<div style="margin-top: 40px" class="alert alert-success" role="alert">Redações inseridas na Base de Dados. Você pode corrigí-las agora em "Corrigir Redações" <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>';
+                '<div style="margin-top: 40px; width: 720px; text-align: center;" class="alert alert-success" role="alert">Redações inseridas na Base de Dados. Você pode corrigí-las agora em <a href="../correcao/selecionar_redacao.php">Corrigir Redações</a> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>';
         }
     </script>
 

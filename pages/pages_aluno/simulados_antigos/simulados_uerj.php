@@ -65,7 +65,7 @@ require_once '../../../php/global/auth.php';
               2025
             </button>
           </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
             <div class="accordion-body">
               <div class="container text-center">
                 <div class="row">
