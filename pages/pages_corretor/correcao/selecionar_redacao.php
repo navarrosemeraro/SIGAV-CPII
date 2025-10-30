@@ -97,20 +97,25 @@ require_once '../../../php/global/auth.php';
                 $tema = $row["tema"];
                 $status = $row["status_red"];
                 $data = $row["data_envio"];
-                echo "<div class='col'>
-                    <a href='corrigir_redacao.php?id={$id_redacao}&nome_autor={$autor}&tema={$tema}' style='text-decoration:none;'>
+                echo "<form action='../visualiza_redacao/visualizar_redacao_selecionada.php?nome_autor={$autor}&tema={$tema}' method='post'>
+                    <button type='submit'>
+                    <div class='col'>
+                    <a href='corrigir_redacao.php?id=nome_autor={$autor}&tema={$tema}' style='text-decoration:none;'>
                     <div class='card h-100 card-pend'>
                         <div class='card-body'>
                             <h6 class='card-title'><b>{$autor}</b></h6>
                             <h5 class='card-title'>{$tema}</h5>
                             <p class='card-text'>{$status}</p>
+                            <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
                         </div>
                         <div class='card-footer'>
                             <small class='text-body-secondary'>Data de Envio: {$data}</small>
                         </div>
                     </div>
                     </a>
-                </div>";
+                </div>
+                </button>
+                </form>";
     }
     echo "</div>";
     

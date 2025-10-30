@@ -61,7 +61,7 @@ include '../../../php/global/db.php';
                     <h2 id="tema_redacao_txt"></h2>
                     <h4 id="nome_autor_txt"></h4>
                     <iframe id="redacao_img" src="<?php
-                        $id = $_GET['id']; 
+                        $id = $_POST['id_red']; 
                         $stmt = $conn->prepare(" SELECT nota_total, nota_comp1, nota_comp2, nota_comp3, nota_comp4,
                         nota_comp5, observacoes, caminho_arquivo FROM redacao WHERE id=?"); $stmt->bind_param("i", $id);
                         $stmt->execute();
@@ -74,7 +74,7 @@ include '../../../php/global/db.php';
                         border-radius:10px;">
 
                     </iframe>
-
+                    <?= $id; ?>
                     <fieldset class="border border-2 p-4 w-100 w-md-auto" style="flex: 1;">
                         <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST">
                             <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
