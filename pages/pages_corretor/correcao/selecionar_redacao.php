@@ -97,7 +97,7 @@ require_once '../../../php/global/auth.php';
                 $tema = $row["tema"];
                 $status = $row["status_red"];
                 $data = $row["data_envio"];
-                echo "<form action='../visualiza_redacao/visualizar_redacao_selecionada.php?nome_autor={$autor}&tema={$tema}' method='post'>
+                echo "<form action='../correcao/corrigir_redacao.php?nome_autor={$autor}&tema={$tema}' method='post'>
                     <button type='submit'>
                     <div class='col'>
                     <a href='corrigir_redacao.php?id=nome_autor={$autor}&tema={$tema}' style='text-decoration:none;'>

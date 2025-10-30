@@ -58,7 +58,7 @@ include '../../../php/global/db.php';
                 <h4 id="nome_autor_txt"></h4>
                 <iframe id="redacao_img" 
                 src="<?php
-                        $id = $_GET['id']; 
+                        $id = $_POST['id_red']; 
                         $stmt = $conn->prepare("SELECT caminho_arquivo FROM redacao WHERE id = ?");
                         $stmt->bind_param("i", $id);
                         $stmt->execute();
