@@ -37,8 +37,10 @@ require_once '../../../php/global/auth.php';
                         <a class="nav-link" href="../suporte/suporte.php">Suporte</a>
                     </li>
                 </ul>
-                <div id="barra_usuario">
-                    <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;"
+                <div class="dropdown">
+                        <button style="background-color: white;" class="btn btn-secondary" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <a style="margin-right: 20px; margin-top: 0; color:rgba(0, 0, 0, 1); text-decoration:none;"
                         href="../perfil_aluno/perfil_aluno.php" class="dropdown-toggle">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -51,6 +53,12 @@ require_once '../../../php/global/auth.php';
                         </span>
                         <?php echo ($_SESSION["nome"] . " (" . $_SESSION["turma"] . ")");?>
                     </a>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../perfil_aluno/perfil_aluno.php">Ver Perfil</a></li>
+                            <li><a class="dropdown-item" href="../../../php/global/logout.php">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
