@@ -92,7 +92,8 @@ require_once '../../../php/global/auth.php';
             </div>
             <div class="position-relative">
                 <div class="container" style="display: flex; justify-content: center;">
-                <div id="mensagem"></div><br>
+                <div id="mensagem_sucesso"></div><br>
+                <div id="mensagem_fracasso"></div>
                 </div>
             </div>
         </section>
@@ -101,10 +102,19 @@ require_once '../../../php/global/auth.php';
     <script src="../../../assets/corretor/js/pages/consulta_redacoes/consulta_redacoes_corrigidas.js"></script>
     <script>
         const insercao = <?php echo json_encode($_GET['inserir'] ?? null); ?>;
-        if (insercao === 'sucesso') {
-            document.getElementById('mensagem').innerHTML =
-                '<div style="margin-top: 40px; width: 720px; text-align: center;" class="alert alert-success" role="alert">Redações inseridas na Base de Dados. Você pode corrigí-las agora em <a href="../correcao/selecionar_redacao.php">Corrigir Redações</a> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>';
+        const log = <?php echo json_encode($_GET['log'] ?? null); ?>;
+        if (insercao === "sucesso") {
+            document.getElementById('mensagem_sucesso').innerHTML =
+                `<div style="margin-top: 40px; width: 720px; text-align: center;" class="alert alert-success" role="alert">
+                Redações inseridas na Base de Dados. Você pode corrigí-las agora em <a href="../correcao/selecionar_redacao.php">Corrigir Redações</a>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>`;
         }
+        else if(insercao === 'fracasso'){
+            document.getElementById('mensagem_fracasso').innerHTML = 
+                `<div style="display: flex; justify-content:left; align-items: center; gap: 10px; margin-top: 40px; width: 780px; text-align: center;" class="alert alert-danger" role="alert">
+                Ocorre um erro na inserção de novas redações no sistema.\n Verifique os arquivos e tente novamente. ERRO: ${log}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>`;
+             }
     </script>
 
 </body>

@@ -98,12 +98,14 @@
 
         // Valida extensão
         if (!in_array($extensao, $extensoes_permitidas)) {
-            die("Erro: formato de arquivo não permitido.");
+            header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=fracasso&log=Tipo de Arquivo incorreto");
+            exit;
         }
 
         // Valida tamanho (ex: até 5MB)
         if ($arquivo_tamanho > 5 * 1024 * 1024) {
-            die("Erro: arquivo muito grande.");
+            header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=fracasso&log=Tamanho do arquivo maior que 5 Megabytes");
+            exit;
         }
 
         // Pega o nome do arquivo SEM a extensão
@@ -128,10 +130,11 @@
     if (!is_dir($pastaProcessamento)) {
         mkdir($pastaProcessamento, 0777, true); 
     }
-    // Mova o arquivo temporário para um local permanente
+    // Move o arquivo temporário para um local permanente
     $arquivoDeEntrada = $pastaProcessamento . "/" . $nomeSeguro . ".pdf"; // ex: C:\...\sigav-cpii\pdfs_outputs\redacao_original.pdf
     if (!move_uploaded_file($arquivoTmp, $arquivoDeEntrada)) {
-        die("Erro fatal ao mover o arquivo de upload.");
+        header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=fracasso&log=Fatal Error");
+        exit;
     }
 
     // chame as funções usando o NOVO caminho $arquivoDeEntrada
@@ -195,6 +198,7 @@
         }
 
         header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=sucesso");
+        exit;
 
     }
     else {
