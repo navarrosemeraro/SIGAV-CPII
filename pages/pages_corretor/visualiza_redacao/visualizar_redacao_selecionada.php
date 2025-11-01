@@ -74,7 +74,6 @@ include '../../../php/global/db.php';
                         border-radius:10px;">
 
                     </iframe>
-                    <?= $id; ?>
                     <fieldset class="border border-2 p-4 w-100 w-md-auto" style="flex: 1;">
                         <form action="../../../php/corretor/correcao/enviar_redacao_corrigida.php" method="POST">
                             <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">

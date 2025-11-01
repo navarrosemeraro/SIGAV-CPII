@@ -78,7 +78,7 @@ require_once '../../../php/global/auth.php';
                 
                 //Prepara o SQL para as redações
                 $stmt_redacoes = $conn->prepare("SELECT redacao.id, redacao.tema, redacao.aluno_id, redacao.caminho_arquivo, redacao.status_red, redacao.data_envio, 
-                                                alunos.nome AS 'nome_aluno', alunos.id_matricula
+                                                alunos.nome AS 'nome_aluno', alunos.id_matricula, alunos.turma AS 'turma_al'
                                                 FROM redacao
                                                 JOIN alunos ON alunos.id_matricula = redacao.aluno_id
                                                 WHERE redacao.status_red = 'pendente';");
@@ -97,26 +97,28 @@ require_once '../../../php/global/auth.php';
                 $tema = $row["tema"];
                 $status = $row["status_red"];
                 $data = $row["data_envio"];
+                $turma = $row["turma_al"];
+
+                // cada card com seus respectivo formulário
                 echo "<form action='../correcao/corrigir_redacao.php?nome_autor={$autor}&tema={$tema}' method='post'>
-                    <button type='submit'>
-                    <div class='col'>
-                    <a href='corrigir_redacao.php?id=nome_autor={$autor}&tema={$tema}' style='text-decoration:none;'>
-                    <div class='card h-100 card-pend'>
-                        <div class='card-body'>
-                            <h6 class='card-title'><b>{$autor}</b></h6>
-                            <h5 class='card-title'>{$tema}</h5>
-                            <p class='card-text'>{$status}</p>
-                            <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
+                        <div class='col'>
+                            
+                            <div class='card h-100 w-100 card-pend' style=' min-height: 220px; cursor: pointer;' onclick=\"this.closest('form').submit()\">
+                                <div class='card-body'>
+                                    <h6 class='card-title'><b>{$autor} - {$turma}</b></h6>
+                                    <h5 class='card-title'>{$tema}</h5>
+                                    <p class='card-text'>{$status}</p>
+                                    <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
+                                </div>
+                                <div class='card-footer'>
+                                    <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                                </div>
+                            </div>
+                            
                         </div>
-                        <div class='card-footer'>
-                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-                </button>
                 </form>";
-    }
+                }   
+    
     echo "</div>";
     
 }

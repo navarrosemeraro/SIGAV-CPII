@@ -88,20 +88,21 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
     echo "<div class='row row-cols-1 row-cols-md-3 g-4'>";
     while ($row = $result_redacoes->fetch_assoc()){
         $id_redacao = $row["id_redacao"];
-        $nome_aluno = $row["nome_aluno"];
+        $autor = $row["nome_aluno"];
         $nome_corretor = $row["nome_corretor"];
         $nota_total = $row["nota_total"];
         $tema = $row["tema"];
         $status = $row["status_red"];
         $data = $row["data_envio"];
         if($status === "corrigida"){
-            echo "<div class='col'>
-                    <a href='visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
-                    <div class='card h-100 card-redFeita'>
+            echo "<form action='../minhas_redacoes/visualizar_redacao_selecionada.php?nome_autor={$autor}&tema={$tema}' method='post'>
+            <div class='col'>
+                    <div class='card h-100 card-redFeita' style=' min-height: 250px; cursor: pointer;' onclick=\"this.closest('form').submit()\">
                         <div class='card-body'>
                             <h5 class='card-title'>{$tema}</h5>
                             <h3 class='card-title' style='font-weight:bold;'>Nota: {$nota_total}</h3>
                             <h6 class='card-text'><b>{$status}</b> - Corretor: {$nome_corretor}</h6>
+                            <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
                         </div>
                         <div id='visualizar_corrigida'>Visualizar Redação Corrigida</div>
                         <div class='card-footer'>
@@ -109,11 +110,12 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
                         </div>
                     </div>
                     </a>
-                </div>";
+                </div>
+                </form>";
         }
         if($status === "pendente"){
             echo "<div class='col'>
-                    <div class='card h-100 card-redPendente'>
+                    <div class='card h-100 card-redPendente' style=' min-height: 250px;'>
                         <div class='card-body' style='margin-bottom: 0;'>
                             <h5 class='card-title'>{$tema}</h5>
                             <h6 class='card-text'><b>{$status}</b></h6>

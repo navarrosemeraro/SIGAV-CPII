@@ -260,7 +260,7 @@ include '../../../php/global/db.php';
     <script src="../../../assets/corretor/js/pages/corrigir_redacao/textos_comps.js"></script>
     <script>
         // passa o src da imagem para o input escondido caminho_arquivo, a fim de passar o id da redação para "enviar_redacao_corrigida" 
-        let id_redacao = <?= $_GET["id"] ?>;
+        let id_redacao = <?= $_POST["id_red"] ?>;
         document.getElementById("id_redacao").value = id_redacao;
 
         // pega o nome do autor pelo método get e mostra na tela

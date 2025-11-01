@@ -107,7 +107,7 @@ $func = $_POST['func'];
 //caso seja o select forneça a informação de ser um corretor
 if($func == "corretor"){
 $mat = strval($_POST['txt_mat']);
-$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, 
+$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, alunos.turma AS 'turma_al', corretores.nome AS nome_corretor, 
                                 redacao.id AS id_redacao, redacao.tema, redacao.nota_total, redacao.data_envio, redacao.status_red,
                                 redacao.nota_comp1, redacao.nota_comp2, redacao.nota_comp3, redacao.nota_comp4, redacao.nota_comp5
                                 FROM corretores
@@ -127,26 +127,30 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
     echo '<h6>Redações corrigidos pelo professor de matrícula "'. $mat . '":</h6>';
     while ($row = $result_redacoes->fetch_assoc()){
         $id_redacao = $row["id_redacao"];
-        $nome_aluno = $row["nome_aluno"];
+        $autor = $row["nome_aluno"];
         $nome_corretor = $row["nome_corretor"];
         $nota_total = $row["nota_total"];
         $tema = $row["tema"];
         $status = $row["status_red"];
         $data = $row["data_envio"];
-        echo "<div class='col' style='margin-bottom:10px;'>
-                    <a href='../visualiza_redacao/visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
-                    <div class='card h-100 card-pend'>
-                        <div class='card-body'>
-                            <h6 class='card-title'><b>{$nome_aluno}</b></h6>
-                            <h5 class='card-title'>{$tema}</h5>
-                            <p class='card-text'>{$status}</p>
+        $turma = $row["turma_al"];
+        echo "<form action='../visualiza_redacao/visualizar_redacao_selecionada.php?nome_autor={$autor}&tema={$tema}' method='post'>
+                        <div class='col'>
+                            
+                            <div class='card h-100 w-100 card-pend' style=' min-height: 220px; cursor: pointer;' onclick=\"this.closest('form').submit()\">
+                                <div class='card-body'>
+                                    <h6 class='card-title'><b>{$autor} - {$turma}</b></h6>
+                                    <h5 class='card-title'>{$tema}</h5>
+                                    <p class='card-text'>{$status}</p>
+                                    <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
+                                </div>
+                                <div class='card-footer'>
+                                    <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                                </div>
+                            </div>
+                            
                         </div>
-                        <div class='card-footer'>
-                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
-                        </div>
-                    </div>
-                    </a>
-                </div>";
+                </form>";
     }
     exit();
 }
@@ -159,7 +163,7 @@ else{ // não encontrou redacoes corrigidas pelo corretor de matrícula determin
 //caso seja o select forneça a informação de ser um aluno
 else{
 $turma = strval($_POST['txt_turma']);
-$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, corretores.nome AS nome_corretor, 
+$stmt_redacoes = $conn->prepare("SELECT alunos.nome AS nome_aluno, alunos.turma AS 'turma_al', corretores.nome AS nome_corretor, 
                                 redacao.id AS id_redacao, redacao.tema, redacao.nota_total, redacao.data_envio, redacao.status_red,
                                 redacao.nota_comp1, redacao.nota_comp2, redacao.nota_comp3, redacao.nota_comp4, redacao.nota_comp5
                                 FROM corretores
@@ -178,27 +182,31 @@ $result_redacoes = $stmt_redacoes->get_result(); //retorna uma tabela como resul
 if($result_redacoes && $result_redacoes->num_rows > 0){
     echo '<h6>Redações correspontes a alunos da turma "' . $turma . '"</h6>';
      while ($row = $result_redacoes->fetch_assoc()){
-        $id_redacao = $row["id_redacao"];
-        $nome_aluno = $row["nome_aluno"];
+       $id_redacao = $row["id_redacao"];
+        $autor = $row["nome_aluno"];
         $nome_corretor = $row["nome_corretor"];
         $nota_total = $row["nota_total"];
         $tema = $row["tema"];
         $status = $row["status_red"];
         $data = $row["data_envio"];
-        echo "<div class='col' style='margin-bottom:10px;'>
-                    <a href='../visualiza_redacao/visualizar_redacao_selecionada.php?id={$id_redacao}&nome_autor={$nome_aluno}&tema={$tema}' style='text-decoration:none;'>
-                    <div class='card h-100 card-pend'>
-                        <div class='card-body'>
-                            <h6 class='card-title'><b>{$nome_aluno}</b></h6>
-                            <h5 class='card-title'>{$tema}</h5>
-                            <p class='card-text'>{$status}</p>
+        $turma = $row["turma_al"];
+        echo "<form action='../visualiza_redacao/visualizar_redacao_selecionada.php?nome_autor={$autor}&tema={$tema}' method='post'>
+                        <div class='col' style='margin-top: 20px; margin-bottom: 20px;'>
+                            
+                            <div class='card h-100 w-100 card-pend' style=' min-height: 220px; cursor: pointer;' onclick=\"this.closest('form').submit()\">
+                                <div class='card-body'>
+                                    <h6 class='card-title'><b>{$autor} - {$turma}</b></h6>
+                                    <h5 class='card-title'>{$tema}</h5>
+                                    <p class='card-text'>{$status}</p>
+                                    <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
+                                </div>
+                                <div class='card-footer'>
+                                    <small class='text-body-secondary'>Data de Envio: {$data}</small>
+                                </div>
+                            </div>
+                            
                         </div>
-                        <div class='card-footer'>
-                            <small class='text-body-secondary'>Data de Envio: {$data}</small>
-                        </div>
-                    </div>
-                    </a>
-                </div>";
+                </form>";
     }
 }
 else{
