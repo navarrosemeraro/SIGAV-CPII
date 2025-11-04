@@ -13,6 +13,13 @@ include '../../../php/global/db.php';
     <link rel="stylesheet" href="../../../assets/common/visualiza_redacao/visualiza_redacao.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
     <title>Visualizar Redação</title>
+
+    <style>
+    #comentario_corretor {
+        /* Força o texto a começar na margem esquerda, anulando o padding do Bootstrap */
+        padding-left: 2 !important;
+    }
+</style>
 </head>
 
 <body>
@@ -216,17 +223,13 @@ include '../../../php/global/db.php';
                         <div style="display: flex; gap: 200px; align-items:last baseline; justify-content: center;">
                             <div class="row">
                                 <label for="comentario_corretor" style="margin"><b>Comentários do
-                                        Corretor(a):</b></label><br>
+                                            Corretor(a):</b></label><br>
                                 <textarea class="form-control" name="comentario_corretor" id="comentario_corretor"
-                                    rows="6" cols="100" readonly>
-                                <?php 
-                                if ($row["observacoes"] != null){
-                                    echo $row["observacoes"];
+                                    rows="6" cols="100" readonly><?php if ($row["observacoes"] != null){ echo $row["observacoes"];                                    
                                 }
-                                else{
-                                    echo "Nenhum Comentário...";
-                                } ?>
-                            </textarea>
+                                    else{ echo "Nenhum Comentário...";
+                                } ?></textarea>
+                                </div><br>
                             </div><br>
                         </div>
                 </div>

@@ -13,6 +13,16 @@ include '../../../php/global/db.php';
     <link rel="stylesheet" href="../../../assets/common/visualiza_redacao/visualiza_redacao.css">
     <link rel="icon" type="image/png" href="../../../assets/aluno/img/global/Brasão_Colégio_Pedro_II.png" />
     <title>Visualizar Redação</title>
+
+    <title>Visualizar Redação</title>
+  
+    <style>
+    #comentario_corretor {
+        /* Garante que o texto comece na margem esquerda, anulando o padding padrão. */
+        padding-left: 2 !important;
+    }
+    </style>
+</head>
 </head>
 
 <body>
@@ -213,19 +223,15 @@ include '../../../php/global/db.php';
         <section id="dois">
             <div class="container-xxl d-flex flex-column" id="div-correcao2">
                 <fieldset class="border border-2 p-4 w-100">
-                    <div class="row" style="text-align: left;">
-                        <label for="comentario_corretor"><b>Comentários do Corretor(a):</b></label>
-                        <textarea class="form-control" name="comentario_corretor" id="comentario_corretor" rows="6"
-                            cols="100" readonly style="text-align: left; padding: 8px; overflow: auto; resize: none;">
-                            <?php 
-                                if($row["observacoes"] != null) {
-                                    echo htmlspecialchars($row["observacoes"]);
-                                } else {
-                                    echo "Nenhum Comentário";
-                                } 
-                            ?>
-            </textarea>
-                    </div>
+                   <div class="row" style="text-align: left;">
+                    <label for="comentario_corretor"><b>Comentários do Corretor(a):</b></label>
+                    <textarea class="form-control" name="comentario_corretor" id="comentario_corretor" rows="6"
+                    cols="100" readonly style="text-align: left; padding: 8px; overflow: auto; resize: none;"><?php 
+            if($row["observacoes"] != null) {
+               echo htmlspecialchars($row["observacoes"]);
+           } else {
+                   echo "Nenhum Comentário";} ?></textarea>
+                </div>
                 </fieldset>
             </div>
 
