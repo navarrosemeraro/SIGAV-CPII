@@ -149,11 +149,12 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
         echo "<form action='../visualiza_redacao/visualizar_redacao_selecionada.php?nome_autor={$autor}&tema={$tema}' method='post'>
                         <div class='col' style='margin-top: 20px; margin-bottom: 20px;'>
                             
-                            <div class='card h-100 w-50 card-pend' style=' min-height: 220px; cursor: pointer;' onclick=\"this.closest('form').submit()\">
+                            <div class=' card h-100 w-50 card-pend' style=' min-height: 220px; cursor: pointer;' onclick=\"this.closest('form').submit()\">
                                 <div class='card-body'>
                                     <h6 class='card-title'><b>{$autor} - {$turma}</b></h6>
                                     <h5 class='card-title'>{$tema}</h5>
                                     <p class='card-text'>{$status}</p>
+                                    <h4><b>Nota: {$nota_total}</b></h4>
                                     <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
                                 </div>
                                 <div id='visualizar_corrigida'>Visualizar Redação Corrigida</div>
@@ -210,6 +211,7 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
                                     <h6 class='card-title'><b>{$autor} - {$turma}</b></h6>
                                     <h5 class='card-title'>{$tema}</h5>
                                     <p class='card-text'>{$status}</p>
+                                    <h4><b>Nota: {$nota_total}</b></h4>
                                     <input type='hidden' id='id_red' name='id_red' value=". $id_redacao .">
                                 </div>
                                 <div id='visualizar_corrigida'>Visualizar Redação Corrigida</div>
