@@ -62,10 +62,10 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
                 <div class="mb-2">
                    <label for="tel" class="form-label">Telefone de Contato:</label>
                    <input type="tel" class="form-control" id="tel" name="tel"
-                   pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$"
-                   title="Preencha com o seguinte formato: (DDD) 999999999" 
-                   placeholder="Ex: (DDD) 999999999" 
-                   maxlength="15" required>
+                    pattern="^\(\d{2}\) \d{4,5}-\d{4}$"
+                    title="Preencha com o seguinte formato: (XX) 99999-9999 ou (XX) 9999-9999." 
+                    placeholder="Ex: (DDD) 99999-9999" 
+                    maxlength="15" required>
                 </div>
 
                 <div class="mb-2">
