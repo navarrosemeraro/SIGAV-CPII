@@ -60,19 +60,21 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
                 </div>
 
                 <div class="mb-2">
-                    <label for="tel" class="form-label">Telefone de Contato:</label>
-                    <input type="tel" class="form-control" id="tel" name="tel"
-                    pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$"
-                    title="Preencha com o seguinte formato: (DDD) 999999999" 
-                    placeholder="Ex: (DDD) 999999999" required>
+                   <label for="tel" class="form-label">Telefone de Contato:</label>
+                   <input type="tel" class="form-control" id="tel" name="tel"
+                   pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$"
+                   title="Preencha com o seguinte formato: (DDD) 999999999" 
+                   placeholder="Ex: (DDD) 999999999" 
+                   maxlength="15" required>
                 </div>
 
                 <div class="mb-2">
                     <label for="cpf" class="form-label">CPF:</label>
-                    <input type="text" class="form-control" id="cpf" name="cpf"
-                        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"  
-                        title="Preencha com o seguinte formato: xxx.xxx.xxx-xx" 
-                        placeholder="000.000.000-00" required>
+                     <input type="text" class="form-control" id="cpf" name="cpf"
+                      pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+                      title="Preencha com o seguinte formato: xxx.xxx.xxx-xx" 
+                      placeholder="000.000.000-00" 
+                        maxlength="14" required>
                 </div>
 
                 <div class="mb-2">
@@ -135,6 +137,65 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
         } else {
             espec.style.display = 'none';
         }
+    });
+</script>
+
+<script>
+    // 1. Lógica para mostrar/ocultar campos de aluno (Função: Docente/Discente)
+    document.getElementById('funcao').addEventListener('change', function() {
+        const espec = document.getElementById('espec-aluno');
+        if(this.value === 'alunos') {
+            espec.style.display = 'block';
+        } else {
+            espec.style.display = 'none';
+        }
+    });
+
+    // 2. --- MÁSCARA DE CPF (XXX.XXX.XXX-XX) ---
+    const inputCPF = document.getElementById('cpf');
+    inputCPF.addEventListener('input', function (e) {
+        let value = e.target.value;
+        value = value.replace(/\D/g, ''); // 1. Remove tudo que não for dígito
+        value = value.substring(0, 11); // 2. Limita a 11 dígitos
+        
+        // 3. Aplica a máscara
+        value = value.replace(/(\d{3})(\d)/, '$1.$2'); 
+        value = value.replace(/(\d{3})(\d)/, '$1.$2'); 
+        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); 
+
+        e.target.value = value;
+    });
+
+    // 3. --- MÁSCARA DE TELEFONE CORRIGIDA ( (XX) XXXX-XXXX ou (XX) XXXXX-XXXX ) ---
+    const inputTel = document.getElementById('tel');
+    inputTel.addEventListener('input', function (e) {
+        let value = e.target.value;
+
+        value = value.replace(/\D/g, ''); // 1. Remove tudo que não for dígito
+        value = value.substring(0, 11); // 2. Limita a 11 (DDD + 9 dígitos)
+
+        // 3. Aplica a máscara:
+        
+        // Se houver 11 dígitos (9º dígito): (XX) XXXXX-XXXX
+        if (value.length == 11) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        } 
+        // Se houver 10 dígitos (8 dígitos fixo): (XX) XXXX-XXXX
+        else if (value.length == 10) { 
+            value = value.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+        } 
+        // Se houver de 3 a 9 dígitos (aplica só o DDD e o espaço)
+        else if (value.length > 2) {
+             // Formata: (XX) XXXXXXX...
+            value = value.replace(/^(\d{2})(\d+)/, '($1) $2'); 
+        }
+        // Se houver 1 ou 2 dígitos (só o DDD)
+        else if (value.length > 0) {
+             // Formata: (X) ou (XX)
+            value = value.replace(/^(\d{1,2})/, '($1'); 
+        }
+        
+        e.target.value = value;
     });
 </script>
 
