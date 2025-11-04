@@ -97,14 +97,6 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="../minhas_redacoes/minhas_redacoes.php" style="text-decoration: none;">
-                                <div class="custom-card icon-card" id="minhas_redacoes_btn" style=" height: 40%; margin-top: 30px; ">
-                                    <div class="card-body">
-                                        <i class="bi bi-file-earmark-text icon-display"></i>
-                                        <h5 class="card-title-custom mt-3">Temas de Redações</h5>
-                                    </div>
-                                </div>
-                            </a>
                         </div>
 
                     </div>
