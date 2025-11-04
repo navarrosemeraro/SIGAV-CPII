@@ -122,6 +122,15 @@ require_once '../../../php/global/auth.php';
                         </p>
                     </div>
                     <div id="direita">
+                        <p class="text-start text-break fs-6 lh-base">O principal objetivo com o projeto SIGAV CPII vai além do desenvolvimento técnico. 
+                            Há a firme intenção de vê-lo implementado e funcional, transformando-o de um conceito promissor em uma ferramenta prática. 
+                            Acredita-se profundamente no potencial dessa plataforma para trazer um impacto real para o ambiente escolar, beneficiando 
+                            tanto professores quanto alunos. 
+                        </p>
+                        <p class="fs-6">A meta é oferecer uma solução que realmente otimize o processo de correção das redações e, 
+                            ao mesmo tempo, melhore a qualidade do feedback pedagógico. Mais do que um exercício acadêmico, vê-se isso como uma oportunidade de 
+                            aplicar a tecnologia para criar uma mudança positiva e tangível na educação.
+                        </p>
                     </div>
                 </div>
             </div>

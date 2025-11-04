@@ -1,3 +1,32 @@
 nav{
     margin-bottom: 20px;
 }
+
+/* Animação para selecionar redação corrigida */ 
+
+.card{
+    transition: transform 0.3s ease;
+    transition: 1s;
+    border: 1px solid #143c2c;
+}
+
+.card:hover{
+    transform: scale(1.1); /* aumenta a proporção em 20% */
+
+}
+
+#visualizar_corrigida{
+    width: 220px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-top: -5px;
+    margin-bottom: 7px;
+    opacity: 1;
+    background-color: #143c2c;
+    color: white;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
