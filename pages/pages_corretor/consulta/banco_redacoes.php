@@ -74,27 +74,39 @@ include '../../../php/global/db.php';
         <div id="center">
             <div class="container">
                 <form action="banco_redacoes.php" method="post">
-                    <fieldset class="border p-4" style="max-width: 2000px; margin: auto;">
-                        <div style="display: flex; gap: 20px; align-items:last baseline; justify-content: center;">
-                            <div class="mb-2">
-                                <select class="form-control" name="func" id="func" style="text-align: center;">
-                                    <option value="aluno">Consulta por Alunos(as)</option>
-                                    <option value="corretor">Consulta por Corretores(as)</option>
-                                </select>
-                            </div>
-                            <div id="div_altera" style="display: flex; gap: 20px; align-items:last baseline; justify-content: center;">
-                                <div class="mb-2">
-                                    <label for="turma" class="form-label" id="lbl_func">Turma do Aluno:</label>
-                                    <input type="text" name="txt_turma" id="txt_turma" class="form-control"
-                                        style="width: 250px;" required>
-                                </div>
-                                <div class="mb-2">
-                                    <button type="submit" class="btn btn-outline-primary">Buscar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form><br>
+    <fieldset class="border p-4" style="max-width: 2000px; margin: auto;">
+        <div style="display: flex; gap: 20px; align-items:last baseline; justify-content: center;">
+            <div class="mb-2">
+                
+                <?php
+                    $funcao_seleciona = $_POST['func'] ?? 'aluno'; 
+                ?>
+
+                <select id="func" name="func" class="form-select">
+                    <option value="aluno" selected> 
+                        Consultar por Aluno 
+                    </option>
+                    <option value="corretor"> 
+                        Consulta por Corretor 
+                    </option>
+                    
+                </select>
+            </div>
+            
+            <div id="div_altera" style="display: flex; gap: 20px; align-items:last baseline; justify-content: center;">
+                   <div class="mb-2">
+                                        <label for="turma" class="form-label" id="lbl_func">Turma do Aluno:</label>
+                                        <input type="text" name="txt_turma" id="txt_turma" class="form-control"
+                                            style="width: 250px;" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                                    </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form><br>
 
 
                 <?php
@@ -135,7 +147,7 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
         $data = $row["data_envio"];
         $turma = $row["turma_al"];
         echo "<form action='../visualiza_redacao/visualizar_redacao_selecionada.php?nome_autor={$autor}&tema={$tema}' method='post'>
-                        <div class='col'>
+                        <div class='col' style='margin-top: 20px; margin-bottom: 20px;'>
                             
                             <div class='card h-100 w-100 card-pend' style=' min-height: 220px; cursor: pointer;' onclick=\"this.closest('form').submit()\">
                                 <div class='card-body'>
@@ -152,11 +164,11 @@ if($result_redacoes && $result_redacoes->num_rows > 0){
                         </div>
                 </form>";
     }
-    exit();
+   // exit();
 }
 else{ // não encontrou redacoes corrigidas pelo corretor de matrícula determinada
     echo "<h4>Não foram encontradas redações que atendam tais requisitos...</h4>";
-    exit();
+   // exit();
 }
 }
 
@@ -226,10 +238,6 @@ if (isset($conn) && $conn instanceof mysqli) {
 
     <script src="../../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/corretor/js/pages/consulta_redacoes/consulta_redacoes_corrigidas.js"></script>
-    <script>
-        $nome_user = <?= $row["nome_corretor"] ?>;
-        document.getElementById("nome_user").value; = $nome_user;
-    </script>
 
 </body>
 
