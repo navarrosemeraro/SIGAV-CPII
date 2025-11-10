@@ -89,15 +89,6 @@ require_once '../../../php/global/auth.php';
                       <p>Gabarito</p>
                     </a>
                   </div>
-                  <div class="col">
-                    <p style="opacity: 0.5;">2º Simulado (18/08)</p>
-                    <a target="_blank" href="#">
-                      <p>Prova</p>
-                    </a>
-                    <a target="_blank" href="#">
-                      <p>Gabarito</p>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/11/2025 às 22:34
+-- Tempo de geração: 10/11/2025 às 22:42
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -166,7 +166,7 @@ INSERT INTO `redacao` (`id`, `aluno_id`, `corretor_id`, `tema`, `nota_total`, `n
 (18, '2025012', 'C1001', 'Racismo estrutural na sociedade brasileira', 900, 180, 180, 180, 180, 180, 'corrigida', '2025-08-03 21:46:56', '2025-08-03 21:46:56', 'Excelente em todos os critérios.', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao18.pdf'),
 (19, 'M15501238', '1234567', 'Desafios para o desenvolvimento do esporte profissional além do futebol no Brasil', 720, 160, 120, 160, 120, 160, 'corrigida', '2025-08-23 09:43:58', '2025-10-31 21:42:18', 'Precisa melhorar urgente', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao19.pdf'),
 (49, '836893729', NULL, 'A importância da sociedadade civil na preservação do meio-ambiente', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-11-07 21:53:12', NULL, NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/red3_Pag0_836893729.pdf'),
-(50, 'M15501238', NULL, 'As manifestações civis como ferramenta de pressão sobre o Estado e de garantia da democracia', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-11-10 16:32:18', NULL, NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao_otto.pdf'),
+(50, 'M15501238', '1234567', 'As manifestações civis como ferramenta de pressão sobre o Estado e de garantia da democracia', 880, 200, 160, 160, 200, 160, 'corrigida', '2025-11-10 16:32:18', '2025-11-10 18:38:56', '', 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao_otto.pdf'),
 (60, '91103414', NULL, 'As manifestações civis como ferramenta de pressão sobre o Estado e de garantia da democracia', NULL, NULL, NULL, NULL, NULL, NULL, 'pendente', '2025-11-10 16:26:24', NULL, NULL, 'assets/uploads/arquivos_redacoes/2025/3_ano/redacao_giovanni.pdf');
 
 -- --------------------------------------------------------
