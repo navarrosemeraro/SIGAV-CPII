@@ -157,7 +157,8 @@
 
             if (empty($matriculaLimpa)) {
             // Se o OCR falhou ou a linha estava vazia, pula este arquivo
-            echo "Aviso: Não foi possível ler a matrícula do arquivo " . $arquivosPNG_encontrados[$i];
+            $mensagens[] = "Aviso: Não foi possível ler a matrícula do arquivo " . $arquivosPNG_encontrados[$i];
+            $ativa_erro = true; 
             continue; // Pula para a próxima página
             }
 
@@ -166,8 +167,6 @@
             $caminhoCompletoDestino = $pastaDestino . "/" . $nomeArquivo;
             
             rename($arquivosPDF_encontrados[$i], $caminhoCompletoDestino);
-
-            $mensagens[] = "Gerado: $nomeArquivo, matrícula: " . $matriculaLimpa;
 
             $caminhoCompletoBD = "assets/uploads/arquivos_redacoes/" . $ano_atual . "/3_ano" . "/" . $nomeArquivo;
 
@@ -186,7 +185,8 @@
                 $stmt_inserir->close();
 
             } else {
-                $mensagens[] = "Matrícula $matriculaLimpa da pag $i não encontrada em alunos";
+                $mensagens[] = "Matrícula $matriculaLimpa da pag $i não encontrada em alunos; ";
+                $ativa_erro = true;
             }
         }
 
@@ -197,7 +197,13 @@
             }
         }
 
-        header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=sucesso");
+        if($ativa_erro){
+            header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=fracasso&&log=Nem todas as redações foram inseridas -> " . implode($mensagens));
+        }
+        else{
+            header("Location: ../pages/pages_corretor/consulta/inserir_redacoes.php?inserir=sucesso");
+        }
+        
         exit;
 
     }
