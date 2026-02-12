@@ -64,3 +64,16 @@ body {
 .icon-card .card-title-custom {
     margin-bottom: 0; 
 }
+
+
+/* Estilos específicos para os cards da área de redação */
+
+#minhas_redacoes_btn {
+    border: solid green 1px;
+    box-shadow: 10px 10px 5px rgba(0, 128, 0, 0.2);
+}
+
+#enviar_redacao_btn {
+    border: solid blueviolet 1px;
+    box-shadow: 10px 10px 5px rgba(138, 43, 226, 0.2);
+}

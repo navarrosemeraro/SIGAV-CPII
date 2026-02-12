@@ -88,16 +88,26 @@
                         </div>
 
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" style="display: grid;">
                             <a href="../minhas_redacoes/minhas_redacoes.php" style="text-decoration: none;">
-                                <div class="custom-card icon-card h-50" id="minhas_redacoes_btn">
+                                <div class="custom-card icon-card" id="minhas_redacoes_btn" style="height: 90%">
                                     <div class="card-body">
                                         <i class="bi bi-file-earmark-text icon-display"></i>
                                         <h5 class="card-title-custom mt-3">Acessar Minhas Redações</h5>
                                     </div>
                                 </div>
                             </a>
+                            <a href="../minhas_redacoes/minhas_redacoes.php" style="text-decoration: none;">
+                                <div class="custom-card icon-card h-100" id="enviar_redacao_btn" style="height: 100%;">
+                                    <div class="card-body">
+                                        <i class="bi bi-file-earmark-text icon-display"></i>
+                                        <h5 class="card-title-custom mt-3">Enviar Redação Para Correção</h5>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
+
+                        
 
                     </div>
                 </div>
