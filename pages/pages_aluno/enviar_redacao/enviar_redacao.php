@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="redacao_pdf" class="form-label">Arquivo:</label>
-                                            <input type="file" class="form-control" id="arquivo_pdf" name="arquivo_pdf"
+                                            <input type="file" class="form-control" id="redacao_pdf" name="redacao_pdf"
                                                 accept=".pdf" required>
                                             <span class="form-text text-danger">(*Precisa estar em formato .pdf)</span>
                                         </div>

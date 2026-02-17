@@ -79,7 +79,7 @@
                         <div class="col-lg-8">
                             <div class="custom-card h-100">
                                 <div class="card-body">
-                                    <h5 class="card-title-custom" style="margin: 10px">Médias de notas</h5>
+                                    <h5 class="card-title-custom" style="margin: 10px">Médias de notas (<?php $ano_atual = date('Y'); echo $ano_atual; ?>)</h5>
                                     <div class="chart-placeholder" style="padding: 10px;">
                                         <canvas id="myChart"></canvas>
                                     </div>

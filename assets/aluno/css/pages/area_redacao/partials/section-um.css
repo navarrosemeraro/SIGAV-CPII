@@ -21,6 +21,11 @@ body {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
+#enviar_redacao_btn:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08);
+}
+
 .card-body {
     padding: 1.5rem;
     display: flex;

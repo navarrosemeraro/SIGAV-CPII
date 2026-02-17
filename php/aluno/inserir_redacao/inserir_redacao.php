@@ -5,13 +5,16 @@ session_start();
 require_once '../../global/db.php';
 require_once 'pdfUtils.php'; // Mantivemos apenas para usar a sanitização de nome
 
+
+
+
 try {
     // 1. Verifica se o aluno está logado (ajuste 'id_matricula' para o nome exato da sua variável de sessão)
-    if (!isset($_SESSION['id_matricula'])) {
+    if (!isset($_SESSION['matricula'])) {
         die("Erro: Usuário não está logado.");
     }
 
-    $matricula_aluno = $_SESSION['id_matricula']; // Pega da sessão
+    $matricula_aluno = $_SESSION['matricula']; // Pega da sessão
 
     // 2. Verifica se o arquivo foi enviado
     if (isset($_FILES["redacao_pdf"]) && $_FILES['redacao_pdf']['error'] === UPLOAD_ERR_OK) {
