@@ -40,39 +40,47 @@ try {
             die("Erro: O arquivo é muito grande (Máx: 5MB).");
         }
 
-        // 3. Prepara o destino
-        $pastaDestino = "../../../assets/uploads/pdfs_outputs";
-        if (!is_dir($pastaDestino)) {
-            mkdir($pastaDestino, 0777, true);
+       // Define o caminho WEB (como ele será salvo no banco e acessado pelo navegador)
+        $caminhoWeb = "assets/uploads/pdfs_outputs"; 
+        
+        // Define o caminho FÍSICO (para o PHP saber onde gravar)
+        // volta 3 níveis
+        $pastaDestinoFisica = "../../../" . $caminhoWeb;
+
+        // Cria a pasta física se não existir
+        if (!is_dir($pastaDestinoFisica)) {
+            mkdir($pastaDestinoFisica, 0777, true);
         }
 
-        // Gera um nome seguro e único para evitar substituição de arquivos
+        // Sanitiza nome
         $nomeSeguro = pdfUtils::sanitizarNomeArquivo($nomeOriginal);
-        // Exemplo de nome final: 2025001_tema_timestamp.pdf (opcional, mas recomendado)
-        $nomeArquivoFinal = $matricula_aluno . "_" . time() . "_" . $nomeSeguro;
-        $caminhoCompleto = $pastaDestino . "/" . $nomeArquivoFinal;
+        
+        // Nome do arquivo (Matrícula + Timestamp + Nome)
+        $nomeArquivo = $matricula_aluno . "_" . time() . "_" . $nomeSeguro;
+        
+        // Monta os dois caminhos finais
+        $caminhoCompletoFisico = $pastaDestinoFisica . "/" . $nomeArquivo; // Para o move_uploaded_file
+        $caminhoCompletoBanco  = $caminhoWeb . "/" . $nomeArquivo;         // Para o INSERT no banco
 
-        // 4. Move o arquivo (Upload propriamente dito)
-        if (move_uploaded_file($arquivoTmp, $caminhoCompleto)) {
-
-            // 5. Insere no Banco de Dados
-            // Nota: O status entra como 'pendente' e a data de envio é automática se sua tabela tiver timestamp
+        // Move o arquivo usando o caminho FÍSICO
+        if (move_uploaded_file($arquivoTmp, $caminhoCompletoFisico)) {
+            
+            // Insere no banco usando o caminho WEB (mais limpo)
             $stmt = $conn->prepare("INSERT INTO redacao (aluno_id, tema, status_red, caminho_arquivo) VALUES (?, ?, 'pendente', ?)");
             
-            // 's' = string. Se aluno_id for int no banco, mude o primeiro 's' para 'i'
-            $stmt->bind_param("sss", $matricula_aluno, $tema_redacao, $caminhoCompleto);
+            // Note que usamos $caminhoCompletoBanco aqui no final
+            $stmt->bind_param("sss", $matricula_aluno, $tema_redacao, $caminhoCompletoBanco);
 
             if ($stmt->execute()) {
-                echo "Sucesso: Redação enviada corretamente.";
+                echo "Sucesso: Redação enviada.";
             } else {
-                // Se der erro no banco, apaga o arquivo para não ficar lixo no servidor
-                unlink($caminhoCompleto);
-                echo "Erro ao salvar no banco de dados: " . $stmt->error;
+                unlink($caminhoCompletoFisico); // Apaga usando o caminho físico se der erro
+                echo "Erro ao salvar no banco: " . $stmt->error;
             }
             $stmt->close();
 
         } else {
-            echo "Erro ao mover o arquivo para a pasta de destino.";
+             echo "Erro ao mover o arquivo.";
         }
 
     } else {
