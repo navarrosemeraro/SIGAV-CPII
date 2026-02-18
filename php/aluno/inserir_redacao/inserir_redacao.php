@@ -11,7 +11,10 @@ require_once 'pdfUtils.php'; // Mantivemos apenas para usar a sanitização de n
 try {
     // 1. Verifica se o aluno está logado (ajuste 'id_matricula' para o nome exato da sua variável de sessão)
     if (!isset($_SESSION['matricula'])) {
-        die("Erro: Usuário não está logado.");
+        $_SESSION["mensagem"] = "Erro: Usuário não está logado (Faça o Logout e acesse o sistema novamente)";
+        $_SESSION["tipo_msg"] = "erro";
+
+        header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
     }
 
     $matricula_aluno = $_SESSION['matricula']; // Pega da sessão
@@ -25,7 +28,10 @@ try {
         $tema_redacao = $_POST["tema"] ?? null;
 
         if (!$tema_redacao) {
-            die("Erro: Tema não informado.");
+            $_SESSION["mensagem"] = "Erro: Tema da redação não informado";
+            $_SESSION["tipo_msg"] = "erro";
+
+            header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
         }
 
         // Validações básicas
@@ -33,11 +39,17 @@ try {
         $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
 
         if (!in_array($extensao, $extensoes_permitidas)) {
-            die("Erro: Apenas arquivos PDF são permitidos.");
+            $_SESSION["mensagem"] = "Erro: Apenas arquivos do formato .pdf são permitidos";
+            $_SESSION["tipo_msg"] = "erro";
+
+            header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
         }
 
         if ($arquivo_tamanho > 5 * 1024 * 1024) { // 5MB
-            die("Erro: O arquivo é muito grande (Máx: 5MB).");
+            $_SESSION["mensagem"] = "Erro: O Arquivo é muito grande (Máximo permitido: 5Mb)";
+            $_SESSION["tipo_msg"] = "erro";
+
+            header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
         }
 
        // Define o caminho WEB (como ele será salvo no banco e acessado pelo navegador)
@@ -72,19 +84,32 @@ try {
             $stmt->bind_param("sss", $matricula_aluno, $tema_redacao, $caminhoCompletoBanco);
 
             if ($stmt->execute()) {
-                echo "Sucesso: Redação enviada.";
+                //Enviar a mensagem de sucesso (ou erro posteriormente) a partir de valores da SESSÃO, protegendo meus erros ( ao invés de expô-los na URL)
+                $_SESSION["mensagem"] = "Redação Enviada com Sucesso!";
+                $_SESSION["tipo_msg"] = "sucesso";
+
+                header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
             } else {
                 unlink($caminhoCompletoFisico); // Apaga usando o caminho físico se der erro
-                echo "Erro ao salvar no banco: " . $stmt->error;
+                $_SESSION["mensagem"] = "Erro ao salvar no banco: " . $stmt->error;
+                $_SESSION["tipo_msg"] = "erro";
+
+                header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
             }
             $stmt->close();
 
         } else {
-             echo "Erro ao mover o arquivo.";
+                $_SESSION["mensagem"] = "Erro ao mover o arquivo";
+                $_SESSION["tipo_msg"] = "erro";
+
+                header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
         }
 
     } else {
-        echo "Nenhum arquivo enviado ou erro no upload.";
+            $_SESSION["mensagem"] = "Nenhum arquivo enviado ou erro no upload";
+            $_SESSION["tipo_msg"] = "erro";
+
+            header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
     }
 } catch (Exception $e) {
     echo "Ocorreu um erro: " . $e->getMessage();

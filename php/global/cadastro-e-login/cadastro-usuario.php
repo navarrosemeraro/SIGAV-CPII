@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verifica senhas
     if ($senha == $confirma_senha)  {
-        $senha_hash = $senha; // Criptografe se quiser usando password_hash()
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT); // Criptografe se quiser usando password_hash()
 
         // Verifica se CPF ou matrícula já estão cadastrados em qualquer tabela
         $stmt = $conn->prepare("

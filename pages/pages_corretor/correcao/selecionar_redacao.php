@@ -117,11 +117,14 @@ require_once '../../../php/global/auth.php';
                             
                         </div>
                 </form>";
-                }   
+                }
     
-    echo "</div>";
+                echo "</div>";
     
-}
+                }
+                else{
+                    echo "<h5>Ainda não há redações para serem corrigidas...</h5>";
+                }
             ?>
 
         </div>

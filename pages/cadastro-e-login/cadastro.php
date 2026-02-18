@@ -141,7 +141,7 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
 </script>
 
 <script>
-    // 1. Lógica para mostrar/ocultar campos de aluno (Função: Docente/Discente)
+    // mostrar/ocultar campos de aluno (Função: Docente/Discente)
     document.getElementById('funcao').addEventListener('change', function() {
         const espec = document.getElementById('espec-aluno');
         if(this.value === 'alunos') {
@@ -151,14 +151,14 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
         }
     });
 
-    // 2. --- MÁSCARA DE CPF (XXX.XXX.XXX-XX) ---
+    // --- MÁSCARA DE CPF (XXX.XXX.XXX-XX) ---
     const inputCPF = document.getElementById('cpf');
     inputCPF.addEventListener('input', function (e) {
         let value = e.target.value;
         value = value.replace(/\D/g, ''); // 1. Remove tudo que não for dígito
         value = value.substring(0, 11); // 2. Limita a 11 dígitos
         
-        // 3. Aplica a máscara
+        // Aplica a máscara
         value = value.replace(/(\d{3})(\d)/, '$1.$2'); 
         value = value.replace(/(\d{3})(\d)/, '$1.$2'); 
         value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); 
@@ -166,7 +166,7 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
         e.target.value = value;
     });
 
-    // 3. --- MÁSCARA DE TELEFONE CORRIGIDA ( (XX) XXXX-XXXX ou (XX) XXXXX-XXXX ) ---
+    // --- MÁSCARA DE TELEFONE CORRIGIDA ( (XX) XXXX-XXXX ou (XX) XXXXX-XXXX ) ---
     const inputTel = document.getElementById('tel');
     inputTel.addEventListener('input', function (e) {
         let value = e.target.value;
@@ -174,7 +174,7 @@ require_once '../../php/global/cadastro-e-login/cadastro-usuario.php';
         value = value.replace(/\D/g, ''); // 1. Remove tudo que não for dígito
         value = value.substring(0, 11); // 2. Limita a 11 (DDD + 9 dígitos)
 
-        // 3. Aplica a máscara:
+        // Aplica a máscara:
         
         // Se houver 11 dígitos (9º dígito): (XX) XXXXX-XXXX
         if (value.length == 11) {
