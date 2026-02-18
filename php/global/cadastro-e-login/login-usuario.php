@@ -80,7 +80,12 @@ if($result_alunos && $result_alunos->num_rows > 0){
     
 }
 
-header("Location: ../../../pages/cadastro-e-login/pag-login.php?acess=refused");
+//Se não coincidir com nenhum registro
+
+$_SESSION["mensagem"] = "Não foi possível efetuar o login. Matrícula e/ou Senha incorretos.";
+$_SESSION["tipo_msg"] = "erro";
+
+header("Location: ../../../pages/cadastro-e-login/pag-login.php");
 
 $conn->close();
 

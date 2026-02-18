@@ -83,7 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!$erro && $stmt->execute()) {
                 $stmt->close();
                 $conn->close();
-                header("Location: pag-login.php?cadastro=sucesso");
+                $_SESSION["mensagem"] = "Cadastro Realizado com Sucesso!";
+                $_SESSION["tipo_msg"] = "sucesso";
+                header("Location: pag-login.php");
                 exit();
             } elseif (!$erro) {
                 $erro = "Erro ao cadastrar: " . $stmt->error;

@@ -75,26 +75,6 @@
                 <div class="container my-5">
                             <div id="center">
                                 <h2 class="display-6 text-center">Enviar Redação para Correção</h2>
-                                <?php 
-                                    if(isset($_SESSION["tipo_msg"])){
-                                        if($_SESSION["tipo_msg"] === "sucesso"){
-                                            echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 5px;'>";
-                                            echo $_SESSION["mensagem"];
-                                            echo "</div>";
-                                            //Limpa a sessão para ela não aparecer de novo no F5
-                                            unset($_SESSION["tipo_msg"]);
-                                            unset($_SESSION["mensagem"]);
-                                        }
-                                        elseif($_SESSION["tipo_msg"] === "erro"){
-                                            echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;'>";
-                                            echo $_SESSION["mensagem"];
-                                            echo "</div>";
-                                            //Limpa a sessão para ela não aparecer de novo no F5
-                                            unset($_SESSION["tipo_msg"]);
-                                            unset($_SESSION["mensagem"]);
-                                        }
-                                    }
-                                ?>
                             </div><br>
                             <div class="container mt-4">
                                 <form action="../../../php/aluno/inserir_redacao/inserir_redacao.php" method="post"
@@ -116,12 +96,28 @@
                                         </div>
                                     </fieldset>
                                 </form>
-                            </div>
-                            <div class="position-relative">
-                                <div class="container" style="display: flex; justify-content: center;">
-                                    <div id="mensagem_sucesso"></div><br>
-                                    <div id="mensagem_fracasso"></div>
-                                </div>
+                            </div><br>
+                            <div id="center">
+                                <?php 
+                                    if(isset($_SESSION["tipo_msg"])){
+                                        if($_SESSION["tipo_msg"] === "sucesso"){
+                                            echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 5px;'>";
+                                            echo $_SESSION["mensagem"];
+                                            echo "</div>";
+                                            //Limpa a sessão para ela não aparecer de novo no F5
+                                            unset($_SESSION["tipo_msg"]);
+                                            unset($_SESSION["mensagem"]);
+                                        }
+                                        elseif($_SESSION["tipo_msg"] === "erro"){
+                                            echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;'>";
+                                            echo $_SESSION["mensagem"];
+                                            echo "</div>";
+                                            //Limpa a sessão para ela não aparecer de novo no F5
+                                            unset($_SESSION["tipo_msg"]);
+                                            unset($_SESSION["mensagem"]);
+                                        }
+                                    }
+                                ?>
                             </div>
                 </div>
             </div>

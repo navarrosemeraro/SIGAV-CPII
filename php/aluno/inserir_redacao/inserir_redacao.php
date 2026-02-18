@@ -9,17 +9,18 @@ require_once 'pdfUtils.php'; // Mantivemos apenas para usar a sanitização de n
 
 
 try {
-    // 1. Verifica se o aluno está logado (ajuste 'id_matricula' para o nome exato da sua variável de sessão)
+    // Verifica se o aluno está logado (ajuste 'id_matricula' para o nome exato da sua variável de sessão)
     if (!isset($_SESSION['matricula'])) {
         $_SESSION["mensagem"] = "Erro: Usuário não está logado (Faça o Logout e acesse o sistema novamente)";
         $_SESSION["tipo_msg"] = "erro";
 
         header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+        exit;
     }
 
     $matricula_aluno = $_SESSION['matricula']; // Pega da sessão
 
-    // 2. Verifica se o arquivo foi enviado
+    // Verifica se o arquivo foi enviado
     if (isset($_FILES["redacao_pdf"]) && $_FILES['redacao_pdf']['error'] === UPLOAD_ERR_OK) {
 
         $arquivoTmp = $_FILES["redacao_pdf"]["tmp_name"];
@@ -32,6 +33,7 @@ try {
             $_SESSION["tipo_msg"] = "erro";
 
             header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+            exit;
         }
 
         // Validações básicas
@@ -43,6 +45,7 @@ try {
             $_SESSION["tipo_msg"] = "erro";
 
             header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+            exit;
         }
 
         if ($arquivo_tamanho > 5 * 1024 * 1024) { // 5MB
@@ -50,6 +53,7 @@ try {
             $_SESSION["tipo_msg"] = "erro";
 
             header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+            exit;
         }
 
        // Define o caminho WEB (como ele será salvo no banco e acessado pelo navegador)
@@ -89,12 +93,14 @@ try {
                 $_SESSION["tipo_msg"] = "sucesso";
 
                 header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+                exit;
             } else {
                 unlink($caminhoCompletoFisico); // Apaga usando o caminho físico se der erro
                 $_SESSION["mensagem"] = "Erro ao salvar no banco: " . $stmt->error;
                 $_SESSION["tipo_msg"] = "erro";
 
                 header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+                exit;
             }
             $stmt->close();
 
@@ -103,6 +109,7 @@ try {
                 $_SESSION["tipo_msg"] = "erro";
 
                 header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+                exit;
         }
 
     } else {
@@ -110,6 +117,7 @@ try {
             $_SESSION["tipo_msg"] = "erro";
 
             header("Location: ../../../pages/pages_aluno/enviar_redacao/enviar_redacao.php");
+            exit;
     }
 } catch (Exception $e) {
     echo "Ocorreu um erro: " . $e->getMessage();

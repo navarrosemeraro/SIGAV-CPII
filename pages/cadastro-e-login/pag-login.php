@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,11 +21,6 @@
             <p style="margin-right: 20px; margin-top: 16px; color:rgba(0, 0, 0, 0.3)">Login</p>
         </div>
     </nav>
-    <div id="center" style="margin: 0;">
-        <div class="position-relative">
-            <div id="mensagem"></div><br>
-        </div>
-    </div>
     <div id="center-form" style="position: fixed; left: 50%; top: 25%; margin: 0;">
         <div class="position-absolute">
             <h1 class="display-1 center">LOGIN</h1>
@@ -52,24 +49,33 @@
             </form>
         </div>
 
+    </div><br>
+    <div id="center" style="margin: 0">
+        <?php 
+        if(isset($_SESSION["tipo_msg"])){
+            if($_SESSION["tipo_msg"] === "sucesso"){
+                echo "<div id='mensagem' style='background-color: #d4edda; color: #155724; padding: 15px; margin-bottom: 20px; border: 1px solid #c3e6cb; border-radius: 5px;'>";
+                echo $_SESSION["mensagem"] . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close' onclick='apagar_msg()'></button>";
+                echo "</div>";
+                //Limpa a sessão para ela não aparecer de novo no F5
+                unset($_SESSION["tipo_msg"]);
+                unset($_SESSION["mensagem"]);
+            }
+            elseif($_SESSION["tipo_msg"] === "erro"){
+                echo "<div id='mensagem' style='background-color: #f8d7da; color: #721c24; padding: 15px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;'>";
+                echo $_SESSION["mensagem"] . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close' onclick='apagar_msg()'></button>";
+                echo "</div>";
+                //Limpa a sessão para ela não aparecer de novo no F5
+                unset($_SESSION["tipo_msg"]);
+                unset($_SESSION["mensagem"]);
+            }
+        }
+        ?>
     </div>
 
     <script src="../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
-    <script>
-        const cadastro = <?php echo json_encode($_GET["cadastro"] ?? null); ?>;
-        if (cadastro === 'sucesso') {
-            document.getElementById('mensagem').innerHTML =
-                '<div style="margin-top: 40px" class="alert alert-success" role="alert">Cadastro realizado com sucesso! Faça login para continuar.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>';
-        }
-
-        const acesso = <?php echo json_encode($_GET["acess"] ?? null); ?>;
-        if(acesso === 'refused'){
-            document.getElementById('mensagem').innerHTML =
-            '<div style="margin-top: 40px" class="alert alert-danger" role="alert">Não foi possível efetuar o login. Matrícula e/ou Senha incorretos.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="apagar_msg()"></button></div>'
-        }
-    </script>
     <script>
         function apagar_msg(){
             $mensagem = document.getElementById('mensagem');
